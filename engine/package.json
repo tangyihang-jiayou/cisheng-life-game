@@ -1,0 +1,16 @@
+{
+  "name": "cisheng-chart-source",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build-data.cjs && node build-comic.cjs && node trend-analysis.cjs && node build-sharp.cjs && node build-art-index.cjs",
+    "verify": "node verify-data.cjs && node verify-comic.cjs && node verify-sharp.cjs && node verify-art.cjs"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "dependencies": {
+    "iztro": "2.6.4"
+  },
+  "private": true
+}

@@ -1,0 +1,3788 @@
+{
+  "version": 2,
+  "title": "此生 · 人生漫画",
+  "nature": "基于命盘主题创作的交互漫画情境，不是历史还原、实拍肖像或未来事实。",
+  "art": {
+    "cover": "assets/cover.jpg",
+    "portrait": "assets/portrait.jpg",
+    "chapterCount": 11
+  },
+  "chapters": [
+    {
+      "id": "child",
+      "index": 0,
+      "title": "序章",
+      "subtitle": "世界由回应开始",
+      "scene": "窗光、绘本与最初的照顾。",
+      "image": "assets/chapter-00.jpg",
+      "start": 2000,
+      "end": 2001,
+      "natalPalace": "童限"
+    },
+    {
+      "id": "d3",
+      "index": 1,
+      "title": "日月启蒙",
+      "subtitle": "为自己的偏好留下位置",
+      "scene": "木桌、教室与一支交到手里的红铅笔。",
+      "image": "assets/chapter-01.jpg",
+      "start": 2002,
+      "end": 2011,
+      "natalPalace": "命宫"
+    },
+    {
+      "id": "d13",
+      "index": 2,
+      "title": "借来的地图",
+      "subtitle": "从外部标准走向自主",
+      "scene": "图书馆、窗外列车和页边问号。",
+      "image": "assets/chapter-02.jpg",
+      "start": 2012,
+      "end": 2021,
+      "natalPalace": "父母"
+    },
+    {
+      "id": "d23",
+      "index": 3,
+      "title": "脑中的工坊",
+      "subtitle": "把聪明变成可持续的系统",
+      "scene": "夜晚的工作台、城市与等你一起生活的人。",
+      "image": "assets/chapter-03.jpg",
+      "start": 2022,
+      "end": 2031,
+      "natalPalace": "福德"
+    },
+    {
+      "id": "d33",
+      "index": 4,
+      "title": "可返回的地方",
+      "subtitle": "让基地真正服务生活",
+      "scene": "可以交接的工作与可以共享的日常。",
+      "image": "assets/chapter-04.jpg",
+      "start": 2032,
+      "end": 2041,
+      "natalPalace": "田宅"
+    },
+    {
+      "id": "d43",
+      "index": 5,
+      "title": "判断的背面",
+      "subtitle": "让经验成为可被接续的原则",
+      "scene": "一支交出去的笔，一间没有标准答案的工作室。",
+      "image": "assets/chapter-05.jpg",
+      "start": 2042,
+      "end": 2051,
+      "natalPalace": "官禄"
+    },
+    {
+      "id": "d53",
+      "index": 6,
+      "title": "同行者",
+      "subtitle": "重新约定怎样一起走",
+      "scene": "海港的桥、不同的路线与少数真实的连接。",
+      "image": "assets/chapter-06.jpg",
+      "start": 2052,
+      "end": 2061,
+      "natalPalace": "仆役"
+    },
+    {
+      "id": "d63",
+      "index": 7,
+      "title": "远方的日常",
+      "subtitle": "环境可以换，节律可以随身带着",
+      "scene": "安静站台、轻装行李与新的停留。",
+      "image": "assets/chapter-07.jpg",
+      "start": 2062,
+      "end": 2071,
+      "natalPalace": "迁移"
+    },
+    {
+      "id": "d73",
+      "index": 8,
+      "title": "把余裕留回来",
+      "subtitle": "参与世界，也保留自己的节奏",
+      "scene": "温室与晨光，适合当下的一天。",
+      "image": "assets/chapter-08.jpg",
+      "start": 2072,
+      "end": 2081,
+      "natalPalace": "疾厄"
+    },
+    {
+      "id": "d83",
+      "index": 9,
+      "title": "选择的余地",
+      "subtitle": "简化复杂度，保留真正珍惜的事",
+      "scene": "窗边书房、整理好的抽屉和仍可使用的旧物。",
+      "image": "assets/chapter-09.jpg",
+      "start": 2082,
+      "end": 2091,
+      "natalPalace": "财帛"
+    },
+    {
+      "id": "d93",
+      "index": 10,
+      "title": "继续生长",
+      "subtitle": "经验可以是新故事的原料",
+      "scene": "开放的画室，作品与另一双好奇的手。",
+      "image": "assets/chapter-10.jpg",
+      "start": 2092,
+      "end": 2100,
+      "natalPalace": "子女"
+    }
+  ],
+  "years": {
+    "2000": {
+      "year": 2000,
+      "chapterIndex": 0,
+      "image": "assets/years/2000.jpg",
+      "dialogue": [
+        "阳光先落在地板上，世界还没有名字。",
+        "你伸出手，光没有被握住，却留下了温度。",
+        "这一页，先由陪伴你的人保管。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻开最初的记忆",
+        "instruction": "以照顾者的视角翻开三页。真实记忆缺席的地方可以留白。",
+        "completeText": "最早的故事由陪伴与记录保管，不用后来的答案填满未知。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "一个光影"
+          },
+          {
+            "id": "i1",
+            "label": "一种熟悉的声音"
+          },
+          {
+            "id": "i2",
+            "label": "一次温柔的回应"
+          }
+        ]
+      },
+      "memory": {
+        "name": "未完成的草图",
+        "description": "2000 · 最初的回应。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "creation"
+      },
+      "evidenceSummary": "庚辰年，流年命宫叠本命子女；童限癸未叠本命命宫。"
+    },
+    "2001": {
+      "year": 2001,
+      "chapterIndex": 0,
+      "image": "assets/years/2001.jpg",
+      "dialogue": [
+        "小火车又经过同一个弯，你还想再看一次。",
+        "熟悉的声音靠近，房间慢慢变得可以信任。",
+        "有些最早的成长，叫作有人回应。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻开最初的记忆",
+        "instruction": "以照顾者的视角翻开三页。真实记忆缺席的地方可以留白。",
+        "completeText": "最早的故事由陪伴与记录保管，不用后来的答案填满未知。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "一个光影"
+          },
+          {
+            "id": "i1",
+            "label": "一种熟悉的声音"
+          },
+          {
+            "id": "i2",
+            "label": "一次温柔的回应"
+          }
+        ]
+      },
+      "memory": {
+        "name": "对话的便笺",
+        "description": "2001 · 世界由熟悉构成。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "relationship"
+      },
+      "evidenceSummary": "辛巳年，流年命宫叠本命夫妻；童限己卯叠本命财帛。"
+    },
+    "2002": {
+      "year": 2002,
+      "chapterIndex": 1,
+      "image": "assets/years/2002.jpg",
+      "dialogue": [
+        "一块积木，你和另一个孩子都想用。",
+        "你把它放到中间，看看能不能一起搭。",
+        "自己的意愿，与别人的世界，第一次坐到同一张桌上。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻开最初的记忆",
+        "instruction": "以照顾者的视角翻开三页。真实记忆缺席的地方可以留白。",
+        "completeText": "最早的故事由陪伴与记录保管，不用后来的答案填满未知。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "一个光影"
+          },
+          {
+            "id": "i1",
+            "label": "一种熟悉的声音"
+          },
+          {
+            "id": "i2",
+            "label": "一次温柔的回应"
+          }
+        ]
+      },
+      "memory": {
+        "name": "交接的铅笔",
+        "description": "2002 · 一起玩，也会争。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "壬午年，流年命宫叠本命兄弟；大限癸未叠本命命宫。"
+    },
+    "2003": {
+      "year": 2003,
+      "chapterIndex": 1,
+      "image": "assets/years/2003.jpg",
+      "dialogue": [
+        "大人问你喜欢哪一张，你没有马上回答。",
+        "你指向那轮月亮：“这一个。”",
+        "不需要一个宏大的理由，偏好本身就有位置。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻开喜欢的那一页",
+        "instruction": "依次点开三张纸卡，听见彼此的想法。",
+        "completeText": "你为这一年的成长情境留下一个小动作；真实回忆仍可以有不同答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "我喜欢的颜色"
+          },
+          {
+            "id": "i1",
+            "label": "我想试的玩法"
+          },
+          {
+            "id": "i2",
+            "label": "我自己的小理由"
+          }
+        ]
+      },
+      "memory": {
+        "name": "留白的一页",
+        "description": "2003 · 开始说“我”。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "self"
+      },
+      "evidenceSummary": "癸未年，流年命宫叠本命命宫；大限癸未叠本命命宫。"
+    },
+    "2004": {
+      "year": 2004,
+      "chapterIndex": 1,
+      "image": "assets/years/2004.jpg",
+      "dialogue": [
+        "红铅笔在纸边停住：这里应该怎么画？",
+        "你看了一眼别人的示范，又偷偷留下一条自己的线。",
+        "学会规则的同时，也保留一点自己的方法。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "听过示范，也试试自己的线",
+        "instruction": "选一种想试的办法，翻开下一格。",
+        "completeText": "你为这一年的成长情境留下一个小动作；真实回忆仍可以有不同答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "听听大人的办法"
+          },
+          {
+            "id": "i1",
+            "label": "问一个为什么"
+          },
+          {
+            "id": "i2",
+            "label": "试试自己的画法"
+          }
+        ]
+      },
+      "memory": {
+        "name": "改过的旧地图",
+        "description": "2004 · 规则走进游戏。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "learning"
+      },
+      "evidenceSummary": "甲申年，流年命宫叠本命父母；大限癸未叠本命命宫。"
+    },
+    "2005": {
+      "year": 2005,
+      "chapterIndex": 1,
+      "image": "assets/years/2005.jpg",
+      "dialogue": [
+        "如果给小火车再加一节，它还能过桥吗？",
+        "一个问题带出另一个问题，窗外已经换了颜色。",
+        "好奇可以一直亮着，不必每次都变成标准答案。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "让脑中的小工坊歇一会儿",
+        "instruction": "按住片刻，让纸页慢慢停下；也可以用点按替代。",
+        "completeText": "你为这一年的成长情境留下一个小动作；真实回忆仍可以有不同答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先留一个问题"
+          },
+          {
+            "id": "i1",
+            "label": "休息以后再想"
+          },
+          {
+            "id": "i2",
+            "label": "给自由游戏一点时间"
+          }
+        ]
+      },
+      "memory": {
+        "name": "夹着问题的书签",
+        "description": "2005 · 脑袋里的小工坊。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "inner"
+      },
+      "evidenceSummary": "乙酉年，流年命宫叠本命福德；大限癸未叠本命命宫。"
+    },
+    "2006": {
+      "year": 2006,
+      "chapterIndex": 1,
+      "image": "assets/years/2006.jpg",
+      "dialogue": [
+        "你把喜欢的小东西排在桌角。",
+        "这里留给画画，那里留给还没做完的游戏。",
+        "一个小小的位置，开始承载自己的日常。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "收好自己的小桌角",
+        "instruction": "收起三张小纸片，把这一年的小场景拼完整。",
+        "completeText": "你为这一年的成长情境留下一个小动作；真实回忆仍可以有不同答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "一个放画笔的位置"
+          },
+          {
+            "id": "i1",
+            "label": "一段共同的陪伴"
+          },
+          {
+            "id": "i2",
+            "label": "一种熟悉的小习惯"
+          }
+        ]
+      },
+      "memory": {
+        "name": "基地的一把钥匙",
+        "description": "2006 · 有了自己的桌角。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "home"
+      },
+      "evidenceSummary": "丙戌年，流年命宫叠本命田宅；大限癸未叠本命命宫。"
+    },
+    "2007": {
+      "year": 2007,
+      "chapterIndex": 1,
+      "image": "assets/years/2007.jpg",
+      "dialogue": [
+        "题做完了，为什么却还没有说清？",
+        "你把那张纸翻过来，试着用自己的话再讲一次。",
+        "完成和理解，原来是两件可以分别练习的事。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻看任务背后的问题",
+        "instruction": "依次点开三张纸卡，听见彼此的想法。",
+        "completeText": "你为这一年的成长情境留下一个小动作；真实回忆仍可以有不同答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "我为什么这样做"
+          },
+          {
+            "id": "i1",
+            "label": "谁能够帮助我"
+          },
+          {
+            "id": "i2",
+            "label": "还有什么想问"
+          }
+        ]
+      },
+      "memory": {
+        "name": "翻面的名片",
+        "description": "2007 · 做对以后，还想问为什么。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "craft"
+      },
+      "evidenceSummary": "丁亥年，流年命宫叠本命官禄；大限癸未叠本命命宫。"
+    },
+    "2008": {
+      "year": 2008,
+      "chapterIndex": 1,
+      "image": "assets/years/2008.jpg",
+      "dialogue": [
+        "操场上已经分好了队，你站在边线。",
+        "要跟着熟悉的人，还是试一种自己更喜欢的玩法？",
+        "在人群里有位置，也可以有不同的选择。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "一起玩，也各有想法",
+        "instruction": "依次点开三张纸卡，听见彼此的想法。",
+        "completeText": "你为这一年的成长情境留下一个小动作；真实回忆仍可以有不同答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "问问想玩什么"
+          },
+          {
+            "id": "i1",
+            "label": "一起定个小规则"
+          },
+          {
+            "id": "i2",
+            "label": "结束时说一声"
+          }
+        ]
+      },
+      "memory": {
+        "name": "同行者的地图",
+        "description": "2008 · 在人群里找位置。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "戊子年，流年命宫叠本命仆役；大限癸未叠本命命宫。"
+    },
+    "2009": {
+      "year": 2009,
+      "chapterIndex": 1,
+      "image": "assets/years/2009.jpg",
+      "dialogue": [
+        "窗外的列车开往一个还没去过的地方。",
+        "你问那里的人，是否也用同一种方法看世界。",
+        "远方第一次出现时，可能只是一个好问题。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "看看窗外的另一种生活",
+        "instruction": "选一种想试的办法，翻开下一格。",
+        "completeText": "你为这一年的成长情境留下一个小动作；真实回忆仍可以有不同答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "看看新的地方"
+          },
+          {
+            "id": "i1",
+            "label": "带上熟悉的玩具"
+          },
+          {
+            "id": "i2",
+            "label": "听一个不同的故事"
+          }
+        ]
+      },
+      "memory": {
+        "name": "没有终点的车票",
+        "description": "2009 · 远方先出现在想象里。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "distance"
+      },
+      "evidenceSummary": "己丑年，流年命宫叠本命迁移；大限癸未叠本命命宫。"
+    },
+    "2010": {
+      "year": 2010,
+      "chapterIndex": 1,
+      "image": "assets/years/2010.jpg",
+      "dialogue": [
+        "你想再练一次，天色却已经晚了。",
+        "收好东西，不等于放弃；明天仍有可以继续的位置。",
+        "用力之外，节奏也是一种能力。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "给玩耍留个小停点",
+        "instruction": "按住片刻，让纸页慢慢停下；也可以用点按替代。",
+        "completeText": "你为这一年的成长情境留下一个小动作；真实回忆仍可以有不同答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "玩一会儿"
+          },
+          {
+            "id": "i1",
+            "label": "喝水歇一会儿"
+          },
+          {
+            "id": "i2",
+            "label": "明天还可以再试"
+          }
+        ]
+      },
+      "memory": {
+        "name": "停下的计时器",
+        "description": "2010 · 把用力变成节奏。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "rhythm"
+      },
+      "evidenceSummary": "庚寅年，流年命宫叠本命疾厄；大限癸未叠本命命宫。"
+    },
+    "2011": {
+      "year": 2011,
+      "chapterIndex": 1,
+      "image": "assets/years/2011.jpg",
+      "dialogue": [
+        "想做的事很多，一个下午却只有这么长。",
+        "你把最想完成的一件放在前面。",
+        "第一次计算的“值得”，也可以与钱无关。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "排一排珍惜的小东西",
+        "instruction": "排一排这三张纸卡，或用上下按钮试一个顺序，再确认。",
+        "completeText": "你为这一年的成长情境留下一个小动作；真实回忆仍可以有不同答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "用来练习的时间"
+          },
+          {
+            "id": "i1",
+            "label": "喜欢的小东西"
+          },
+          {
+            "id": "i2",
+            "label": "能问一问的人"
+          }
+        ]
+      },
+      "memory": {
+        "name": "轻装的行李签",
+        "description": "2011 · 第一次计算值得不值得。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "resource"
+      },
+      "evidenceSummary": "辛卯年，流年命宫叠本命财帛；大限癸未叠本命命宫。"
+    },
+    "2012": {
+      "year": 2012,
+      "chapterIndex": 2,
+      "image": "assets/years/2012.jpg",
+      "dialogue": [
+        "新书翻开，里面有许多别人画好的路线。",
+        "你先跟着读，又在页边留下一个问号。",
+        "地图可以借来，最后那一笔仍由自己写。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "把想法收成第一版",
+        "instruction": "收集散落的三片灵感。先凑成能使用的一版，再留空间更新。",
+        "completeText": "第一版拼好了。它无需完美，也已经有机会与现实相遇。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "一个真实问题"
+          },
+          {
+            "id": "i1",
+            "label": "一份可以试的草图"
+          },
+          {
+            "id": "i2",
+            "label": "一条来自他人的反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "未完成的草图",
+        "description": "2012 · 借来的地图，自己的笔。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "creation"
+      },
+      "evidenceSummary": "壬辰年，流年命宫叠本命子女；大限甲申叠本命父母。"
+    },
+    "2013": {
+      "year": 2013,
+      "chapterIndex": 2,
+      "image": "assets/years/2013.jpg",
+      "dialogue": [
+        "你已经想好怎么解释，对方却还没说完。",
+        "这一次，你先把答案放下。",
+        "理解一个人的需要，不代表必须赞同每个选择。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "点亮一次真正的对话",
+        "instruction": "依次点亮三张对话便笺，让相处从猜测变成表达。",
+        "completeText": "三句话连接起来，关系多了一个可以商量的入口。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "我真正需要的是…"
+          },
+          {
+            "id": "i1",
+            "label": "我愿意先听你说…"
+          },
+          {
+            "id": "i2",
+            "label": "我们可以一起试…"
+          }
+        ]
+      },
+      "memory": {
+        "name": "对话的便笺",
+        "description": "2013 · 理解不等于认同。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "relationship"
+      },
+      "evidenceSummary": "癸巳年，流年命宫叠本命夫妻；大限甲申叠本命父母。"
+    },
+    "2014": {
+      "year": 2014,
+      "chapterIndex": 2,
+      "image": "assets/years/2014.jpg",
+      "dialogue": [
+        "共同完成的作品，又被拿来比较。",
+        "你想证明自己，也第一次认真看见别人补上的那一块。",
+        "一起做成的事，不需要只属于一个人。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "把共同的事排一排",
+        "instruction": "拖动三张纸卡，或用上下按钮重排，再确认。没有标准顺序。",
+        "completeText": "你为协作选了一种次序。排列是本次游戏选择，不是命盘的标准答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先说共同目标"
+          },
+          {
+            "id": "i1",
+            "label": "再确认谁承接"
+          },
+          {
+            "id": "i2",
+            "label": "留一次互相反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "交接的铅笔",
+        "description": "2014 · 不必在每一局证明自己。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "甲午年，流年命宫叠本命兄弟；大限甲申叠本命父母。"
+    },
+    "2015": {
+      "year": 2015,
+      "chapterIndex": 2,
+      "image": "assets/years/2015.jpg",
+      "dialogue": [
+        "你盯着一个小小的瑕疵，很久没有挪开目光。",
+        "旁边的人说已经很好，你却想知道自己究竟在追什么。",
+        "给自己换一种问法，也是一种进步。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻开自己的那一页",
+        "instruction": "翻开三张纸页，看看外界评价之外还留下什么。",
+        "completeText": "纸页已经翻开。接下来，选择怎样回应这一年的自己。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "自己的偏好"
+          },
+          {
+            "id": "i1",
+            "label": "愿意承担的事"
+          },
+          {
+            "id": "i2",
+            "label": "无需证明的价值"
+          }
+        ]
+      },
+      "memory": {
+        "name": "留白的一页",
+        "description": "2015 · 对自己，也换一种问法。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "self"
+      },
+      "evidenceSummary": "乙未年，流年命宫叠本命命宫；大限甲申叠本命父母。"
+    },
+    "2016": {
+      "year": 2016,
+      "chapterIndex": 2,
+      "image": "assets/years/2016.jpg",
+      "dialogue": [
+        "计划表上写着许多应该，自己的决定藏在哪里？",
+        "你拿起笔，给其中一项重新安排时间。",
+        "不是推翻所有要求，而是开始接管自己的日常。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "从旧地图里，选一条自己的线",
+        "instruction": "选择一种与外部经验相处的方法，打开这一年的下一格。",
+        "completeText": "继承与自主可以同时存在。接下来，让选择进入自己的日常。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先听一种不同经验"
+          },
+          {
+            "id": "i1",
+            "label": "修改一条沿用的标准"
+          },
+          {
+            "id": "i2",
+            "label": "保留仍然有用的部分"
+          }
+        ]
+      },
+      "memory": {
+        "name": "改过的旧地图",
+        "description": "2016 · 把要求翻译成自己的计划。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "learning"
+      },
+      "evidenceSummary": "丙申年，流年命宫叠本命父母；大限甲申叠本命父母。"
+    },
+    "2017": {
+      "year": 2017,
+      "chapterIndex": 2,
+      "image": "assets/years/2017.jpg",
+      "dialogue": [
+        "夜里，那个问题又回来了。",
+        "你把它写在书签上，先合上书。",
+        "没有答案的地方，也可以留一盏灯。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "给脑中的工坊一个停点",
+        "instruction": "按住，让纷乱的纸页慢慢归位；可用“平静展开”替代长按。",
+        "completeText": "答案暂时停在这里，好奇仍然可以继续。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先留一个好问题"
+          },
+          {
+            "id": "i1",
+            "label": "接受当前够用的答案"
+          },
+          {
+            "id": "i2",
+            "label": "把一点时间还给日常"
+          }
+        ]
+      },
+      "memory": {
+        "name": "夹着问题的书签",
+        "description": "2017 · 在答案后面留一盏灯。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "inner"
+      },
+      "evidenceSummary": "丁酉年，流年命宫叠本命福德；大限甲申叠本命父母。"
+    },
+    "2018": {
+      "year": 2018,
+      "chapterIndex": 2,
+      "image": "assets/years/2018.jpg",
+      "dialogue": [
+        "行李还没有收好，你已经想象了许多下一站。",
+        "这次不只问哪里更好，也问在那里怎样过一天。",
+        "一个能好好生活的地方，比一个漂亮坐标更具体。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "搭一个可以返回的基地",
+        "instruction": "收集三块生活底座。它可以是方法与关系，不必是一栋房子。",
+        "completeText": "基地有了基本的轮廓。它应当承载生活，而不只是增加需要维护的事情。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "可重复的日常"
+          },
+          {
+            "id": "i1",
+            "label": "可被承接的系统"
+          },
+          {
+            "id": "i2",
+            "label": "留给重要之人的位置"
+          }
+        ]
+      },
+      "memory": {
+        "name": "基地的一把钥匙",
+        "description": "2018 · 给下一站留一个住处。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "home"
+      },
+      "evidenceSummary": "戊戌年，流年命宫叠本命田宅；大限甲申叠本命父母。"
+    },
+    "2019": {
+      "year": 2019,
+      "chapterIndex": 2,
+      "image": "assets/years/2019.jpg",
+      "dialogue": [
+        "你站到作品旁，准备向别人介绍它。",
+        "第一遍说得太满，第二遍你只讲解决了什么。",
+        "价值开始有了一个能被听懂的形状。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻过那张名片",
+        "instruction": "翻开三页，看看角色背后的判断、责任和仍想学习的事。",
+        "completeText": "角色的背面也有故事。选择一条愿意继续的路线。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "仍然有效的原则"
+          },
+          {
+            "id": "i1",
+            "label": "能够交出去的决定"
+          },
+          {
+            "id": "i2",
+            "label": "还想请教的问题"
+          }
+        ]
+      },
+      "memory": {
+        "name": "翻面的名片",
+        "description": "2019 · 让别人听懂你的价值。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "craft"
+      },
+      "evidenceSummary": "己亥年，流年命宫叠本命官禄；大限甲申叠本命父母。"
+    },
+    "2020": {
+      "year": 2020,
+      "chapterIndex": 2,
+      "image": "assets/years/2020.jpg",
+      "dialogue": [
+        "群体里的声音很多，每个人都在向不同方向用力。",
+        "你先确认共同的目标，再决定自己站在哪里。",
+        "自主不是所有事都独自完成。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "连起少数可靠的人",
+        "instruction": "依次点亮三个协作入口，让同行者各有自己的位置。",
+        "completeText": "协作不再只是认识谁，而是清楚地知道怎样一起走。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "彼此能提供什么"
+          },
+          {
+            "id": "i1",
+            "label": "谁拥有决定权"
+          },
+          {
+            "id": "i2",
+            "label": "怎样自在地退出"
+          }
+        ]
+      },
+      "memory": {
+        "name": "同行者的地图",
+        "description": "2020 · 在人与事之间重新排位。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "庚子年，流年命宫叠本命仆役；大限甲申叠本命父母。"
+    },
+    "2021": {
+      "year": 2021,
+      "chapterIndex": 2,
+      "image": "assets/years/2021.jpg",
+      "dialogue": [
+        "旧地图快要翻完，下一页还没有标注。",
+        "你整理出三项不依赖城市和头衔的本领。",
+        "离开熟悉环境时，它们可以跟你走。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "在路口，先选一种走法",
+        "instruction": "点选一条探索路线，揭开下一格。正式人生支线仍可在下方单独选择。",
+        "completeText": "新的路线出现了。地图提供入口，现实中的去向仍由你决定。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "走进新环境"
+          },
+          {
+            "id": "i1",
+            "label": "先带上熟悉的节律"
+          },
+          {
+            "id": "i2",
+            "label": "与不同的人交换经验"
+          }
+        ]
+      },
+      "memory": {
+        "name": "没有终点的车票",
+        "description": "2021 · 带着问题走出旧地图。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "distance"
+      },
+      "evidenceSummary": "辛丑年，流年命宫叠本命迁移；大限甲申叠本命父母。"
+    },
+    "2022": {
+      "year": 2022,
+      "chapterIndex": 3,
+      "image": "assets/years/2022.jpg",
+      "dialogue": [
+        "新桌面铺开，想法比能完成的事多得多。",
+        "先放下一件：究竟什么需要你一直亲自扛着？",
+        "新系统，从看见自己的承载开始。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "把一点余裕留回来",
+        "instruction": "按住片刻，让纸页慢慢停下来；也可点击“平静展开”直接完成。",
+        "completeText": "你给这一年留下了一段不必赶路的时间。这是节奏演练，不是健康测量。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "把一项赶路放下"
+          },
+          {
+            "id": "i1",
+            "label": "给一天留一个空格"
+          },
+          {
+            "id": "i2",
+            "label": "按自己的条件参与"
+          }
+        ]
+      },
+      "memory": {
+        "name": "停下的计时器",
+        "description": "2022 · 新系统从承载开始。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "rhythm"
+      },
+      "evidenceSummary": "壬寅年，流年命宫叠本命疾厄；大限乙酉叠本命福德。"
+    },
+    "2023": {
+      "year": 2023,
+      "chapterIndex": 3,
+      "image": "assets/years/2023.jpg",
+      "dialogue": [
+        "一个想法已经很清楚，别人却还不知道怎么使用。",
+        "你给它补上入口、边界和结束的条件。",
+        "聪明开始变成能够交换的成果。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "整理有限的行李",
+        "instruction": "把三种资源排成你愿意采用的优先次序。可拖动，也可用上下按钮。",
+        "completeText": "行李整理好了。这个顺序只说明你这次想把注意力放在哪里。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "可支配的时间"
+          },
+          {
+            "id": "i1",
+            "label": "已经拥有的能力"
+          },
+          {
+            "id": "i2",
+            "label": "能够求助的支持"
+          }
+        ]
+      },
+      "memory": {
+        "name": "轻装的行李签",
+        "description": "2023 · 让想法有一个交换接口。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "resource"
+      },
+      "evidenceSummary": "癸卯年，流年命宫叠本命财帛；大限乙酉叠本命福德。"
+    },
+    "2024": {
+      "year": 2024,
+      "chapterIndex": 3,
+      "image": "assets/years/2024.jpg",
+      "dialogue": [
+        "作品还不完美，门外的人已经等着试一试。",
+        "你松开手，让现实给出第一条反馈。",
+        "有些进步，只会发生在作品离开脑海以后。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "把想法收成第一版",
+        "instruction": "收集散落的三片灵感。先凑成能使用的一版，再留空间更新。",
+        "completeText": "第一版拼好了。它无需完美，也已经有机会与现实相遇。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "一个真实问题"
+          },
+          {
+            "id": "i1",
+            "label": "一份可以试的草图"
+          },
+          {
+            "id": "i2",
+            "label": "一条来自他人的反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "未完成的草图",
+        "description": "2024 · 作品不能一直住在脑中。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "creation"
+      },
+      "evidenceSummary": "甲辰年，流年命宫叠本命子女；大限乙酉叠本命福德。"
+    },
+    "2025": {
+      "year": 2025,
+      "chapterIndex": 3,
+      "image": "assets/years/2025.jpg",
+      "dialogue": [
+        "你带来一套完整方案，对方先问：“你能听我说完吗？”",
+        "期待可以分析，也需要被说出来。",
+        "这一格，不急着解决，只先确认彼此真正想要什么。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "点亮一次真正的对话",
+        "instruction": "依次点亮三张对话便笺，让相处从猜测变成表达。",
+        "completeText": "三句话连接起来，关系多了一个可以商量的入口。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "我真正需要的是…"
+          },
+          {
+            "id": "i1",
+            "label": "我愿意先听你说…"
+          },
+          {
+            "id": "i2",
+            "label": "我们可以一起试…"
+          }
+        ]
+      },
+      "memory": {
+        "name": "对话的便笺",
+        "description": "2025 · 把期待变成可以商量的事。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "relationship"
+      },
+      "evidenceSummary": "乙巳年，流年命宫叠本命夫妻；大限乙酉叠本命福德。"
+    },
+    "2026": {
+      "year": 2026,
+      "chapterIndex": 3,
+      "image": "assets/years/2026.jpg",
+      "dialogue": [
+        "每个决定都在等你，桌上的晚饭慢慢凉了。",
+        "如果让别人也能据同一套证据判断，今晚会空出什么？",
+        "你把一支笔交出去，也给自己的生活留了一个位置。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "把共同的事排一排",
+        "instruction": "拖动三张纸卡，或用上下按钮重排，再确认。没有标准顺序。",
+        "completeText": "你为协作选了一种次序。排列是本次游戏选择，不是命盘的标准答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先说共同目标"
+          },
+          {
+            "id": "i1",
+            "label": "再确认谁承接"
+          },
+          {
+            "id": "i2",
+            "label": "留一次互相反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "交接的铅笔",
+        "description": "2026 · 从亲自判断，到共同承担。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "丙午年，流年命宫叠本命兄弟；大限乙酉叠本命福德。"
+    },
+    "2027": {
+      "year": 2027,
+      "chapterIndex": 3,
+      "image": "assets/years/2027.jpg",
+      "dialogue": [
+        "掌声停下以后，房间里只剩自己的声音。",
+        "“得到认可以后，我有没有更喜欢这样的生活？”",
+        "外界的肯定，与内心的满意，可以分别作答。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻开自己的那一页",
+        "instruction": "翻开三张纸页，看看外界评价之外还留下什么。",
+        "completeText": "纸页已经翻开。接下来，选择怎样回应这一年的自己。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "自己的偏好"
+          },
+          {
+            "id": "i1",
+            "label": "愿意承担的事"
+          },
+          {
+            "id": "i2",
+            "label": "无需证明的价值"
+          }
+        ]
+      },
+      "memory": {
+        "name": "留白的一页",
+        "description": "2027 · 被认可以后，仍能喜欢自己。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "self"
+      },
+      "evidenceSummary": "丁未年，流年命宫叠本命命宫；大限乙酉叠本命福德。"
+    },
+    "2028": {
+      "year": 2028,
+      "chapterIndex": 3,
+      "image": "assets/years/2028.jpg",
+      "dialogue": [
+        "许多新的入口一起亮了起来。",
+        "你没有逐个走进去，而是先写下三个准入条件。",
+        "选择变多时，删去一条路也是主动。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "从旧地图里，选一条自己的线",
+        "instruction": "选择一种与外部经验相处的方法，打开这一年的下一格。",
+        "completeText": "继承与自主可以同时存在。接下来，让选择进入自己的日常。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先听一种不同经验"
+          },
+          {
+            "id": "i1",
+            "label": "修改一条沿用的标准"
+          },
+          {
+            "id": "i2",
+            "label": "保留仍然有用的部分"
+          }
+        ]
+      },
+      "memory": {
+        "name": "改过的旧地图",
+        "description": "2028 · 机会很多，入口要少。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "learning"
+      },
+      "evidenceSummary": "戊申年，流年命宫叠本命父母；大限乙酉叠本命福德。"
+    },
+    "2029": {
+      "year": 2029,
+      "chapterIndex": 3,
+      "image": "assets/years/2029.jpg",
+      "dialogue": [
+        "你很快看见了结构，同行者却还在门口。",
+        "这一次，把答案拆成别人也能继续问下去的问题。",
+        "好的方法，不只让你自己走得快。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "给脑中的工坊一个停点",
+        "instruction": "按住，让纷乱的纸页慢慢归位；可用“平静展开”替代长按。",
+        "completeText": "答案暂时停在这里，好奇仍然可以继续。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先留一个好问题"
+          },
+          {
+            "id": "i1",
+            "label": "接受当前够用的答案"
+          },
+          {
+            "id": "i2",
+            "label": "把一点时间还给日常"
+          }
+        ]
+      },
+      "memory": {
+        "name": "夹着问题的书签",
+        "description": "2029 · 方法需要被听懂。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "inner"
+      },
+      "evidenceSummary": "己酉年，流年命宫叠本命福德；大限乙酉叠本命福德。"
+    },
+    "2030": {
+      "year": 2030,
+      "chapterIndex": 3,
+      "image": "assets/years/2030.jpg",
+      "dialogue": [
+        "远方一直在，桌边也需要一个稳定的位置。",
+        "你把理想的一周画下来，不再只画地图。",
+        "自由开始有了可以每天兑现的安排。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "搭一个可以返回的基地",
+        "instruction": "收集三块生活底座。它可以是方法与关系，不必是一栋房子。",
+        "completeText": "基地有了基本的轮廓。它应当承载生活，而不只是增加需要维护的事情。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "可重复的日常"
+          },
+          {
+            "id": "i1",
+            "label": "可被承接的系统"
+          },
+          {
+            "id": "i2",
+            "label": "留给重要之人的位置"
+          }
+        ]
+      },
+      "memory": {
+        "name": "基地的一把钥匙",
+        "description": "2030 · 把自由安放进日常。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "home"
+      },
+      "evidenceSummary": "庚戌年，流年命宫叠本命田宅；大限乙酉叠本命福德。"
+    },
+    "2031": {
+      "year": 2031,
+      "chapterIndex": 3,
+      "image": "assets/years/2031.jpg",
+      "dialogue": [
+        "一整个阶段的笔记叠在桌上。",
+        "哪些经验值得留下，哪些控制已经可以交出去？",
+        "你为十年的聪明做一个可被他人接续的版本。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻过那张名片",
+        "instruction": "翻开三页，看看角色背后的判断、责任和仍想学习的事。",
+        "completeText": "角色的背面也有故事。选择一条愿意继续的路线。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "仍然有效的原则"
+          },
+          {
+            "id": "i1",
+            "label": "能够交出去的决定"
+          },
+          {
+            "id": "i2",
+            "label": "还想请教的问题"
+          }
+        ]
+      },
+      "memory": {
+        "name": "翻面的名片",
+        "description": "2031 · 把十年的聪明整理成作品。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "craft"
+      },
+      "evidenceSummary": "辛亥年，流年命宫叠本命官禄；大限乙酉叠本命福德。"
+    },
+    "2032": {
+      "year": 2032,
+      "chapterIndex": 4,
+      "image": "assets/years/2032.jpg",
+      "dialogue": [
+        "新的基地亮起第一盏灯。",
+        "你安排的不只是事情，还有谁能够真正作决定。",
+        "让系统自己运转，是另一种建设。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "连起少数可靠的人",
+        "instruction": "依次点亮三个协作入口，让同行者各有自己的位置。",
+        "completeText": "协作不再只是认识谁，而是清楚地知道怎样一起走。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "彼此能提供什么"
+          },
+          {
+            "id": "i1",
+            "label": "谁拥有决定权"
+          },
+          {
+            "id": "i2",
+            "label": "怎样自在地退出"
+          }
+        ]
+      },
+      "memory": {
+        "name": "同行者的地图",
+        "description": "2032 · 从做系统，到让系统自己运转。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "壬子年，流年命宫叠本命仆役；大限丙戌叠本命田宅。"
+    },
+    "2033": {
+      "year": 2033,
+      "chapterIndex": 4,
+      "image": "assets/years/2033.jpg",
+      "dialogue": [
+        "列车准备出发，基地的窗灯仍然亮着。",
+        "你确认离开以后，哪些事情还能继续。",
+        "可以返回的地方，让远行多了一份从容。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "在路口，先选一种走法",
+        "instruction": "点选一条探索路线，揭开下一格。正式人生支线仍可在下方单独选择。",
+        "completeText": "新的路线出现了。地图提供入口，现实中的去向仍由你决定。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "走进新环境"
+          },
+          {
+            "id": "i1",
+            "label": "先带上熟悉的节律"
+          },
+          {
+            "id": "i2",
+            "label": "与不同的人交换经验"
+          }
+        ]
+      },
+      "memory": {
+        "name": "没有终点的车票",
+        "description": "2033 · 远行有了可以返回的地方。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "distance"
+      },
+      "evidenceSummary": "癸丑年，流年命宫叠本命迁移；大限丙戌叠本命田宅。"
+    },
+    "2034": {
+      "year": 2034,
+      "chapterIndex": 4,
+      "image": "assets/years/2034.jpg",
+      "dialogue": [
+        "工作台很好用，为什么一直没有下班？",
+        "你给日历划出两段不会被占用的时间。",
+        "基地应该承载生活，而不只是承载更多任务。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "把一点余裕留回来",
+        "instruction": "按住片刻，让纸页慢慢停下来；也可点击“平静展开”直接完成。",
+        "completeText": "你给这一年留下了一段不必赶路的时间。这是节奏演练，不是健康测量。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "把一项赶路放下"
+          },
+          {
+            "id": "i1",
+            "label": "给一天留一个空格"
+          },
+          {
+            "id": "i2",
+            "label": "按自己的条件参与"
+          }
+        ]
+      },
+      "memory": {
+        "name": "停下的计时器",
+        "description": "2034 · 让基地有下班时间。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "rhythm"
+      },
+      "evidenceSummary": "甲寅年，流年命宫叠本命疾厄；大限丙戌叠本命田宅。"
+    },
+    "2035": {
+      "year": 2035,
+      "chapterIndex": 4,
+      "image": "assets/years/2035.jpg",
+      "dialogue": [
+        "一项能力反复帮助了别人，也反复耗尽了自己。",
+        "你写清能做什么、做到哪里。",
+        "价值交换，从清楚的边界开始长久。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "整理有限的行李",
+        "instruction": "把三种资源排成你愿意采用的优先次序。可拖动，也可用上下按钮。",
+        "completeText": "行李整理好了。这个顺序只说明你这次想把注意力放在哪里。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "可支配的时间"
+          },
+          {
+            "id": "i1",
+            "label": "已经拥有的能力"
+          },
+          {
+            "id": "i2",
+            "label": "能够求助的支持"
+          }
+        ]
+      },
+      "memory": {
+        "name": "轻装的行李签",
+        "description": "2035 · 给能力一个交换方式。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "resource"
+      },
+      "evidenceSummary": "乙卯年，流年命宫叠本命财帛；大限丙戌叠本命田宅。"
+    },
+    "2036": {
+      "year": 2036,
+      "chapterIndex": 4,
+      "image": "assets/years/2036.jpg",
+      "dialogue": [
+        "这件作品如果离开你的手，还能不能继续长大？",
+        "你把第一版交出去，留下一个可以修订的接口。",
+        "创造不一定要永远由创造者看守。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "把想法收成第一版",
+        "instruction": "收集散落的三片灵感。先凑成能使用的一版，再留空间更新。",
+        "completeText": "第一版拼好了。它无需完美，也已经有机会与现实相遇。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "一个真实问题"
+          },
+          {
+            "id": "i1",
+            "label": "一份可以试的草图"
+          },
+          {
+            "id": "i2",
+            "label": "一条来自他人的反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "未完成的草图",
+        "description": "2036 · 让作品离开你的手。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "creation"
+      },
+      "evidenceSummary": "丙辰年，流年命宫叠本命子女；大限丙戌叠本命田宅。"
+    },
+    "2037": {
+      "year": 2037,
+      "chapterIndex": 4,
+      "image": "assets/years/2037.jpg",
+      "dialogue": [
+        "共同生活的默契，在一件小事上卡住。",
+        "你们把“本来就应该”改成“能不能这样试一个月”。",
+        "约定不必完美，先让两个人都能开口。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "点亮一次真正的对话",
+        "instruction": "依次点亮三张对话便笺，让相处从猜测变成表达。",
+        "completeText": "三句话连接起来，关系多了一个可以商量的入口。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "我真正需要的是…"
+          },
+          {
+            "id": "i1",
+            "label": "我愿意先听你说…"
+          },
+          {
+            "id": "i2",
+            "label": "我们可以一起试…"
+          }
+        ]
+      },
+      "memory": {
+        "name": "对话的便笺",
+        "description": "2037 · 把默契写成约定。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "relationship"
+      },
+      "evidenceSummary": "丁巳年，流年命宫叠本命夫妻；大限丙戌叠本命田宅。"
+    },
+    "2038": {
+      "year": 2038,
+      "chapterIndex": 4,
+      "image": "assets/years/2038.jpg",
+      "dialogue": [
+        "所有流程都在你的脑中，别人只好不断来问。",
+        "你把其中一条搬到桌面上，邀请大家一起改。",
+        "成熟的系统，也能容纳与你不同的做法。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "把共同的事排一排",
+        "instruction": "拖动三张纸卡，或用上下按钮重排，再确认。没有标准顺序。",
+        "completeText": "你为协作选了一种次序。排列是本次游戏选择，不是命盘的标准答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先说共同目标"
+          },
+          {
+            "id": "i1",
+            "label": "再确认谁承接"
+          },
+          {
+            "id": "i2",
+            "label": "留一次互相反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "交接的铅笔",
+        "description": "2038 · 把协作从脑中搬出去。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "戊午年，流年命宫叠本命兄弟；大限丙戌叠本命田宅。"
+    },
+    "2039": {
+      "year": 2039,
+      "chapterIndex": 4,
+      "image": "assets/years/2039.jpg",
+      "dialogue": [
+        "旧的自我介绍还很好用，却装不下现在的你。",
+        "你删去一个头衔，补上一件真正愿意花时间的事。",
+        "这一年，给自己写一个当前版本。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻开自己的那一页",
+        "instruction": "翻开三张纸页，看看外界评价之外还留下什么。",
+        "completeText": "纸页已经翻开。接下来，选择怎样回应这一年的自己。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "自己的偏好"
+          },
+          {
+            "id": "i1",
+            "label": "愿意承担的事"
+          },
+          {
+            "id": "i2",
+            "label": "无需证明的价值"
+          }
+        ]
+      },
+      "memory": {
+        "name": "留白的一页",
+        "description": "2039 · 重新介绍现在的自己。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "self"
+      },
+      "evidenceSummary": "己未年，流年命宫叠本命命宫；大限丙戌叠本命田宅。"
+    },
+    "2040": {
+      "year": 2040,
+      "chapterIndex": 4,
+      "image": "assets/years/2040.jpg",
+      "dialogue": [
+        "别人交来的地图越来越多，自己的坐标却有点模糊。",
+        "你区分有用的经验，与已经不适用的评价。",
+        "继承一条规则，也可以拥有修改它的权利。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "从旧地图里，选一条自己的线",
+        "instruction": "选择一种与外部经验相处的方法，打开这一年的下一格。",
+        "completeText": "继承与自主可以同时存在。接下来，让选择进入自己的日常。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先听一种不同经验"
+          },
+          {
+            "id": "i1",
+            "label": "修改一条沿用的标准"
+          },
+          {
+            "id": "i2",
+            "label": "保留仍然有用的部分"
+          }
+        ]
+      },
+      "memory": {
+        "name": "改过的旧地图",
+        "description": "2040 · 向来路致意，再自己决定。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "learning"
+      },
+      "evidenceSummary": "庚申年，流年命宫叠本命父母；大限丙戌叠本命田宅。"
+    },
+    "2041": {
+      "year": 2041,
+      "chapterIndex": 4,
+      "image": "assets/years/2041.jpg",
+      "dialogue": [
+        "基地已经成形，你却想知道它最终服务于什么。",
+        "你把一个与成果无关的愿望放进下周。",
+        "被认真安排的，不必全是工作。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "给脑中的工坊一个停点",
+        "instruction": "按住，让纷乱的纸页慢慢归位；可用“平静展开”替代长按。",
+        "completeText": "答案暂时停在这里，好奇仍然可以继续。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先留一个好问题"
+          },
+          {
+            "id": "i1",
+            "label": "接受当前够用的答案"
+          },
+          {
+            "id": "i2",
+            "label": "把一点时间还给日常"
+          }
+        ]
+      },
+      "memory": {
+        "name": "夹着问题的书签",
+        "description": "2041 · 给这一章留一个出口。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "inner"
+      },
+      "evidenceSummary": "辛酉年，流年命宫叠本命福德；大限丙戌叠本命田宅。"
+    },
+    "2042": {
+      "year": 2042,
+      "chapterIndex": 5,
+      "image": "assets/years/2042.jpg",
+      "dialogue": [
+        "你手中的判断，开始成为别人行动的依据。",
+        "先问自己：哪些原则能够被解释、被质疑、被修正？",
+        "责任不是让所有人只听一个答案。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "搭一个可以返回的基地",
+        "instruction": "收集三块生活底座。它可以是方法与关系，不必是一栋房子。",
+        "completeText": "基地有了基本的轮廓。它应当承载生活，而不只是增加需要维护的事情。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "可重复的日常"
+          },
+          {
+            "id": "i1",
+            "label": "可被承接的系统"
+          },
+          {
+            "id": "i2",
+            "label": "留给重要之人的位置"
+          }
+        ]
+      },
+      "memory": {
+        "name": "基地的一把钥匙",
+        "description": "2042 · 把位置变成责任的形状。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "home"
+      },
+      "evidenceSummary": "壬戌年，流年命宫叠本命田宅；大限丁亥叠本命官禄。"
+    },
+    "2043": {
+      "year": 2043,
+      "chapterIndex": 5,
+      "image": "assets/years/2043.jpg",
+      "dialogue": [
+        "日历上能安排的事越来越多，空白却越来越少。",
+        "你把一个决定交出去，把一段时间拿回来。",
+        "经验也可以用来减少负荷。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻过那张名片",
+        "instruction": "翻开三页，看看角色背后的判断、责任和仍想学习的事。",
+        "completeText": "角色的背面也有故事。选择一条愿意继续的路线。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "仍然有效的原则"
+          },
+          {
+            "id": "i1",
+            "label": "能够交出去的决定"
+          },
+          {
+            "id": "i2",
+            "label": "还想请教的问题"
+          }
+        ]
+      },
+      "memory": {
+        "name": "翻面的名片",
+        "description": "2043 · 让原则接受一次新问题。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "craft"
+      },
+      "evidenceSummary": "癸亥年，流年命宫叠本命官禄；大限丁亥叠本命官禄。"
+    },
+    "2044": {
+      "year": 2044,
+      "chapterIndex": 5,
+      "image": "assets/years/2044.jpg",
+      "dialogue": [
+        "一段合作走得很快，生活却像在原地等候。",
+        "你先核对彼此能够持续投入的时间。",
+        "方向一致之后，还需要步速相近。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "连起少数可靠的人",
+        "instruction": "依次点亮三个协作入口，让同行者各有自己的位置。",
+        "completeText": "协作不再只是认识谁，而是清楚地知道怎样一起走。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "彼此能提供什么"
+          },
+          {
+            "id": "i1",
+            "label": "谁拥有决定权"
+          },
+          {
+            "id": "i2",
+            "label": "怎样自在地退出"
+          }
+        ]
+      },
+      "memory": {
+        "name": "同行者的地图",
+        "description": "2044 · 交出执行，保留判断。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "甲子年，流年命宫叠本命仆役；大限丁亥叠本命官禄。"
+    },
+    "2045": {
+      "year": 2045,
+      "chapterIndex": 5,
+      "image": "assets/years/2045.jpg",
+      "dialogue": [
+        "做过的事情很多，真正属于你的判断是哪几条？",
+        "你重新介绍它们如何帮助过具体的人。",
+        "角色可以变化，原则不必靠旧名片证明。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "在路口，先选一种走法",
+        "instruction": "点选一条探索路线，揭开下一格。正式人生支线仍可在下方单独选择。",
+        "completeText": "新的路线出现了。地图提供入口，现实中的去向仍由你决定。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "走进新环境"
+          },
+          {
+            "id": "i1",
+            "label": "先带上熟悉的节律"
+          },
+          {
+            "id": "i2",
+            "label": "与不同的人交换经验"
+          }
+        ]
+      },
+      "memory": {
+        "name": "没有终点的车票",
+        "description": "2045 · 换一个地方检验自己。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "distance"
+      },
+      "evidenceSummary": "乙丑年，流年命宫叠本命迁移；大限丁亥叠本命官禄。"
+    },
+    "2046": {
+      "year": 2046,
+      "chapterIndex": 5,
+      "image": "assets/years/2046.jpg",
+      "dialogue": [
+        "你走进一种不熟悉的日常，先不急着带去答案。",
+        "离开惯用的评价体系，什么能力仍然有效？",
+        "远方这次教你的，是如何重新倾听。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "把一点余裕留回来",
+        "instruction": "按住片刻，让纸页慢慢停下来；也可点击“平静展开”直接完成。",
+        "completeText": "你给这一年留下了一段不必赶路的时间。这是节奏演练，不是健康测量。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "把一项赶路放下"
+          },
+          {
+            "id": "i1",
+            "label": "给一天留一个空格"
+          },
+          {
+            "id": "i2",
+            "label": "按自己的条件参与"
+          }
+        ]
+      },
+      "memory": {
+        "name": "停下的计时器",
+        "description": "2046 · 把可用时间重新装订。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "rhythm"
+      },
+      "evidenceSummary": "丙寅年，流年命宫叠本命疾厄；大限丁亥叠本命官禄。"
+    },
+    "2047": {
+      "year": 2047,
+      "chapterIndex": 5,
+      "image": "assets/years/2047.jpg",
+      "dialogue": [
+        "一条解释被反复追问，你发现自己也在反复辩护。",
+        "把立场写清，再给讨论一个暂时停下的条件。",
+        "有原则，不等于必须赢下每一场争论。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "整理有限的行李",
+        "instruction": "把三种资源排成你愿意采用的优先次序。可拖动，也可用上下按钮。",
+        "completeText": "行李整理好了。这个顺序只说明你这次想把注意力放在哪里。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "可支配的时间"
+          },
+          {
+            "id": "i1",
+            "label": "已经拥有的能力"
+          },
+          {
+            "id": "i2",
+            "label": "能够求助的支持"
+          }
+        ]
+      },
+      "memory": {
+        "name": "轻装的行李签",
+        "description": "2047 · 让经验产生复利之前。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "resource"
+      },
+      "evidenceSummary": "丁卯年，流年命宫叠本命财帛；大限丁亥叠本命官禄。"
+    },
+    "2048": {
+      "year": 2048,
+      "chapterIndex": 5,
+      "image": "assets/years/2048.jpg",
+      "dialogue": [
+        "制度运行得很稳，人却未必感到被理解。",
+        "你让一个真实的例外进入讨论。",
+        "好的规则，需要看见规则正在服务的人。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "把想法收成第一版",
+        "instruction": "收集散落的三片灵感。先凑成能使用的一版，再留空间更新。",
+        "completeText": "第一版拼好了。它无需完美，也已经有机会与现实相遇。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "一个真实问题"
+          },
+          {
+            "id": "i1",
+            "label": "一份可以试的草图"
+          },
+          {
+            "id": "i2",
+            "label": "一条来自他人的反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "未完成的草图",
+        "description": "2048 · 给新作者留下一张空桌。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "creation"
+      },
+      "evidenceSummary": "戊辰年，流年命宫叠本命子女；大限丁亥叠本命官禄。"
+    },
+    "2049": {
+      "year": 2049,
+      "chapterIndex": 5,
+      "image": "assets/years/2049.jpg",
+      "dialogue": [
+        "一份复杂承诺摆在桌上，没有谁能够永远独自承担。",
+        "你们逐项说明什么能做、什么需要协助。",
+        "把话说具体，反而给关系留下弹性。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "点亮一次真正的对话",
+        "instruction": "依次点亮三张对话便笺，让相处从猜测变成表达。",
+        "completeText": "三句话连接起来，关系多了一个可以商量的入口。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "我真正需要的是…"
+          },
+          {
+            "id": "i1",
+            "label": "我愿意先听你说…"
+          },
+          {
+            "id": "i2",
+            "label": "我们可以一起试…"
+          }
+        ]
+      },
+      "memory": {
+        "name": "对话的便笺",
+        "description": "2049 · 让重要的人看见真实日程。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "relationship"
+      },
+      "evidenceSummary": "己巳年，流年命宫叠本命夫妻；大限丁亥叠本命官禄。"
+    },
+    "2050": {
+      "year": 2050,
+      "chapterIndex": 5,
+      "image": "assets/years/2050.jpg",
+      "dialogue": [
+        "窗口很亮，桌上的小物件也用了很多年。",
+        "你决定什么值得维护，什么可以安静退场。",
+        "积累也包含妥善结束。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "把共同的事排一排",
+        "instruction": "拖动三张纸卡，或用上下按钮重排，再确认。没有标准顺序。",
+        "completeText": "你为协作选了一种次序。排列是本次游戏选择，不是命盘的标准答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先说共同目标"
+          },
+          {
+            "id": "i1",
+            "label": "再确认谁承接"
+          },
+          {
+            "id": "i2",
+            "label": "留一次互相反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "交接的铅笔",
+        "description": "2050 · 从能扛事走向能分事。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "庚午年，流年命宫叠本命兄弟；大限丁亥叠本命官禄。"
+    },
+    "2051": {
+      "year": 2051,
+      "chapterIndex": 5,
+      "image": "assets/years/2051.jpg",
+      "dialogue": [
+        "这一章快翻完，许多人已经学会独立往前。",
+        "你回看自己曾坚持的原则，保留仍有用的部分。",
+        "教会别人以后，也允许自己去学新的事。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻开自己的那一页",
+        "instruction": "翻开三张纸页，看看外界评价之外还留下什么。",
+        "completeText": "纸页已经翻开。接下来，选择怎样回应这一年的自己。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "自己的偏好"
+          },
+          {
+            "id": "i1",
+            "label": "愿意承担的事"
+          },
+          {
+            "id": "i2",
+            "label": "无需证明的价值"
+          }
+        ]
+      },
+      "memory": {
+        "name": "留白的一页",
+        "description": "2051 · 把判断留成可讨论的版本。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "self"
+      },
+      "evidenceSummary": "辛未年，流年命宫叠本命命宫；大限丁亥叠本命官禄。"
+    },
+    "2052": {
+      "year": 2052,
+      "chapterIndex": 6,
+      "image": "assets/years/2052.jpg",
+      "dialogue": [
+        "熟悉的合作网络重新出现了岔口。",
+        "这次先选择同行的方式，再讨论共同的目标。",
+        "人与人的连接，值得重新约定。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "从旧地图里，选一条自己的线",
+        "instruction": "选择一种与外部经验相处的方法，打开这一年的下一格。",
+        "completeText": "继承与自主可以同时存在。接下来，让选择进入自己的日常。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先听一种不同经验"
+          },
+          {
+            "id": "i1",
+            "label": "修改一条沿用的标准"
+          },
+          {
+            "id": "i2",
+            "label": "保留仍然有用的部分"
+          }
+        ]
+      },
+      "memory": {
+        "name": "改过的旧地图",
+        "description": "2052 · 重新选择同行的半径。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "learning"
+      },
+      "evidenceSummary": "壬申年，流年命宫叠本命父母；大限戊子叠本命仆役。"
+    },
+    "2053": {
+      "year": 2053,
+      "chapterIndex": 6,
+      "image": "assets/years/2053.jpg",
+      "dialogue": [
+        "你原本能很快给出路线，今天却让别人先画。",
+        "对方的线条绕远了一点，也看见新的风景。",
+        "信任从让出一点真实决定开始。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "给脑中的工坊一个停点",
+        "instruction": "按住，让纷乱的纸页慢慢归位；可用“平静展开”替代长按。",
+        "completeText": "答案暂时停在这里，好奇仍然可以继续。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先留一个好问题"
+          },
+          {
+            "id": "i1",
+            "label": "接受当前够用的答案"
+          },
+          {
+            "id": "i2",
+            "label": "把一点时间还给日常"
+          }
+        ]
+      },
+      "memory": {
+        "name": "夹着问题的书签",
+        "description": "2053 · 把安静也列为一种选择。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "inner"
+      },
+      "evidenceSummary": "癸酉年，流年命宫叠本命福德；大限戊子叠本命仆役。"
+    },
+    "2054": {
+      "year": 2054,
+      "chapterIndex": 6,
+      "image": "assets/years/2054.jpg",
+      "dialogue": [
+        "一份有吸引力的邀请来了，旧有节奏却不想再被打乱。",
+        "你把想要的体验与愿意承担的代价并排。",
+        "留下来的选择，才能被认真承接。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "搭一个可以返回的基地",
+        "instruction": "收集三块生活底座。它可以是方法与关系，不必是一栋房子。",
+        "completeText": "基地有了基本的轮廓。它应当承载生活，而不只是增加需要维护的事情。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "可重复的日常"
+          },
+          {
+            "id": "i1",
+            "label": "可被承接的系统"
+          },
+          {
+            "id": "i2",
+            "label": "留给重要之人的位置"
+          }
+        ]
+      },
+      "memory": {
+        "name": "基地的一把钥匙",
+        "description": "2054 · 把相聚的地方交给大家。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "home"
+      },
+      "evidenceSummary": "甲戌年，流年命宫叠本命田宅；大限戊子叠本命仆役。"
+    },
+    "2055": {
+      "year": 2055,
+      "chapterIndex": 6,
+      "image": "assets/years/2055.jpg",
+      "dialogue": [
+        "你发现大家仍在使用自己多年前的介绍。",
+        "于是重新说明，现在愿意提供什么、需要保留什么。",
+        "改变边界，不必抹掉曾经的贡献。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻过那张名片",
+        "instruction": "翻开三页，看看角色背后的判断、责任和仍想学习的事。",
+        "completeText": "角色的背面也有故事。选择一条愿意继续的路线。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "仍然有效的原则"
+          },
+          {
+            "id": "i1",
+            "label": "能够交出去的决定"
+          },
+          {
+            "id": "i2",
+            "label": "还想请教的问题"
+          }
+        ]
+      },
+      "memory": {
+        "name": "翻面的名片",
+        "description": "2055 · 给重要职责设一个小门。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "craft"
+      },
+      "evidenceSummary": "乙亥年，流年命宫叠本命官禄；大限戊子叠本命仆役。"
+    },
+    "2056": {
+      "year": 2056,
+      "chapterIndex": 6,
+      "image": "assets/years/2056.jpg",
+      "dialogue": [
+        "年轻的同行者带来一种你没试过的方法。",
+        "先一起做一小段，再决定要不要换路。",
+        "资历可以成为起点，也可以成为继续好奇的底气。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "连起少数可靠的人",
+        "instruction": "依次点亮三个协作入口，让同行者各有自己的位置。",
+        "completeText": "协作不再只是认识谁，而是清楚地知道怎样一起走。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "彼此能提供什么"
+          },
+          {
+            "id": "i1",
+            "label": "谁拥有决定权"
+          },
+          {
+            "id": "i2",
+            "label": "怎样自在地退出"
+          }
+        ]
+      },
+      "memory": {
+        "name": "同行者的地图",
+        "description": "2056 · 一起做一件没有头衔的事。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "丙子年，流年命宫叠本命仆役；大限戊子叠本命仆役。"
+    },
+    "2057": {
+      "year": 2057,
+      "chapterIndex": 6,
+      "image": "assets/years/2057.jpg",
+      "dialogue": [
+        "一段重要关系里，默认的相处方式已经用了很久。",
+        "你们重新交换今天的需要。",
+        "熟悉的人，也值得被当作一个正在变化的人。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "在路口，先选一种走法",
+        "instruction": "点选一条探索路线，揭开下一格。正式人生支线仍可在下方单独选择。",
+        "completeText": "新的路线出现了。地图提供入口，现实中的去向仍由你决定。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "走进新环境"
+          },
+          {
+            "id": "i1",
+            "label": "先带上熟悉的节律"
+          },
+          {
+            "id": "i2",
+            "label": "与不同的人交换经验"
+          }
+        ]
+      },
+      "memory": {
+        "name": "没有终点的车票",
+        "description": "2057 · 去远方时带上生活的尺度。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "distance"
+      },
+      "evidenceSummary": "丁丑年，流年命宫叠本命迁移；大限戊子叠本命仆役。"
+    },
+    "2058": {
+      "year": 2058,
+      "chapterIndex": 6,
+      "image": "assets/years/2058.jpg",
+      "dialogue": [
+        "组织复杂了，脑中的模拟却还在不停加层。",
+        "你只保留真正需要共同处理的几个问题。",
+        "合作的力量，有时来自少一点精密控制。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "把一点余裕留回来",
+        "instruction": "按住片刻，让纸页慢慢停下来；也可点击“平静展开”直接完成。",
+        "completeText": "你给这一年留下了一段不必赶路的时间。这是节奏演练，不是健康测量。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "把一项赶路放下"
+          },
+          {
+            "id": "i1",
+            "label": "给一天留一个空格"
+          },
+          {
+            "id": "i2",
+            "label": "按自己的条件参与"
+          }
+        ]
+      },
+      "memory": {
+        "name": "停下的计时器",
+        "description": "2058 · 从优化生活到住进生活。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "rhythm"
+      },
+      "evidenceSummary": "戊寅年，流年命宫叠本命疾厄；大限戊子叠本命仆役。"
+    },
+    "2059": {
+      "year": 2059,
+      "chapterIndex": 6,
+      "image": "assets/years/2059.jpg",
+      "dialogue": [
+        "别人希望你再解释一次，你先选择了更短的话。",
+        "把承诺说清，把不能保证的地方也放在明处。",
+        "可靠，不需要总显得无所不能。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "整理有限的行李",
+        "instruction": "把三种资源排成你愿意采用的优先次序。可拖动，也可用上下按钮。",
+        "completeText": "行李整理好了。这个顺序只说明你这次想把注意力放在哪里。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "可支配的时间"
+          },
+          {
+            "id": "i1",
+            "label": "已经拥有的能力"
+          },
+          {
+            "id": "i2",
+            "label": "能够求助的支持"
+          }
+        ]
+      },
+      "memory": {
+        "name": "轻装的行李签",
+        "description": "2059 · 把资源安排讲给使用者听。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "resource"
+      },
+      "evidenceSummary": "己卯年，流年命宫叠本命财帛；大限戊子叠本命仆役。"
+    },
+    "2060": {
+      "year": 2060,
+      "chapterIndex": 6,
+      "image": "assets/years/2060.jpg",
+      "dialogue": [
+        "又一个熟悉的周期经过，镜中的人已经有不同的尺度。",
+        "你认真收下一次支持，不急着立刻回报。",
+        "承担和接受，也能互相照亮。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "把想法收成第一版",
+        "instruction": "收集散落的三片灵感。先凑成能使用的一版，再留空间更新。",
+        "completeText": "第一版拼好了。它无需完美，也已经有机会与现实相遇。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "一个真实问题"
+          },
+          {
+            "id": "i1",
+            "label": "一份可以试的草图"
+          },
+          {
+            "id": "i2",
+            "label": "一条来自他人的反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "未完成的草图",
+        "description": "2060 · 开一个只为好奇的小项目。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "creation"
+      },
+      "evidenceSummary": "庚辰年，流年命宫叠本命子女；大限戊子叠本命仆役。"
+    },
+    "2061": {
+      "year": 2061,
+      "chapterIndex": 6,
+      "image": "assets/years/2061.jpg",
+      "dialogue": [
+        "你把长期同行的人写在一张小纸上。",
+        "名单不长，但每段关系都有真实的来往。",
+        "这一章留下的，不只是做成了多少事。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "点亮一次真正的对话",
+        "instruction": "依次点亮三张对话便笺，让相处从猜测变成表达。",
+        "completeText": "三句话连接起来，关系多了一个可以商量的入口。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "我真正需要的是…"
+          },
+          {
+            "id": "i1",
+            "label": "我愿意先听你说…"
+          },
+          {
+            "id": "i2",
+            "label": "我们可以一起试…"
+          }
+        ]
+      },
+      "memory": {
+        "name": "对话的便笺",
+        "description": "2061 · 让承诺回到可以做到的大小。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "relationship"
+      },
+      "evidenceSummary": "辛巳年，流年命宫叠本命夫妻；大限戊子叠本命仆役。"
+    },
+    "2062": {
+      "year": 2062,
+      "chapterIndex": 7,
+      "image": "assets/years/2062.jpg",
+      "dialogue": [
+        "远方不再只是地图边缘，可能是另一种过日子的方法。",
+        "你带着经验走出去，也带着问题回来。",
+        "环境可以换，自己的节奏可以随身带着。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "把共同的事排一排",
+        "instruction": "拖动三张纸卡，或用上下按钮重排，再确认。没有标准顺序。",
+        "completeText": "你为协作选了一种次序。排列是本次游戏选择，不是命盘的标准答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先说共同目标"
+          },
+          {
+            "id": "i1",
+            "label": "再确认谁承接"
+          },
+          {
+            "id": "i2",
+            "label": "留一次互相反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "交接的铅笔",
+        "description": "2062 · 与可信的人重新出发。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "壬午年，流年命宫叠本命兄弟；大限己丑叠本命迁移。"
+    },
+    "2063": {
+      "year": 2063,
+      "chapterIndex": 7,
+      "image": "assets/years/2063.jpg",
+      "dialogue": [
+        "一项旧作品又被人拿出来继续使用。",
+        "你补上需要的说明，也允许它长成不同样子。",
+        "经验开始脱离原来的场景流动。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻开自己的那一页",
+        "instruction": "翻开三张纸页，看看外界评价之外还留下什么。",
+        "completeText": "纸页已经翻开。接下来，选择怎样回应这一年的自己。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "自己的偏好"
+          },
+          {
+            "id": "i1",
+            "label": "愿意承担的事"
+          },
+          {
+            "id": "i2",
+            "label": "无需证明的价值"
+          }
+        ]
+      },
+      "memory": {
+        "name": "留白的一页",
+        "description": "2063 · 远方不必替你命名。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "self"
+      },
+      "evidenceSummary": "癸未年，流年命宫叠本命命宫；大限己丑叠本命迁移。"
+    },
+    "2064": {
+      "year": 2064,
+      "chapterIndex": 7,
+      "image": "assets/years/2064.jpg",
+      "dialogue": [
+        "你为一次停留准备东西，最后带走的比想象少。",
+        "留下一套熟悉的节律，已经足够开始一天。",
+        "轻装，不等于失去积累。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "从旧地图里，选一条自己的线",
+        "instruction": "选择一种与外部经验相处的方法，打开这一年的下一格。",
+        "completeText": "继承与自主可以同时存在。接下来，让选择进入自己的日常。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先听一种不同经验"
+          },
+          {
+            "id": "i1",
+            "label": "修改一条沿用的标准"
+          },
+          {
+            "id": "i2",
+            "label": "保留仍然有用的部分"
+          }
+        ]
+      },
+      "memory": {
+        "name": "改过的旧地图",
+        "description": "2064 · 再做一次初学者。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "learning"
+      },
+      "evidenceSummary": "甲申年，流年命宫叠本命父母；大限己丑叠本命迁移。"
+    },
+    "2065": {
+      "year": 2065,
+      "chapterIndex": 7,
+      "image": "assets/years/2065.jpg",
+      "dialogue": [
+        "一个陌生地方的人，问起你为什么这样选择。",
+        "你发现，讲清生活比讲清履历更有意思。",
+        "重新介绍自己，也是在重新认识自己。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "给脑中的工坊一个停点",
+        "instruction": "按住，让纷乱的纸页慢慢归位；可用“平静展开”替代长按。",
+        "completeText": "答案暂时停在这里，好奇仍然可以继续。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先留一个好问题"
+          },
+          {
+            "id": "i1",
+            "label": "接受当前够用的答案"
+          },
+          {
+            "id": "i2",
+            "label": "把一点时间还给日常"
+          }
+        ]
+      },
+      "memory": {
+        "name": "夹着问题的书签",
+        "description": "2065 · 把内心的争论带去散步。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "inner"
+      },
+      "evidenceSummary": "乙酉年，流年命宫叠本命福德；大限己丑叠本命迁移。"
+    },
+    "2066": {
+      "year": 2066,
+      "chapterIndex": 7,
+      "image": "assets/years/2066.jpg",
+      "dialogue": [
+        "一扇新门打开，里面有别人的经验和日常。",
+        "你先问一个具体问题，再谈自己的办法。",
+        "学习仍然可以从做客开始。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "搭一个可以返回的基地",
+        "instruction": "收集三块生活底座。它可以是方法与关系，不必是一栋房子。",
+        "completeText": "基地有了基本的轮廓。它应当承载生活，而不只是增加需要维护的事情。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "可重复的日常"
+          },
+          {
+            "id": "i1",
+            "label": "可被承接的系统"
+          },
+          {
+            "id": "i2",
+            "label": "留给重要之人的位置"
+          }
+        ]
+      },
+      "memory": {
+        "name": "基地的一把钥匙",
+        "description": "2066 · 把家的功能带在身边。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "home"
+      },
+      "evidenceSummary": "丙戌年，流年命宫叠本命田宅；大限己丑叠本命迁移。"
+    },
+    "2067": {
+      "year": 2067,
+      "chapterIndex": 7,
+      "image": "assets/years/2067.jpg",
+      "dialogue": [
+        "黄昏落在港口，你没有急着把这一刻变成成果。",
+        "把没有答案的那一页夹好，先与眼前的人坐一会儿。",
+        "理解之外，还有一起经过。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻过那张名片",
+        "instruction": "翻开三页，看看角色背后的判断、责任和仍想学习的事。",
+        "completeText": "角色的背面也有故事。选择一条愿意继续的路线。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "仍然有效的原则"
+          },
+          {
+            "id": "i1",
+            "label": "能够交出去的决定"
+          },
+          {
+            "id": "i2",
+            "label": "还想请教的问题"
+          }
+        ]
+      },
+      "memory": {
+        "name": "翻面的名片",
+        "description": "2067 · 把愿意承担的事留下。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "craft"
+      },
+      "evidenceSummary": "丁亥年，流年命宫叠本命官禄；大限己丑叠本命迁移。"
+    },
+    "2068": {
+      "year": 2068,
+      "chapterIndex": 7,
+      "image": "assets/years/2068.jpg",
+      "dialogue": [
+        "一张路线图铺开，同行者各自圈出最想停留的地方。",
+        "你们先安排节律，再安排目的地。",
+        "远方只有装得下日常，才值得慢慢去。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "连起少数可靠的人",
+        "instruction": "依次点亮三个协作入口，让同行者各有自己的位置。",
+        "completeText": "协作不再只是认识谁，而是清楚地知道怎样一起走。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "彼此能提供什么"
+          },
+          {
+            "id": "i1",
+            "label": "谁拥有决定权"
+          },
+          {
+            "id": "i2",
+            "label": "怎样自在地退出"
+          }
+        ]
+      },
+      "memory": {
+        "name": "同行者的地图",
+        "description": "2068 · 把远方变成一张桌子。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "戊子年，流年命宫叠本命仆役；大限己丑叠本命迁移。"
+    },
+    "2069": {
+      "year": 2069,
+      "chapterIndex": 7,
+      "image": "assets/years/2069.jpg",
+      "dialogue": [
+        "经验被认真倾听，也被一句话误解。",
+        "你补充具体的例子，允许对方保留自己的理解。",
+        "让知识流动，不必让每个人画出同一张图。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "在路口，先选一种走法",
+        "instruction": "点选一条探索路线，揭开下一格。正式人生支线仍可在下方单独选择。",
+        "completeText": "新的路线出现了。地图提供入口，现实中的去向仍由你决定。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "走进新环境"
+          },
+          {
+            "id": "i1",
+            "label": "先带上熟悉的节律"
+          },
+          {
+            "id": "i2",
+            "label": "与不同的人交换经验"
+          }
+        ]
+      },
+      "memory": {
+        "name": "没有终点的车票",
+        "description": "2069 · 路途中也有自己的坐标。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "distance"
+      },
+      "evidenceSummary": "己丑年，流年命宫叠本命迁移；大限己丑叠本命迁移。"
+    },
+    "2070": {
+      "year": 2070,
+      "chapterIndex": 7,
+      "image": "assets/years/2070.jpg",
+      "dialogue": [
+        "一面熟悉的窗，和一个新的环境，同时在召唤。",
+        "你保留能让自己安稳的习惯，再去尝试不同日常。",
+        "基地可以是方法，也可以是一段关系。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "把一点余裕留回来",
+        "instruction": "按住片刻，让纸页慢慢停下来；也可点击“平静展开”直接完成。",
+        "completeText": "你给这一年留下了一段不必赶路的时间。这是节奏演练，不是健康测量。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "把一项赶路放下"
+          },
+          {
+            "id": "i1",
+            "label": "给一天留一个空格"
+          },
+          {
+            "id": "i2",
+            "label": "按自己的条件参与"
+          }
+        ]
+      },
+      "memory": {
+        "name": "停下的计时器",
+        "description": "2070 · 节奏就是新的自由。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "rhythm"
+      },
+      "evidenceSummary": "庚寅年，流年命宫叠本命疾厄；大限己丑叠本命迁移。"
+    },
+    "2071": {
+      "year": 2071,
+      "chapterIndex": 7,
+      "image": "assets/years/2071.jpg",
+      "dialogue": [
+        "旅途的纸票收在一起，每一张都通向不同的人。",
+        "你挑出还想继续来往的几处，给它们留时间。",
+        "这一章的地图，由连接慢慢完成。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "整理有限的行李",
+        "instruction": "把三种资源排成你愿意采用的优先次序。可拖动，也可用上下按钮。",
+        "completeText": "行李整理好了。这个顺序只说明你这次想把注意力放在哪里。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "可支配的时间"
+          },
+          {
+            "id": "i1",
+            "label": "已经拥有的能力"
+          },
+          {
+            "id": "i2",
+            "label": "能够求助的支持"
+          }
+        ]
+      },
+      "memory": {
+        "name": "轻装的行李签",
+        "description": "2071 · 把复杂交还给纸面。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "resource"
+      },
+      "evidenceSummary": "辛卯年，流年命宫叠本命财帛；大限己丑叠本命迁移。"
+    },
+    "2072": {
+      "year": 2072,
+      "chapterIndex": 8,
+      "image": "assets/years/2072.jpg",
+      "dialogue": [
+        "今天的安排从一个更简单的问题开始：什么样的节奏舒服？",
+        "你把一项不必要的赶路拿掉。",
+        "参与世界，可以有适合当下的强度。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "把想法收成第一版",
+        "instruction": "收集散落的三片灵感。先凑成能使用的一版，再留空间更新。",
+        "completeText": "第一版拼好了。它无需完美，也已经有机会与现实相遇。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "一个真实问题"
+          },
+          {
+            "id": "i1",
+            "label": "一份可以试的草图"
+          },
+          {
+            "id": "i2",
+            "label": "一条来自他人的反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "未完成的草图",
+        "description": "2072 · 生活的主机重新调频。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "creation"
+      },
+      "evidenceSummary": "壬辰年，流年命宫叠本命子女；大限戊寅叠本命疾厄。"
+    },
+    "2073": {
+      "year": 2073,
+      "chapterIndex": 8,
+      "image": "assets/years/2073.jpg",
+      "dialogue": [
+        "一份喜欢的日常，被各种琐碎说明挤满。",
+        "你整理成别人也容易读懂的几个步骤。",
+        "清楚的表达，也能替生活省力。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "点亮一次真正的对话",
+        "instruction": "依次点亮三张对话便笺，让相处从猜测变成表达。",
+        "completeText": "三句话连接起来，关系多了一个可以商量的入口。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "我真正需要的是…"
+          },
+          {
+            "id": "i1",
+            "label": "我愿意先听你说…"
+          },
+          {
+            "id": "i2",
+            "label": "我们可以一起试…"
+          }
+        ]
+      },
+      "memory": {
+        "name": "对话的便笺",
+        "description": "2073 · 关系里允许各有一把椅子。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "relationship"
+      },
+      "evidenceSummary": "癸巳年，流年命宫叠本命夫妻；大限戊寅叠本命疾厄。"
+    },
+    "2074": {
+      "year": 2074,
+      "chapterIndex": 8,
+      "image": "assets/years/2074.jpg",
+      "dialogue": [
+        "一个新的小兴趣出现，不需要证明它有什么用。",
+        "你给它留一小段时间，也留随时暂停的余地。",
+        "好奇没有固定的年龄门槛。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "把共同的事排一排",
+        "instruction": "拖动三张纸卡，或用上下按钮重排，再确认。没有标准顺序。",
+        "completeText": "你为协作选了一种次序。排列是本次游戏选择，不是命盘的标准答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先说共同目标"
+          },
+          {
+            "id": "i1",
+            "label": "再确认谁承接"
+          },
+          {
+            "id": "i2",
+            "label": "留一次互相反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "交接的铅笔",
+        "description": "2074 · 把主角让给一个新问题。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "甲午年，流年命宫叠本命兄弟；大限戊寅叠本命疾厄。"
+    },
+    "2075": {
+      "year": 2075,
+      "chapterIndex": 8,
+      "image": "assets/years/2075.jpg",
+      "dialogue": [
+        "你又发现一条沿用很久的自我要求。",
+        "今天先问：它还在帮助我吗？",
+        "保留自主，有时是允许自己换一种做法。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻开自己的那一页",
+        "instruction": "翻开三张纸页，看看外界评价之外还留下什么。",
+        "completeText": "纸页已经翻开。接下来，选择怎样回应这一年的自己。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "自己的偏好"
+          },
+          {
+            "id": "i1",
+            "label": "愿意承担的事"
+          },
+          {
+            "id": "i2",
+            "label": "无需证明的价值"
+          }
+        ]
+      },
+      "memory": {
+        "name": "留白的一页",
+        "description": "2075 · 脑海里的议会可以休会。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "self"
+      },
+      "evidenceSummary": "乙未年，流年命宫叠本命命宫；大限戊寅叠本命疾厄。"
+    },
+    "2076": {
+      "year": 2076,
+      "chapterIndex": 8,
+      "image": "assets/years/2076.jpg",
+      "dialogue": [
+        "常用的物件摆在一起，哪些真的让一天更容易？",
+        "你把一个麻烦的步骤请人一起处理。",
+        "接受协助，也能保留自己的偏好。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "从旧地图里，选一条自己的线",
+        "instruction": "选择一种与外部经验相处的方法，打开这一年的下一格。",
+        "completeText": "继承与自主可以同时存在。接下来，让选择进入自己的日常。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先听一种不同经验"
+          },
+          {
+            "id": "i1",
+            "label": "修改一条沿用的标准"
+          },
+          {
+            "id": "i2",
+            "label": "保留仍然有用的部分"
+          }
+        ]
+      },
+      "memory": {
+        "name": "改过的旧地图",
+        "description": "2076 · 把说明写成别人能接住的样子。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "learning"
+      },
+      "evidenceSummary": "丙申年，流年命宫叠本命父母；大限戊寅叠本命疾厄。"
+    },
+    "2077": {
+      "year": 2077,
+      "chapterIndex": 8,
+      "image": "assets/years/2077.jpg",
+      "dialogue": [
+        "一句感受在心里绕了很久，今天终于说出口。",
+        "不必先把它整理成完整道理。",
+        "被听见的，也可以是不够有条理的自己。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "给脑中的工坊一个停点",
+        "instruction": "按住，让纷乱的纸页慢慢归位；可用“平静展开”替代长按。",
+        "completeText": "答案暂时停在这里，好奇仍然可以继续。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先留一个好问题"
+          },
+          {
+            "id": "i1",
+            "label": "接受当前够用的答案"
+          },
+          {
+            "id": "i2",
+            "label": "把一点时间还给日常"
+          }
+        ]
+      },
+      "memory": {
+        "name": "夹着问题的书签",
+        "description": "2077 · 把争论留在笔记里。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "inner"
+      },
+      "evidenceSummary": "丁酉年，流年命宫叠本命福德；大限戊寅叠本命疾厄。"
+    },
+    "2078": {
+      "year": 2078,
+      "chapterIndex": 8,
+      "image": "assets/years/2078.jpg",
+      "dialogue": [
+        "事情已经安排得足够清楚，脑中却还在推演。",
+        "你合上本子，把一小段时间交给眼前的光。",
+        "允许生活比计划更简单。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "搭一个可以返回的基地",
+        "instruction": "收集三块生活底座。它可以是方法与关系，不必是一栋房子。",
+        "completeText": "基地有了基本的轮廓。它应当承载生活，而不只是增加需要维护的事情。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "可重复的日常"
+          },
+          {
+            "id": "i1",
+            "label": "可被承接的系统"
+          },
+          {
+            "id": "i2",
+            "label": "留给重要之人的位置"
+          }
+        ]
+      },
+      "memory": {
+        "name": "基地的一把钥匙",
+        "description": "2078 · 把熟悉的地方重新命名。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "home"
+      },
+      "evidenceSummary": "戊戌年，流年命宫叠本命田宅；大限戊寅叠本命疾厄。"
+    },
+    "2079": {
+      "year": 2079,
+      "chapterIndex": 8,
+      "image": "assets/years/2079.jpg",
+      "dialogue": [
+        "有人愿意听你的经验，你挑了一件很小的事来讲。",
+        "不必把它升格为所有人的答案。",
+        "一个具体的故事，已经可以带来连接。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻过那张名片",
+        "instruction": "翻开三页，看看角色背后的判断、责任和仍想学习的事。",
+        "completeText": "角色的背面也有故事。选择一条愿意继续的路线。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "仍然有效的原则"
+          },
+          {
+            "id": "i1",
+            "label": "能够交出去的决定"
+          },
+          {
+            "id": "i2",
+            "label": "还想请教的问题"
+          }
+        ]
+      },
+      "memory": {
+        "name": "翻面的名片",
+        "description": "2079 · 经验不是一场答辩。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "craft"
+      },
+      "evidenceSummary": "己亥年，流年命宫叠本命官禄；大限戊寅叠本命疾厄。"
+    },
+    "2080": {
+      "year": 2080,
+      "chapterIndex": 8,
+      "image": "assets/years/2080.jpg",
+      "dialogue": [
+        "日光和月色又在这一年的纸页上相遇。",
+        "你为自己选一件仍然愿意亲手做的小事。",
+        "自主可以很细小，也可以很坚定。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "连起少数可靠的人",
+        "instruction": "依次点亮三个协作入口，让同行者各有自己的位置。",
+        "completeText": "协作不再只是认识谁，而是清楚地知道怎样一起走。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "彼此能提供什么"
+          },
+          {
+            "id": "i1",
+            "label": "谁拥有决定权"
+          },
+          {
+            "id": "i2",
+            "label": "怎样自在地退出"
+          }
+        ]
+      },
+      "memory": {
+        "name": "同行者的地图",
+        "description": "2080 · 选择让人放松的队友。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "庚子年，流年命宫叠本命仆役；大限戊寅叠本命疾厄。"
+    },
+    "2081": {
+      "year": 2081,
+      "chapterIndex": 8,
+      "image": "assets/years/2081.jpg",
+      "dialogue": [
+        "这一章留下许多安静的日常。",
+        "你把最舒服的安排写下来，方便需要时与人分享。",
+        "节奏不只是被照顾，也可以共同设计。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "在路口，先选一种走法",
+        "instruction": "点选一条探索路线，揭开下一格。正式人生支线仍可在下方单独选择。",
+        "completeText": "新的路线出现了。地图提供入口，现实中的去向仍由你决定。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "走进新环境"
+          },
+          {
+            "id": "i1",
+            "label": "先带上熟悉的节律"
+          },
+          {
+            "id": "i2",
+            "label": "与不同的人交换经验"
+          }
+        ]
+      },
+      "memory": {
+        "name": "没有终点的车票",
+        "description": "2081 · 远方可以来拜访你。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "distance"
+      },
+      "evidenceSummary": "辛丑年，流年命宫叠本命迁移；大限戊寅叠本命疾厄。"
+    },
+    "2082": {
+      "year": 2082,
+      "chapterIndex": 9,
+      "image": "assets/years/2082.jpg",
+      "dialogue": [
+        "抽屉里收藏了很多东西，今天先不增加。",
+        "你给真正重要的几样留下清楚的位置。",
+        "资源的意义，也在于容易使用和保有选择。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "把一点余裕留回来",
+        "instruction": "按住片刻，让纸页慢慢停下来；也可点击“平静展开”直接完成。",
+        "completeText": "你给这一年留下了一段不必赶路的时间。这是节奏演练，不是健康测量。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "把一项赶路放下"
+          },
+          {
+            "id": "i1",
+            "label": "给一天留一个空格"
+          },
+          {
+            "id": "i2",
+            "label": "按自己的条件参与"
+          }
+        ]
+      },
+      "memory": {
+        "name": "停下的计时器",
+        "description": "2082 · 把余地写进生活规则。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "rhythm"
+      },
+      "evidenceSummary": "壬寅年，流年命宫叠本命疾厄；大限己卯叠本命财帛。"
+    },
+    "2083": {
+      "year": 2083,
+      "chapterIndex": 9,
+      "image": "assets/years/2083.jpg",
+      "dialogue": [
+        "一份旧笔记仍能帮到别人，页边却缺少几句说明。",
+        "你补上它适用的条件，也写明不适用的部分。",
+        "传递经验，可以同时传递边界。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "整理有限的行李",
+        "instruction": "把三种资源排成你愿意采用的优先次序。可拖动，也可用上下按钮。",
+        "completeText": "行李整理好了。这个顺序只说明你这次想把注意力放在哪里。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "可支配的时间"
+          },
+          {
+            "id": "i1",
+            "label": "已经拥有的能力"
+          },
+          {
+            "id": "i2",
+            "label": "能够求助的支持"
+          }
+        ]
+      },
+      "memory": {
+        "name": "轻装的行李签",
+        "description": "2083 · 让作品拥有自己的钥匙。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "resource"
+      },
+      "evidenceSummary": "癸卯年，流年命宫叠本命财帛；大限己卯叠本命财帛。"
+    },
+    "2084": {
+      "year": 2084,
+      "chapterIndex": 9,
+      "image": "assets/years/2084.jpg",
+      "dialogue": [
+        "有一种新玩法让你感到好奇。",
+        "先试一小段，不需要决定以后是否一直继续。",
+        "积累很深的人，也可以轻轻开始。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "把想法收成第一版",
+        "instruction": "收集散落的三片灵感。先凑成能使用的一版，再留空间更新。",
+        "completeText": "第一版拼好了。它无需完美，也已经有机会与现实相遇。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "一个真实问题"
+          },
+          {
+            "id": "i1",
+            "label": "一份可以试的草图"
+          },
+          {
+            "id": "i2",
+            "label": "一条来自他人的反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "未完成的草图",
+        "description": "2084 · 把一部分决定交出去。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "creation"
+      },
+      "evidenceSummary": "甲辰年，流年命宫叠本命子女；大限己卯叠本命财帛。"
+    },
+    "2085": {
+      "year": 2085,
+      "chapterIndex": 9,
+      "image": "assets/years/2085.jpg",
+      "dialogue": [
+        "别人问你喜欢哪一种，你认真选了自己舒服的那个。",
+        "无需把偏好讲成普遍正确。",
+        "选择的余地，也藏在普通的一天里。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "点亮一次真正的对话",
+        "instruction": "依次点亮三张对话便笺，让相处从猜测变成表达。",
+        "completeText": "三句话连接起来，关系多了一个可以商量的入口。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "我真正需要的是…"
+          },
+          {
+            "id": "i1",
+            "label": "我愿意先听你说…"
+          },
+          {
+            "id": "i2",
+            "label": "我们可以一起试…"
+          }
+        ]
+      },
+      "memory": {
+        "name": "对话的便笺",
+        "description": "2085 · 关系里的帮助需要翻译。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "relationship"
+      },
+      "evidenceSummary": "乙巳年，流年命宫叠本命夫妻；大限己卯叠本命财帛。"
+    },
+    "2086": {
+      "year": 2086,
+      "chapterIndex": 9,
+      "image": "assets/years/2086.jpg",
+      "dialogue": [
+        "一段熟悉的安排换了参与者，旧默契未必自动生效。",
+        "你把步骤和自己的需要重新说明。",
+        "把话说清，是让支持真正发生的入口。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "把共同的事排一排",
+        "instruction": "拖动三张纸卡，或用上下按钮重排，再确认。没有标准顺序。",
+        "completeText": "你为协作选了一种次序。排列是本次游戏选择，不是命盘的标准答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先说共同目标"
+          },
+          {
+            "id": "i1",
+            "label": "再确认谁承接"
+          },
+          {
+            "id": "i2",
+            "label": "留一次互相反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "交接的铅笔",
+        "description": "2086 · 把一张表变成少一点麻烦。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "丙午年，流年命宫叠本命兄弟；大限己卯叠本命财帛。"
+    },
+    "2087": {
+      "year": 2087,
+      "chapterIndex": 9,
+      "image": "assets/years/2087.jpg",
+      "dialogue": [
+        "脑海里的一页旧故事，今天有了另一种读法。",
+        "你把新的感受写在旁边，不涂掉原来的字。",
+        "回望可以更新，不必只有一个定稿。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻开自己的那一页",
+        "instruction": "翻开三张纸页，看看外界评价之外还留下什么。",
+        "completeText": "纸页已经翻开。接下来，选择怎样回应这一年的自己。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "自己的偏好"
+          },
+          {
+            "id": "i1",
+            "label": "愿意承担的事"
+          },
+          {
+            "id": "i2",
+            "label": "无需证明的价值"
+          }
+        ]
+      },
+      "memory": {
+        "name": "留白的一页",
+        "description": "2087 · 喜欢仍然是一种决定。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "self"
+      },
+      "evidenceSummary": "丁未年，流年命宫叠本命命宫；大限己卯叠本命财帛。"
+    },
+    "2088": {
+      "year": 2088,
+      "chapterIndex": 9,
+      "image": "assets/years/2088.jpg",
+      "dialogue": [
+        "许多好意一起到来，你先挑能真正用上的。",
+        "保留一点拒绝，也保留自己的节奏。",
+        "资源越多，清楚的选择越珍贵。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "从旧地图里，选一条自己的线",
+        "instruction": "选择一种与外部经验相处的方法，打开这一年的下一格。",
+        "completeText": "继承与自主可以同时存在。接下来，让选择进入自己的日常。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先听一种不同经验"
+          },
+          {
+            "id": "i1",
+            "label": "修改一条沿用的标准"
+          },
+          {
+            "id": "i2",
+            "label": "保留仍然有用的部分"
+          }
+        ]
+      },
+      "memory": {
+        "name": "改过的旧地图",
+        "description": "2088 · 把传统留成可讨论的东西。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "learning"
+      },
+      "evidenceSummary": "戊申年，流年命宫叠本命父母；大限己卯叠本命财帛。"
+    },
+    "2089": {
+      "year": 2089,
+      "chapterIndex": 9,
+      "image": "assets/years/2089.jpg",
+      "dialogue": [
+        "一条说明被理解成另一种意思。",
+        "你换一个更具体的例子，不急着证明谁对。",
+        "文字的用途，是帮助彼此接上。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "给脑中的工坊一个停点",
+        "instruction": "按住，让纷乱的纸页慢慢归位；可用“平静展开”替代长按。",
+        "completeText": "答案暂时停在这里，好奇仍然可以继续。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先留一个好问题"
+          },
+          {
+            "id": "i1",
+            "label": "接受当前够用的答案"
+          },
+          {
+            "id": "i2",
+            "label": "把一点时间还给日常"
+          }
+        ]
+      },
+      "memory": {
+        "name": "夹着问题的书签",
+        "description": "2089 · 有些话值得换一种说法。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "inner"
+      },
+      "evidenceSummary": "己酉年，流年命宫叠本命福德；大限己卯叠本命财帛。"
+    },
+    "2090": {
+      "year": 2090,
+      "chapterIndex": 9,
+      "image": "assets/years/2090.jpg",
+      "dialogue": [
+        "桌边的灯一直在，有些东西已经不再需要。",
+        "你把一段多余的维护简化，留下更容易使用的版本。",
+        "积累可以通过减少复杂度被保全。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "搭一个可以返回的基地",
+        "instruction": "收集三块生活底座。它可以是方法与关系，不必是一栋房子。",
+        "completeText": "基地有了基本的轮廓。它应当承载生活，而不只是增加需要维护的事情。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "可重复的日常"
+          },
+          {
+            "id": "i1",
+            "label": "可被承接的系统"
+          },
+          {
+            "id": "i2",
+            "label": "留给重要之人的位置"
+          }
+        ]
+      },
+      "memory": {
+        "name": "基地的一把钥匙",
+        "description": "2090 · 一处能做自己的地方。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "home"
+      },
+      "evidenceSummary": "庚戌年，流年命宫叠本命田宅；大限己卯叠本命财帛。"
+    },
+    "2091": {
+      "year": 2091,
+      "chapterIndex": 9,
+      "image": "assets/years/2091.jpg",
+      "dialogue": [
+        "你回看这一章整理出的几样珍贵之物。",
+        "它们不一定昂贵，却让生活更接近自己的偏好。",
+        "选择的余地，就是这一段路的收藏。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻过那张名片",
+        "instruction": "翻开三页，看看角色背后的判断、责任和仍想学习的事。",
+        "completeText": "角色的背面也有故事。选择一条愿意继续的路线。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "仍然有效的原则"
+          },
+          {
+            "id": "i1",
+            "label": "能够交出去的决定"
+          },
+          {
+            "id": "i2",
+            "label": "还想请教的问题"
+          }
+        ]
+      },
+      "memory": {
+        "name": "翻面的名片",
+        "description": "2091 · 把说明权留在自己手中。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "craft"
+      },
+      "evidenceSummary": "辛亥年，流年命宫叠本命官禄；大限己卯叠本命财帛。"
+    },
+    "2092": {
+      "year": 2092,
+      "chapterIndex": 10,
+      "image": "assets/years/2092.jpg",
+      "dialogue": [
+        "一件旧作品被放到新桌面上，旁边是另一双好奇的手。",
+        "你没有要求它照原样延续。",
+        "经验可以成为原料，让新的故事长出来。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "连起少数可靠的人",
+        "instruction": "依次点亮三个协作入口，让同行者各有自己的位置。",
+        "completeText": "协作不再只是认识谁，而是清楚地知道怎样一起走。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "彼此能提供什么"
+          },
+          {
+            "id": "i1",
+            "label": "谁拥有决定权"
+          },
+          {
+            "id": "i2",
+            "label": "怎样自在地退出"
+          }
+        ]
+      },
+      "memory": {
+        "name": "同行者的地图",
+        "description": "2092 · 作品开始接自己的班。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "壬子年，流年命宫叠本命仆役；大限庚辰叠本命子女。"
+    },
+    "2093": {
+      "year": 2093,
+      "chapterIndex": 10,
+      "image": "assets/years/2093.jpg",
+      "dialogue": [
+        "你讲起一种曾经有效的方法，也邀请别人改动它。",
+        "原来的作者不必拥有最后一句话。",
+        "传承可以从一次允许更新开始。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "在路口，先选一种走法",
+        "instruction": "点选一条探索路线，揭开下一格。正式人生支线仍可在下方单独选择。",
+        "completeText": "新的路线出现了。地图提供入口，现实中的去向仍由你决定。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "走进新环境"
+          },
+          {
+            "id": "i1",
+            "label": "先带上熟悉的节律"
+          },
+          {
+            "id": "i2",
+            "label": "与不同的人交换经验"
+          }
+        ]
+      },
+      "memory": {
+        "name": "没有终点的车票",
+        "description": "2093 · 让远方的人接上一句。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "distance"
+      },
+      "evidenceSummary": "癸丑年，流年命宫叠本命迁移；大限庚辰叠本命子女。"
+    },
+    "2094": {
+      "year": 2094,
+      "chapterIndex": 10,
+      "image": "assets/years/2094.jpg",
+      "dialogue": [
+        "一个小小的新方案出现，你愿意替它试一次。",
+        "它不需要成为重大事业，也值得认真完成。",
+        "创造仍然可以发生在眼前的尺度。"
+      ],
+      "interaction": {
+        "type": "hold",
+        "title": "把一点余裕留回来",
+        "instruction": "按住片刻，让纸页慢慢停下来；也可点击“平静展开”直接完成。",
+        "completeText": "你给这一年留下了一段不必赶路的时间。这是节奏演练，不是健康测量。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "把一项赶路放下"
+          },
+          {
+            "id": "i1",
+            "label": "给一天留一个空格"
+          },
+          {
+            "id": "i2",
+            "label": "按自己的条件参与"
+          }
+        ]
+      },
+      "memory": {
+        "name": "停下的计时器",
+        "description": "2094 · 把判断变成可接续的动作。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "rhythm"
+      },
+      "evidenceSummary": "甲寅年，流年命宫叠本命疾厄；大限庚辰叠本命子女。"
+    },
+    "2095": {
+      "year": 2095,
+      "chapterIndex": 10,
+      "image": "assets/years/2095.jpg",
+      "dialogue": [
+        "你把自己最在意的一种品质留在作品里。",
+        "至于别人如何评价，先交给他们。",
+        "表达有了去处，自我不必一直追着回声走。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "整理有限的行李",
+        "instruction": "把三种资源排成你愿意采用的优先次序。可拖动，也可用上下按钮。",
+        "completeText": "行李整理好了。这个顺序只说明你这次想把注意力放在哪里。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "可支配的时间"
+          },
+          {
+            "id": "i1",
+            "label": "已经拥有的能力"
+          },
+          {
+            "id": "i2",
+            "label": "能够求助的支持"
+          }
+        ]
+      },
+      "memory": {
+        "name": "轻装的行李签",
+        "description": "2095 · 允许别人看见一个不完美的版本。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "resource"
+      },
+      "evidenceSummary": "乙卯年，流年命宫叠本命财帛；大限庚辰叠本命子女。"
+    },
+    "2096": {
+      "year": 2096,
+      "chapterIndex": 10,
+      "image": "assets/years/2096.jpg",
+      "dialogue": [
+        "收集很久的资料，终于有机会变得容易翻阅。",
+        "你选出一条清楚的线，让后来的人能够找到入口。",
+        "被保存的经验，也需要一扇门。"
+      ],
+      "interaction": {
+        "type": "collect",
+        "title": "把想法收成第一版",
+        "instruction": "收集散落的三片灵感。先凑成能使用的一版，再留空间更新。",
+        "completeText": "第一版拼好了。它无需完美，也已经有机会与现实相遇。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "一个真实问题"
+          },
+          {
+            "id": "i1",
+            "label": "一份可以试的草图"
+          },
+          {
+            "id": "i2",
+            "label": "一条来自他人的反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "未完成的草图",
+        "description": "2096 · 这一件，就让它长出自己的形状。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "creation"
+      },
+      "evidenceSummary": "丙辰年，流年命宫叠本命子女；大限庚辰叠本命子女。"
+    },
+    "2097": {
+      "year": 2097,
+      "chapterIndex": 10,
+      "image": "assets/years/2097.jpg",
+      "dialogue": [
+        "一位愿意倾听的人坐下，你先讲一个普通细节。",
+        "不急着把它变成道理，也不要求它代表一生。",
+        "故事可以通过相处继续流动。"
+      ],
+      "interaction": {
+        "type": "connect",
+        "title": "点亮一次真正的对话",
+        "instruction": "依次点亮三张对话便笺，让相处从猜测变成表达。",
+        "completeText": "三句话连接起来，关系多了一个可以商量的入口。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "我真正需要的是…"
+          },
+          {
+            "id": "i1",
+            "label": "我愿意先听你说…"
+          },
+          {
+            "id": "i2",
+            "label": "我们可以一起试…"
+          }
+        ]
+      },
+      "memory": {
+        "name": "对话的便笺",
+        "description": "2097 · 一句被听懂的话就够了。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "relationship"
+      },
+      "evidenceSummary": "丁巳年，流年命宫叠本命夫妻；大限庚辰叠本命子女。"
+    },
+    "2098": {
+      "year": 2098,
+      "chapterIndex": 10,
+      "image": "assets/years/2098.jpg",
+      "dialogue": [
+        "你看见别人用完全不同的方式完成同一件事。",
+        "原来的方法没有被否定，世界只是又多了一种做法。",
+        "开放可以成为这一页最轻的力量。"
+      ],
+      "interaction": {
+        "type": "order",
+        "title": "把共同的事排一排",
+        "instruction": "拖动三张纸卡，或用上下按钮重排，再确认。没有标准顺序。",
+        "completeText": "你为协作选了一种次序。排列是本次游戏选择，不是命盘的标准答案。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先说共同目标"
+          },
+          {
+            "id": "i1",
+            "label": "再确认谁承接"
+          },
+          {
+            "id": "i2",
+            "label": "留一次互相反馈"
+          }
+        ]
+      },
+      "memory": {
+        "name": "交接的铅笔",
+        "description": "2098 · 让合作少一点读心术。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "together"
+      },
+      "evidenceSummary": "戊午年，流年命宫叠本命兄弟；大限庚辰叠本命子女。"
+    },
+    "2099": {
+      "year": 2099,
+      "chapterIndex": 10,
+      "image": "assets/years/2099.jpg",
+      "dialogue": [
+        "一段作品的说明快写完，最后一句却迟迟没有落下。",
+        "你写下：“欢迎按你的需要继续修改。”",
+        "留下接口，也是一种完整。"
+      ],
+      "interaction": {
+        "type": "reveal",
+        "title": "翻开自己的那一页",
+        "instruction": "翻开三张纸页，看看外界评价之外还留下什么。",
+        "completeText": "纸页已经翻开。接下来，选择怎样回应这一年的自己。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "自己的偏好"
+          },
+          {
+            "id": "i1",
+            "label": "愿意承担的事"
+          },
+          {
+            "id": "i2",
+            "label": "无需证明的价值"
+          }
+        ]
+      },
+      "memory": {
+        "name": "留白的一页",
+        "description": "2099 · 把自己留在署名之外。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "self"
+      },
+      "evidenceSummary": "己未年，流年命宫叠本命命宫；大限庚辰叠本命子女。"
+    },
+    "2100": {
+      "year": 2100,
+      "chapterIndex": 10,
+      "image": "assets/years/2100.jpg",
+      "dialogue": [
+        "翻到这张图的最后一页，画面之外仍有路。",
+        "你可以重访任何一年，也可以把本子合上去过今天。",
+        "这只是阅读范围的边界，不是人生的句号。"
+      ],
+      "interaction": {
+        "type": "choose",
+        "title": "从旧地图里，选一条自己的线",
+        "instruction": "选择一种与外部经验相处的方法，打开这一年的下一格。",
+        "completeText": "继承与自主可以同时存在。接下来，让选择进入自己的日常。",
+        "items": [
+          {
+            "id": "i0",
+            "label": "先听一种不同经验"
+          },
+          {
+            "id": "i1",
+            "label": "修改一条沿用的标准"
+          },
+          {
+            "id": "i2",
+            "label": "保留仍然有用的部分"
+          }
+        ]
+      },
+      "memory": {
+        "name": "改过的旧地图",
+        "description": "2100 · 世界继续提出新问题。完成本年场景动作后留存的模拟纪念物。",
+        "kind": "learning"
+      },
+      "evidenceSummary": "庚申年，流年命宫叠本命父母；大限庚辰叠本命子女。"
+    }
+  },
+  "references": [
+    {
+      "title": "奥德赛 · 迷路特刊",
+      "url": "http://odyssey-years.ristar.club/#f-mahuateng",
+      "borrowed": "杂志章节、与故事含义相连的动作和回看产物；未复制人物故事与图片。"
+    },
+    {
+      "title": "云端天后宫",
+      "url": "https://mazu-temple.harper88888.workers.dev/",
+      "borrowed": "空间探索、物件反馈与收集流程；未复制场景模型或多人系统。"
+    },
+    {
+      "title": "緊緊八字 TIGHT",
+      "url": "https://www.sajutight.me/tw",
+      "borrowed": "角色化入口、电影感分镜与渐进阅读；未复制角色或付费报告。"
+    }
+  ]
+}

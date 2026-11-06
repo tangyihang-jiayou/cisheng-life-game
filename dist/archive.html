@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f3f0e8">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%238e423a'/%3E%3Ctext x='32' y='47' text-anchor='middle' fill='%23f3f0e8' font-family='serif' font-size='42'%3E生%3C/text%3E%3C/svg%3E">
+  <meta name="description" content="Tang 的紫微人生星图。沿着一百零一年的航线，阅读年度故事，查看命盘依据，尝试属于自己的选择。">
+  <title>此生 · 资料馆</title>
+  <link rel="stylesheet" href="archive.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="此生，返回顶部"><span class="brand-mark">生</span><strong>此生</strong><span class="wordmark">LIFE ATLAS</span></a>
+    <nav aria-label="主导航"><a class="return-game" href="index.html">返回漫画 ↗</a><a href="#atlas">人生航线</a><a href="#chapter">年度故事</a><button id="open-chart">查看命盘 <span>↗</span></button></nav>
+    <span class="private"><i></i> PERSONAL EDITION</span>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy"><p class="eyebrow"><span class="tiny-star">✦</span> TANG’S PERSONAL LIFE ATLAS <span class="edition">NO. 20000302</span></p><h1>把一生，<br><span>慢慢展开。</span></h1><p class="hero-description">沿着星曜的线索，走进每一年的风景。<br>看见可能的转折，也为自己留下选择。</p><div class="hero-actions"><button class="primary" id="continue-journey" hidden>继续旅程 <span>→</span></button><a class="primary" href="#chapter" id="begin-journey">进入人生旅程 <span>↗</span></a><button class="text-button" id="return-now">回到当下 <span>2026</span></button></div></div>
+      <div class="birth-card"><div class="birth-card-top"><span>本命底色</span><span class="small-caps">NATAL CHART</span></div><div class="orbit-art" aria-hidden="true"><div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div><span class="sun-disc"></span><span class="moon-disc"></span><i class="orbit-star s1">✧</i><i class="orbit-star s2">✦</i><div class="orbit-center">日<span>与</span>月</div></div><div class="birth-title" id="natal-title">太阳 · 太阴</div><p id="natal-subtitle">日月同宫，明暗相生</p><div class="birth-facts" id="birth-facts"></div><button class="card-link" id="open-chart-hero">展开十二宫命盘 <span>↗</span></button></div>
+    </section>
+    <section class="boundary-note"><span>阅读约定</span><p>这是基于传统紫微斗数的叙事推演，不具经科学验证的预测效力。曲线是可追溯的编辑指数；过去是回顾假说，未来是可能性故事。2000—2100 是阅读范围，不代表寿命判断。</p><button id="open-method">方法与边界 ↗</button></section>
+    <section class="atlas-section" id="atlas">
+      <div class="section-heading"><div><p class="eyebrow">01 / THE LONG VIEW</p><h2>人生航线</h2></div><div class="range-control" role="group" aria-label="曲线时间范围"><button data-range="all" class="active">一生全景</button><button data-range="near">前后十年</button></div></div>
+      <div class="chart-panel"><div class="chart-topline"><div class="chart-legend" id="chart-legend"></div><span class="index-caption">叙事展开度 / 0—100</span></div><div class="chart-wrap" id="chart-wrap"><svg id="trend-chart" viewBox="0 0 1120 288" role="img" aria-label="可交互逐年叙事指数曲线"></svg><div id="chart-tooltip" class="chart-tooltip" hidden></div></div><div class="chart-bottom"><span><i class="dot hollow"></i> 点击曲线定位年份 · ← → 逐年移动</span><span>实线：命盘规则推演 <span class="now-key">│</span> 2026 当下</span></div></div>
+      <div class="year-scrubber"><button class="round" id="previous-year" aria-label="上一年">←</button><div class="scrubber-main"><div class="scrubber-labels"><span>2000 · 出生</span><strong id="scrubber-year">2026</strong><span>2100 · 远景</span></div><input id="year-slider" type="range" min="2000" max="2100" value="2026" step="1" aria-label="选择年份"></div><button class="round" id="next-year" aria-label="下一年">→</button></div>
+      <div class="decades-heading"><span>人生章节 / 大限</span><span>起止按虚岁 · 可直接探索任意章节</span></div><div class="decade-list" id="decade-list" aria-label="选择大限章节"></div>
+    </section>
+    <section class="chapter-section" id="chapter" aria-live="polite">
+      <div class="section-heading"><div><p class="eyebrow">02 / A YEAR IN YOUR LIFE</p><h2>走进这一年</h2></div><div class="journey-controls"><button class="tour-button" id="play-tour" aria-pressed="false"><span class="play-icon">▷</span> 自动巡游</button><div class="mode-control"><button id="read-mode" class="active">阅览</button><button id="journey-mode">旅程</button></div></div></div>
+      <div class="year-banner"><div><span class="year-number" id="year-number">2026</span><span class="year-ganzhi" id="year-ganzhi"></span></div><div class="year-meta"><span class="period-tag" id="period-tag"></span><p id="year-age"></p><p id="year-decade"></p></div><div class="year-chapter-mark" aria-hidden="true">此<br>刻</div></div>
+      <div class="chapter-grid"><article class="year-narrative"><p class="eyebrow" id="year-subtitle"></p><h3 id="year-title"></h3><div class="year-story" id="year-story"></div><div class="opportunity-grid"><div><span class="callout-label"><i class="dot green"></i> 可以展开的事</span><p id="year-opportunity"></p></div><div><span class="callout-label"><i class="dot red"></i> 需要拿捏的分寸</span><p id="year-friction"></p></div></div><div class="quest-card"><div class="quest-icon">✧</div><div><span class="small-caps">YOUR YEARLY QUEST</span><h4>这一年的小任务</h4><p id="year-quest"></p></div><button id="quest-done" aria-pressed="false">标记完成</button></div></article><aside class="year-side"><div class="side-heading"><span>六个生活切面</span><span>展开度</span></div><div id="aspect-list"></div><button class="evidence-button" id="toggle-evidence" aria-expanded="false">这一年的斗数依据 <span>＋</span></button><div class="year-evidence" id="year-evidence" hidden></div><p class="side-footnote">分值表达本页规则下的主题展开强弱，不是事件概率、现实成就或健康评估。</p></aside></div>
+      <section class="choice-section" id="choice-section"><div class="choice-heading"><div><p class="eyebrow">YOUR NEXT MOVE</p><h3>这一年，你想怎么走？</h3><p>把命盘当作情境，选择属于你的应对。支线为创作模拟。</p></div><span class="saved-count" id="saved-count">已选 0 / 101</span></div><div class="route-memory" id="route-memory"></div><div class="choice-cards" id="choice-cards"></div><div class="choice-result" id="choice-result" hidden></div><div class="backpack" id="backpack"></div></section>
+    </section>
+    <section class="archive-section"><div class="section-heading"><div><p class="eyebrow">03 / YOUR FOOTPRINTS</p><h2>走过的支线</h2></div><div class="save-controls"><button class="text-button" id="reset-progress">重置旅程 <span>↺</span></button></div></div><div class="journey-progress" id="journey-progress"></div><div id="journey-log" class="journey-log"></div><p class="storage-note">选择和任务仅保存在当前浏览器；清除浏览器数据后会消失。可导出、导入 JSON 存档。命盘与原始曲线不受选择影响。</p><input id="import-progress-file" type="file" accept=".json,application/json" hidden aria-label="导入本地旅程JSON存档"></section>
+    <footer><div><span class="footer-brand">此生</span><p>星曜提供一种读法。你继续写下故事。</p></div><div class="footer-links"><button id="open-method-footer">推演方法与来源 ↗</button><button id="open-chart-footer">核对本命盘 ↗</button><span>MADE FOR TANG · 2026</span></div></footer>
+  </main>
+  <dialog id="chart-dialog" class="wide-dialog"><div class="dialog-header"><div><p class="eyebrow">THE NATAL BLUEPRINT</p><h2>本命十二宫</h2></div><button class="dialog-close" data-close="chart-dialog" aria-label="关闭命盘">×</button></div><p class="dialog-intro" id="chart-intro"></p><div id="natal-grid" class="natal-grid"></div><div id="palace-detail" class="palace-detail"></div><section class="mutation-section"><h3 id="mutation-year-title">三层四化对照</h3><p class="mutations-note">生年、大限、流年分层显示；“落本命宫”指化曜所在的原局位置。</p><div id="mutation-tables"></div></section><div class="dialog-end"><button class="primary" data-close="chart-dialog">返回年度故事 ↗</button></div></dialog>
+  <dialog id="method-dialog"><div class="dialog-header"><div><p class="eyebrow">METHOD / PROVENANCE</p><h2>每一条线，从哪里来</h2></div><button class="dialog-close" data-close="method-dialog" aria-label="关闭推演方法">×</button></div><div id="method-content" class="method-content"></div><h3 class="sources-title">可复核的来源</h3><div id="source-list"></div><div class="dialog-end"><button class="primary" data-close="method-dialog">继续探索 ↗</button></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script src="data.js"></script><script src="archive.js"></script>
+</body>
+</html>
