@@ -27,6 +27,7 @@ jobs:
           node engine/verify-sharp.cjs
           node engine/verify-art.cjs
           node engine/verify-readings.cjs
+          node engine/verify-explanations.cjs
           node engine/verify-simulator.cjs
           node --check dist/app.js
           node --check dist/archive.js
