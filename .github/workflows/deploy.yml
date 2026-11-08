@@ -29,6 +29,7 @@ jobs:
           node engine/verify-readings.cjs
           node engine/verify-explanations.cjs
           node engine/verify-simulator.cjs
+          node engine/verify-campaign.cjs
           node --check dist/app.js
           node --check dist/archive.js
           for source in dist/*.js; do
