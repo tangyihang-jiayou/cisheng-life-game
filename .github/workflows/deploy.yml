@@ -1,4 +1,4 @@
-name: Deploy life comic to GitHub Pages
+name: Deploy life simulator to GitHub Pages
 
 on:
   push:
@@ -21,13 +21,18 @@ jobs:
     steps:
       - name: Check out source
         uses: actions/checkout@v7
-      - name: Verify comic data and frontend syntax
+      - name: Verify comic data, simulator, and frontend syntax
         run: |
           node engine/verify-comic.cjs
           node engine/verify-sharp.cjs
           node engine/verify-art.cjs
+          node engine/verify-readings.cjs
+          node engine/verify-simulator.cjs
           node --check dist/app.js
           node --check dist/archive.js
+          for source in dist/*.js; do
+            node --check "$source"
+          done
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
       - name: Upload static website

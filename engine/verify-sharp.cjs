@@ -17,5 +17,5 @@ const src=T.metadata.source.find(s=>s.file==='dist/life-data.json');assert.equal
 for(const key of ['opportunity','pressure','balance'])assert.ok(new Set(Object.values(T.years).map(t=>t.raw[key])).size>40);
 const source=fs.readFileSync(root+'/dist/app.js','utf8');
 assert.ok(!/(?<!\$)\$\('\[[^']*\]'\)\.forEach/.test(source),'Single-element selector used as a collection');
-assert.ok(fs.readFileSync(root+'/dist/index.html','utf8').includes('sharp-data.js'));
+assert.ok(fs.readFileSync(root+'/dist/storybook.html','utf8').includes('sharp-data.js'));
 console.log(JSON.stringify({result:'passed',verdicts:101,verifiedTransformationClaims:factClaims,curves:3,randomCurveInputs:false,hardClippedPeaks:0}));

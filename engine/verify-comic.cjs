@@ -15,7 +15,7 @@ assert.ok(a.evidenceSummary.includes(y.annualPalace));
 }
 assert.deepEqual([...types].sort(),['choose','collect','connect','hold','order','reveal']);
 for(const asset of [c.art.cover,c.art.portrait,...c.chapters.map(c=>c.image)]){assert.ok(!asset.startsWith('/'));assert.ok(fs.existsSync(path.join(dist,asset)),asset);assert.ok(fs.statSync(path.join(dist,asset)).size>30000);}
-for(const name of ['index.html','style.css','app.js','archive.html','archive.css','archive.js','data.js','comic-data.js','life-data.json','natal-chart.json','LICENSE-iztro.txt'])assert.ok(fs.existsSync(path.join(dist,name)),name);
+for(const name of ['index.html','storybook.html','style.css','app.js','archive.html','archive.css','archive.js','data.js','comic-data.js','life-data.json','natal-chart.json','LICENSE-iztro.txt'])assert.ok(fs.existsSync(path.join(dist,name)),name);
 for(const name of ['data.js','life-data.json']){const text=fs.readFileSync(path.join(dist,name),'utf8');assert.ok(!/(?:\/Users\/|\/home\/)[^"\s]+|gh[op]_[A-Za-z0-9]{20}|sk-proj-[A-Za-z0-9]{20}/.test(text),'Unnecessary private context or credential in '+name);}
 assert.ok(c.nature.includes('创作'));assert.ok(c.years[2100].dialogue.join('').includes('阅读范围'));
 console.log(JSON.stringify({result:'passed',years:Object.keys(c.years).length,panels:panelCount,chapters:c.chapters.length,artworkAssets:c.chapters.length+2,interactions:[...types]}));

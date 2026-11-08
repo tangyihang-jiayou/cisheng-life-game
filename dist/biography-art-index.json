@@ -1,0 +1,132 @@
+{
+  "images": [
+    {
+      "year": 2018,
+      "title": "先把图书馆逛一遍",
+      "image": "assets/biography/2018.jpg",
+      "sha256": "59c4ac8502323227fcb095820caeac0d40a5e16d2fb1427bff3ef0a0a5bcfd9e",
+      "nature": "本人记录的艺术化重构，非现场照片",
+      "sourceIds": [
+        "S24",
+        "S02"
+      ]
+    },
+    {
+      "year": 2019,
+      "title": "替一群人，把一件事办成",
+      "image": "assets/biography/2019.jpg",
+      "sha256": "5e562e6d3a9068b8768a557d9f417f2bb23a48bb08e230ee86cd903b4578b5ba",
+      "nature": "本人记录的艺术化重构，非现场照片",
+      "sourceIds": [
+        "S24",
+        "S02"
+      ]
+    },
+    {
+      "year": 2020,
+      "title": "咖啡馆里，重新选一条路",
+      "image": "assets/biography/2020.jpg",
+      "sha256": "66b83aa951a177f4935f71db66843fbb9d51ebfd99dfaa47a883aae4b9b5153c",
+      "nature": "本人记录的艺术化重构，非现场照片",
+      "sourceIds": [
+        "S24",
+        "S11",
+        "S04",
+        "S03"
+      ]
+    },
+    {
+      "year": 2021,
+      "title": "把准备好的答案放在一边",
+      "image": "assets/biography/2021.jpg",
+      "sha256": "c222db2098e38b5ac0561935bc1cb3d89dadb40e464c763fea5f5ba83f0ba7f1",
+      "nature": "本人记录的艺术化重构，非现场照片",
+      "sourceIds": [
+        "S05",
+        "S15",
+        "S24",
+        "S06",
+        "S18",
+        "S12"
+      ]
+    },
+    {
+      "year": 2022,
+      "title": "给自己办一场没有舞台的毕业",
+      "image": "assets/biography/2022.jpg",
+      "sha256": "82a6b2f7920919bbb7daeb6191537c885602570b6656a070723e49699d60b800",
+      "nature": "本人记录的艺术化重构，非现场照片",
+      "sourceIds": [
+        "S12",
+        "S02",
+        "S24",
+        "S23",
+        "S22",
+        "S21",
+        "S20"
+      ]
+    },
+    {
+      "year": 2023,
+      "title": "屏幕里训练模型，场地上等人到齐",
+      "image": "assets/biography/2023.jpg",
+      "sha256": "1baf9fef6964d69f0f492376bd93acdb1983736fec4826241d3bffa1b6e30b9d",
+      "nature": "本人记录的艺术化重构，非现场照片",
+      "sourceIds": [
+        "S12",
+        "S15",
+        "S02",
+        "S19",
+        "S17"
+      ]
+    },
+    {
+      "year": 2024,
+      "title": "手柄放在桌边，工作还没有退场",
+      "image": "assets/biography/2024.jpg",
+      "sha256": "08939be5fe6c57e98fbc3ff1f483cd25d2b41072f22968697210953106bd2519",
+      "nature": "本人记录的艺术化重构，非现场照片",
+      "sourceIds": [
+        "S12",
+        "S15",
+        "S02",
+        "S14"
+      ]
+    },
+    {
+      "year": 2025,
+      "title": "一个背包，和两晚订好的床位",
+      "image": "assets/biography/2025.jpg",
+      "sha256": "b4ce06317c3eeaf182f68800a06295764de23525bb48a6f33cc51bd2127c9f44",
+      "nature": "本人记录的艺术化重构，非现场照片",
+      "sourceIds": [
+        "S12",
+        "S13",
+        "S15",
+        "S02",
+        "S16",
+        "S31"
+      ]
+    },
+    {
+      "year": 2026,
+      "title": "煎蛋要有一面微焦",
+      "image": "assets/biography/2026.jpg",
+      "sha256": "0145740adaaef94483d62245abc48eb624f259121d2d3db60c8ca8cd3f7318f6",
+      "nature": "本人记录的艺术化重构，非现场照片",
+      "sourceIds": [
+        "S29",
+        "S28",
+        "S02",
+        "S27",
+        "S30",
+        "S25",
+        "S26",
+        "S07",
+        "S08",
+        "S09",
+        "S10"
+      ]
+    }
+  ]
+}

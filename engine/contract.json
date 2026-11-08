@@ -1,0 +1,88 @@
+{
+  "version": 2,
+  "globals": [
+    "LIFE_DATA",
+    "SHARP_DATA",
+    "BIOGRAPHY_DATA",
+    "TANG_ZIWEI_READINGS",
+    "TANG_ZIWEI",
+    "SIM_EVENT_CATALOG",
+    "TANG_SIM"
+  ],
+  "focusIds": [
+    "craft",
+    "freedom",
+    "connection",
+    "energy",
+    "reserve",
+    "joy"
+  ],
+  "statsIds": [
+    "energy",
+    "joy",
+    "craft",
+    "freedom",
+    "connection",
+    "reserve"
+  ],
+  "api": {
+    "createRun": "({seed:string,startYear:number=2026,focus:string=craft}) -> Run",
+    "advance": "(run,{autoChoose:boolean=false}) -> new Run; pending blocks year unless autoChoose",
+    "decide": "(run,optionId:string) -> new Run; resolves pending at same year",
+    "setFocus": "(run,focusId:string) -> new Run",
+    "fork": "(run,year:number,{seed:string}) -> new Run at year with timeline/decisions preserved through year, future random stream changed",
+    "previewWeights": "(run,year=run.year+1) -> candidate pool with eligibility, primary/related/ordinary role, astroThemes, matchedThemes, themeFactor, factors and normalized selection weight",
+    "exportRun": "run -> JSON string",
+    "importRun": "string -> validated Run or throws",
+    "getYearContext": "year -> {chart,sharp,bio,yearContext}"
+  },
+  "run": {
+    "version": 2,
+    "seed": "string",
+    "year": "number",
+    "focus": "focus ID",
+    "stats": "six 0..100 numbers",
+    "location": "string",
+    "vocation": "string",
+    "project": "{name,status,...}",
+    "people": "array",
+    "timeline": "AnnualRecord[]",
+    "pending": "null|Decision",
+    "ended": "boolean"
+  },
+  "annualRecord": {
+    "year": "number",
+    "age": "number",
+    "kind": "recorded|gap|present|simulation",
+    "title": "string",
+    "summary": "string",
+    "paragraphs": "string[]",
+    "events": "[{id,type,title,text,dimension,probability:null|number,explanation,effects,sourceIds:[]}]",
+    "location": "string",
+    "vocation": "string",
+    "stats": "six numbers",
+    "statsBefore": "six numbers",
+    "focus": "focus ID",
+    "decision": "optional",
+    "snapshot": "engine-owned compact state",
+    "yearContext": "year-specific qualitative reading, exact palace frames, mutations and same-star overlaps"
+  },
+  "decision": {
+    "id": "string",
+    "year": "number",
+    "title": "string",
+    "prompt": "string",
+    "options": "[{id,label,action,time,people,cost,description,effects,outcome,...}]",
+    "astroThemes": "theme IDs linked to actual triggering events"
+  },
+  "limits": {
+    "minYear": 2000,
+    "maxYear": 2100,
+    "factsThrough": 2026,
+    "factsCutoff": "2026-11-06",
+    "probabilityNature": "editorial conditional event-selection weights, not measured personal probabilities",
+    "historical": "No random edits to factual events or birth inputs; gaps remain gaps",
+    "sourcePrivacy": "Only sanitized S01–S31 refs. Raw source text/docs never copied.",
+    "previousEdition": "previous-edition.html keeps version1 engine, catalog and browser storage separate"
+  }
+}

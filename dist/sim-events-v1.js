@@ -1,0 +1,447 @@
+(function(root){
+'use strict';
+const events=[],decisions=[];
+function event(id,title,dimension,type,variants,extra={}){
+ events.push({id,title,dimension,type,kind:'simulation',baseWeight:1,cooldown:5,minAge:27,maxAge:100,prerequisites:{},effects:{},addFlags:[],removeFlags:[],sourceIds:[],...extra,variants:variants.map(([title,text])=>({title,text}))});
+}
+function decision(id,title,prompt,dimension,options,extra={}){
+ decisions.push({id,title,prompt,dimension,kind:'simulation',cooldown:9,minAge:27,maxAge:100,prerequisites:{},sourceIds:[],...extra,options:options.map(([id,label,description,effects,outcome,change={}])=>({id,label,description,effects,outcome,...change}))});
+}
+event('users-return','有人第二周又打开产品','craft','opportunity',[
+ ['一次不靠提醒的返回','{project}的试用者又来了，这次不是来配合演示。他跳过你最喜欢的入口，直接找上次解决问题的那一页。你少讲了一段愿景，多记下一个愿意重复发生的动作。'],
+ ['第二次不是来捧场','你以为上次的夸奖只是礼貌，后来却收到一段具体反馈：那个人在忙的时候仍想起{project}。它还远没有证明一门事业，但这一次，下一版终于有了比猜测更清楚的起点。']
+],{baseWeight:1.2,prerequisites:{projectStatus:['active'],minStats:{energy:20}},effects:{craft:4,joy:3,energy:-2},addFlags:['repeat_users'],sourceIds:['S07']});
+event('only-founder-uses','熟练的演示者，迷路的试用者','craft','friction',[
+ ['你不坐旁边之后','你暂时不解释，让新试用者独自使用{project}。对方停在第一步，你却已替它排了很远的未来。把那次停顿重看一遍很刺耳，也比再增加一个能力更接近问题。'],
+ ['自己的捷径不是入口','你每天用{project}，所以总觉得它已经顺手。另一位试用者没有你的记忆，也找不到你悄悄绕开的地方。演示没有失败，真正暴露的是熟悉程度正在替产品承担工作。']
+],{prerequisites:{projectStatus:['active']},effects:{joy:-3,craft:3,energy:-2},addFlags:['usability_gap'],sourceIds:['S07','S10']});
+event('small-paid-pilot','试用要占用别人的真实时间','reserve','opportunity',[
+ ['从免费赞许到真实交换','有人愿意为{project}安排一轮有约定的试用，前提是你写清解决什么、多久结束。你不能再把所有建议都当成需求；有限的资源回流，与需要兑现的责任一起到来。'],
+ ['对方先问售后怎么做','第一次谈具体合作，对方没有追问模型有多先进，而是问出了问题谁回应。你答得比介绍能力时慢。这项试用让储备指数稍有余地，也让原先可以随时放下的工作有了边界。']
+],{prerequisites:{projectStatus:['active']},effects:{reserve:4,craft:2,freedom:-3,energy:-2},addFlags:['pilot_offer'],sourceIds:['S07','S13']});
+event('metric-disagrees','曲线涨了，喜欢的人没有回来','craft','friction',[
+ ['好看的那个分母','{project}的一项展示指标上升，你几乎准备宣布方向对了。把新旧试用者分开看，真正想服务的那一组却没有变化。你撤回过早写好的总结，多花时间解释为什么仍需验证。'],
+ ['一次热闹的体验以后','新入口吸引了许多人点进来，却没人愿意重复原来那个动作。你看见新鲜感和需要并不一样。团队少了一次轻松庆祝，换来一个必须重新选的观察问题。']
+],{prerequisites:{projectStatus:['active'],flagsAny:['repeat_users','pilot_offer']},effects:{joy:-3,craft:4,energy:-3},addFlags:['metric_question'],sourceIds:['S07','S11']});
+event('unexpected-use','用户把作品用在另一件事上','craft','opportunity',[
+ ['没有按你的场景使用','一位试用者拿{project}处理你没设想过的小任务。你第一反应是解释正确用法，听完却发现那条绕路对他更有意义。新方向出现了，原来的计划也因此少了一点确定。'],
+ ['被转发的不是你最喜欢的页','你准备很久的部分没有被谈起，一个顺手补的小功能反而被人带去另一个圈子。它不保证市场存在，却值得单独观察。你把原计划的一小段时间挪给这条不受自己控制的线。']
+],{prerequisites:{projectStatus:['active']},effects:{craft:4,freedom:2,energy:-3},addFlags:['adjacent_use'],sourceIds:['S07','S13']});
+event('prototype-maintenance','从跑通一次到第二次还能跑','craft','friction',[
+ ['演示结束后的修理日','你以为下一步是做新功能，{project}却在换一批输入后反复卡住。整天都在修细节，作品看起来没有变大。傍晚再试，它终于能被别人重新打开，代价是一整段没用来探索的时间。'],
+ ['模型换了一个回答','同样的入口给出不同结果，漂亮演示背后的脆弱开始显现。你暂停扩展，先把最常见的使用路径测清。那一天少了新鲜感，却多了一点别人无需等你上线也能使用的可靠。']
+],{prerequisites:{projectStatus:['active']},effects:{craft:4,energy:-4,joy:-2},addFlags:['reliability_work'],sourceIds:['S25','S28']});
+event('large-org-gate','好想法撞上大系统的门槛','freedom','friction',[
+ ['不是一张原型就能进去','在{vocation}这条路上，一个探索必须适应既有产品的节奏。你知道改哪里会更好，却要先解释稳定性、协作与维护。事情没有被判死，只是不能再沿着最短路径往前跑。'],
+ ['被排进下一轮以后','你做出了可看的版本，真正的入口却在另一个团队手里。等待比制作更久。你用这段时间补验证，也开始认真想，这份资源条件是否值得继续用自主性来交换。']
+],{prerequisites:{projectStatus:['active'],flagsNone:['independent_path','founder_path']},effects:{craft:2,freedom:-4,energy:-3},addFlags:['org_gate'],sourceIds:['S15','S21']});
+event('accountable-no-authority','结果找你，决定却不在你手里','freedom','friction',[
+ ['被默认接住的最后一环','别人把{project}最后的问题送到你这里，却没有同步给你决定范围。你能靠多做一点撑过去，也看见这样做会让缺口继续隐形。你把问题退回桌面，暂时承受了一次不够配合的评价。'],
+ ['又一条临时消息','你原定的下午被一个需要救场的请求切开。真正阻塞的决定还没做，工作却已经开始计时。你把事实和可选范围写清，事情未必更快，但不再全部靠你一个人吞下含糊。']
+],{prerequisites:{projectStatus:['active']},effects:{energy:-4,freedom:-3,craft:2},addFlags:['authority_gap'],sourceIds:['S05','S18']});
+event('delegate-visible','你不在时，事情也往前了一步','craft','opportunity',[
+ ['回来以后不是原来的摆法','你把{project}的一小段交给协作者，回来发现方法和自己不同。结果能用，也有新的小问题。你没有立即收回，少了一点顺眼，多出一个真正能对自己那部分负责的人。'],
+ ['没有等你的那个决定','协作者按事先约定独立取舍，甚至删掉你原来喜欢的一项。你花时间听完理由，没有把授权变成事后复审。你腾出的精力是真的，失去最终拍板的落差也是真的。']
+],{prerequisites:{projectStatus:['active'],minPeople:1},effects:{energy:3,freedom:3,craft:2,joy:-1},addFlags:['delegation_tested'],sourceIds:['S05','S25']});
+event('junior-knows','一个新同伴教了你更短的路','craft','daily',[
+ ['经验先放到旁边','你熟悉的做法要走很多步，新同伴却从另一处进入。第一轮你觉得太简略，试过才承认它确实解决了眼前的问题。你删掉旧流程的一段，保住出处，没保住自己的资历感。'],
+ ['轮到你问为什么','在{project}的某个环节，别人比你看得清。你把本来准备讲的经验收起，问对方能否再做一遍。谈话没有产生一位导师，倒是让下一次合作少了一层需要维护的高低。']
+],{prerequisites:{minPeople:1},effects:{craft:3,connection:2,joy:1,energy:-1},sourceIds:['S05','S19']});
+event('company-invitation','一家新组织想和你谈谈','freedom','opportunity',[
+ ['邀请里有一个没写清的问题','一份来自新组织的邀约到了，你被更完整的资源吸引，也读见日程与决定权的限制。对方希望尽快答复，你没有因为终于被需要就当场承诺，先留下了一次具体交流。'],
+ ['换一个地方做同一种工作吗','对方说你过去的经验很适合，你却问新岗位究竟要对什么结果负责。故事听起来连续，生活可能完全不同。邀请带来一条岔路，也让手上的作品暂时分走一点注意力。']
+],{baseWeight:.85,cooldown:7,maxAge:85,effects:{freedom:3,joy:2,energy:-2},addFlags:['company_offer'],sourceIds:['S04','S06','S15']});
+event('role-reorganization','组织重新画了你的岗位','freedom','friction',[
+ ['熟悉位置不再原样存在','你所在的组织调整方向，原先的职责被拆到几处。没有哪一条路径能同时保留所有熟悉条件。你整理已做出的结果，约了一次岗位讨论，把是否继续留下变成一个需要亲自回答的问题。'],
+ ['一个项目结束，岗位留下问号','长期投入的工作被重新排序。你得到的不是对个人价值的终审，而是一套变了的资源条件。你仍觉得难受，也开始辨认，自己是想守住原来的标题，还是想换一种工作关系。']
+],{baseWeight:.8,cooldown:9,prerequisites:{projectStatus:['active'],flagsNone:['independent_path','founder_path']},effects:{joy:-4,freedom:2,reserve:-2,energy:-2},addFlags:['role_reorg'],sourceIds:['S20','S15']});
+event('runway-question','再做一轮，余地会少多少','reserve','friction',[
+ ['还没到下一次反馈','{project}的验证比预期久，日常支出和协作承诺仍在发生。这里没有真实金额，只有越来越窄的储备余地。你把继续一轮需要占用的时间写出，第一次把停止也放进讨论。'],
+ ['一句再坚持一下不够了','你仍喜欢{project}，却发现自己已用相同理由连续推迟取舍。继续有机会，退一步也有成本。你把可用精力和储备指数摆在一起，不再只凭对未来的热情判断能否撑住下一段。']
+],{prerequisites:{projectStatus:['active'],flagsAny:['founder_path','independent_path'],maxStats:{reserve:45}},effects:{reserve:-4,energy:-3,joy:-2},addFlags:['runway_question'],sourceIds:['S08','S13','S15']});
+event('cofounder-rhythm','合作者不是你延长的一双手','connection','friction',[
+ ['你们对快的理解不同','你想尽快把{project}推给用户，合作者想先解决一种基础问题。谁都不只是偷懒，时间却越等越贵。争论逼你们说清各自真正承担什么，也暴露出共同愿景还没有变成共同做法。'],
+ ['一份各写各的计划','两份计划都很认真，合起来却不能同时完成。你第一次意识到投缘不等于合作节奏相同。项目没有因此自动散伙，但继续需要修改责任、规模或合作本身，不能再靠谁多熬一个晚上。']
+],{prerequisites:{projectStatus:['active'],minPeople:1,flagsAny:['founder_path','independent_path']},effects:{connection:-3,energy:-4,craft:2},addFlags:['collaboration_gap'],sourceIds:['S13','S15']});
+event('employment-compound','留在一件事里，终于看见后半程','craft','opportunity',[
+ ['不用重新认识所有人的一天','在{vocation}的工作中，你积累过的上下文开始减少沟通。并非每一步都新鲜，却能看见一项改动后来怎样被维护。你获得一点稳定的余地，也错过了另一条更热闹的新方向。'],
+ ['第二轮真正由你负责','先前做过的事情进入下一轮，你不必再从证明自己开始。熟悉带来更深的判断，也可能变成停留的理由。你把省下的时间投到一个尚未弄懂的问题，而不是再填满全部空档。']
+],{prerequisites:{projectStatus:['active'],flagsNone:['independent_path','founder_path']},effects:{craft:4,reserve:2,freedom:-2},sourceIds:['S18','S21']});
+event('validation-failed','想解决的问题，没有换来使用','craft','friction',[
+ ['试用结束却没有下一次','{project}完成了一轮约定的试用，反馈并不支持原先最核心的想法。你没有把它包装成用户还不够懂。已经投入的时间无法拿回，剩下的是要改什么、停什么，以及哪些经验仍值得带走。'],
+ ['最有把握的假设没过','你终于问到愿不愿意继续使用，而不是喜不喜欢演示。答案没有让你高兴。项目仍能做得更漂亮，却不能靠更漂亮来替代需要；下一步必须重新选择，不再由惯性自动延长。']
+],{baseWeight:.8,cooldown:8,prerequisites:{projectStatus:['active'],flagsAny:['pilot_offer','repeat_users','founder_path']},effects:{joy:-5,craft:3,reserve:-3,energy:-3},addFlags:['validation_failed'],sourceIds:['S07','S15']});
+event('physical-result','一个想法终于能拿在手里','craft','opportunity',[
+ ['桌面上的小成果','你给{project}做了一件可以实际触摸的样品。它没有改变事业走向，甚至还有不顺手的地方，却第一次让讨论不必只靠形容词。你把问题圈在实物上，下一轮因此变得具体。'],
+ ['打印出来以后才看见','屏幕里的比例很漂亮，样品放到手上却显得不对。你重做一小处，让别人直接试。材料和时间都花掉了，但你得到一份不依赖长篇解释的反馈，心情也跟着落回眼前。']
+],{prerequisites:{projectStatus:['active','idea']},effects:{craft:3,joy:4,reserve:-2,energy:-2},addFlags:['tangible_prototype'],sourceIds:['S25','S30']});
+event('scope-creep','一个顺手帮忙长成整套职责','freedom','friction',[
+ ['第三次顺便','你最初只帮{project}补一个小洞，后来所有相邻问题都自动送来。别人确实感谢，你也确实能做，代价是自己的计划不断挪后。今天又收到一句顺便，你开始考虑是否应重新谈角色。'],
+ ['能者多做的那一格','计划表里没有你的名字，真正卡住时却总有人来找你。你靠能力得到信任，也靠补位制造依赖。等到想把下午留给自己，才发现过去许多次答应已经被当作一项固定服务。']
+],{prerequisites:{projectStatus:['active']},effects:{energy:-5,freedom:-3,connection:1},addFlags:['scope_creep'],sourceIds:['S05','S25']});
+event('customer-constraint','真实用户让你删掉漂亮能力','craft','opportunity',[
+ ['最先进的部分先不用','一位实际使用者指出{project}需要更快、更简单，不能等全部能力成熟。你舍不得删掉研究最久的部分，仍为对方做了较窄的入口。它不够全面，却终于能进入一个普通工作日。'],
+ ['不是你的审美比赛','对方宁愿少一点变化，换一个更可靠的动作。你把炫目的路径收起，承认产品也得容下使用者的忙。这个调整让你少展示一种本领，多看见一次真实被完成的任务。']
+],{prerequisites:{projectStatus:['active']},effects:{craft:4,joy:2,energy:-2,freedom:-1},addFlags:['narrow_value'],sourceIds:['S07','S12']});
+event('back-to-class','一堂你没法靠经验跳过的课','craft','daily',[
+ ['第一排没有熟悉的位置','你在{location}参加一堂新的课，原来那些会用的词并不能替你完成第一次练习。你问了一个基础问题，有些不好意思。课后只带回半页笔记，却重新知道什么叫真正还不会。'],
+ ['练习没有变成作品','你用一段时间学一件暂时无用的事，第一份练习很普通，也没有可发布的故事。你没有立刻寻找变现方式，只为下一次课留下时间。少做了一点手上的项目，脑中却有了不同的风。']
+],{effects:{craft:3,joy:3,reserve:-2,energy:-2},addFlags:['learning_started'],sourceIds:['S17','S24']});
+event('move-cost','想换城，先看见搬走的代价','reserve','friction',[
+ ['地图之外的箱子','你开始设想离开{location}，然后真正动手列要处理的物件、合作和约定。远方仍吸引你，只是这一次看见的不再只有机票。储备余地少了一点，也让换城从一种心情变成需要做的选择。'],
+ ['重复买过的那几样','在两处停留后，你发现相同用品反复添置，轻便旅行逐渐长出固定成本。你不必立刻取消流动生活，但得选择哪些日常值得随身，哪些可以借用，哪些其实只为了让陌生处看起来熟悉。']
+],{effects:{reserve:-3,freedom:2,energy:-2},addFlags:['move_question'],sourceIds:['S02','S15']});
+event('steady-contract','稳定合作，附着一张固定日历','reserve','opportunity',[
+ ['可能的回流与固定周几','有人愿意把合作延长，可能换来更多缓冲；相应地，你需要在几个固定时段回应。尚未接受之前，储备不会凭邀请增加。你要问的是愿不愿意把这些清晨交给它。'],
+ ['一份尚未答应的排期表','持续合作也许能减少寻找下一份工作的焦虑，同时会把临时自由换成稳定承诺。对方发来排期表，让交换看得见。你还没有接下它，手上的作品也尚未因此暂停。']
+],{effects:{freedom:2,energy:-1},addFlags:['contract_offer'],sourceIds:['S08','S18']});
+event('delayed-payment','工作交了，回应还在路上','reserve','friction',[
+ ['没有按原计划回来的资源','你交出约定的一部分，对方的确认却慢下来。这里不对应现实金额，只让储备余裕暂时变窄。你核对约定、留下记录，没把等待自动扩成额外免费工作，也不能假装没有受到影响。'],
+ ['一句再补一点就好','合作进入结尾，对方希望追加一点内容才做确认。你把原来的范围重新拿出来，谈话并不愉快。守边界没有马上带来回流，却阻止了已经交出的工作继续无边界变长。']
+],{prerequisites:{flagsAny:['steady_contract','pilot_offer','independent_path']},effects:{reserve:-4,energy:-3,joy:-2},addFlags:['exchange_unclear'],sourceIds:['S02','S05']});
+event('subscription-prune','省下的不是一个更贵的工具','reserve','daily',[
+ ['重复入口的账单','你翻看常用工具，发现几项订阅都在解决同一件事。取消它们没有让能力消失，只让切来切去少一些。储备指数恢复一点，代价是暂时放下某个也许将来会用的漂亮入口。'],
+ ['把常用留在前面','你把收藏和工具挨个打开，真正仍在使用的比想象少。你不再为每一种可能都保留位置。删去几项之后，{project}的工作台没有更豪华，却容易开始了一点。']
+],{effects:{reserve:3,energy:2,joy:-1},sourceIds:['S14','S28']});
+event('reserve-breath','没有扩张的一段稳定期','reserve','opportunity',[
+ ['这次没有把余地全花掉','这一阶段的工作没有惊喜，也没有持续追加。你把多出的一点时间和资源留着，没有立刻寻找新的投入。储备指数缓慢恢复，生活看起来不够热闹，下一次决定却不必那么急。'],
+ ['普通月份也留下东西','你按原有规模完成了约定，不靠临时加码换赞许。少了一次值得大讲的经历，留下的是一段能够周转的余裕。你看见积累有时并不要求同时把所有方向放大。']
+],{effects:{reserve:4,energy:2,joy:-1},sourceIds:['S03','S18']});
+event('declined-lucrative','回绝以后，还是会想起那个机会','freedom','daily',[
+ ['没有立刻轻松的拒绝','你把一项与当前方向冲突的合作回绝了。对方没有再追问，你反而整晚在想是不是太任性。保住的时间是真的，失去的资源回流也是真的；这一页不会把每次拒绝都包装成赢。'],
+ ['别人接走了那项合作','你看到另一个人认真做起你没接的项目，心里仍有一点羡慕。它没有因此证明你的选择错了，也没证明你更清醒。你带着这份不完全的笃定，回到原先选的那件事。']
+],{effects:{freedom:4,reserve:-2,joy:-1},sourceIds:['S05','S06']});
+event('time-inventory','最贵的一项没有出现在购物清单','reserve','daily',[
+ ['你反复维护的那个安排','你清理生活成本，发现最耗人的不是新买的东西，而是一个已经不太使用、仍要维护的安排。停掉它会让过去的投入显得可惜，你仍先暂停一段，看自己是否真的需要。'],
+ ['物件都不贵，找起来很久','你想找一件常用物品，却先穿过许多有故事的小东西。整理没有增加财富，只减少了寻找和重复添置。你保留尚未决定的一小盒，不把取舍也做成一次必须完成的大战役。']
+],{effects:{reserve:2,energy:3,craft:-1},sourceIds:['S02','S09']});
+event('shared-resource','共用的好处要有人维护','connection','opportunity',[
+ ['一份不用重复买的资源','你与同伴共用某项设备或空间，单独承担的压力轻了一点。真正开始后，预约、归还和谁清理成了新问题。你们把最容易误会的一项写清，省下资源也增加了一点共同责任。'],
+ ['钥匙从一个人变成几个人','共享让原先够不到的东西进入日常，也让你失去随时独占的方便。一次撞期没有被直接解释成人不可靠；几个人先调整时段，合作才从好意走到真实可用。']
+],{prerequisites:{minPeople:1},effects:{reserve:3,connection:3,freedom:-2,energy:-1},addFlags:['shared_resource'],sourceIds:['S13','S24']});
+event('generous-overcommit','你答应得比可用时间快','connection','friction',[
+ ['饭局后多出的三件事','一次愉快交流以后，你发现自己答应了许多顺手的小忙。它们分别都不难，叠在一周里却挤走原来的计划。你开始逐个回话，承认好意也需要删减，而不是等到做不完才消失。'],
+ ['别人的急，排进了你的夜晚','你习惯先接住请求，再寻找自己的空档。这次空档没有出现。你修改一个承诺，也承受对方失望；连接未必因此更近，却终于不只靠你无限推迟自己的事来维持。']
+],{effects:{energy:-4,freedom:-2,connection:1},addFlags:['uneven_exchange'],sourceIds:['S05','S18']});
+event('portable-work-offer','工作地点开始可以商量','freedom','opportunity',[
+ ['一份不必每天到场的合作','有人愿意按结果而不是坐在哪里合作。你获得了离开{location}一段时间的可能，也要自己承担沟通和安排。机会不是自动旅居，它先问你能否把工作与日常一并带走。'],
+ ['远方不再只是休假地点','你发现一种可迁移的工作方式，足以尝试短住，尚不足以保证长期稳定。你没有把它叫作彻底自由，先留下一个可退回的试验窗口，看看喜欢是否能经得住普通工作日。']
+],{baseWeight:.85,cooldown:7,effects:{freedom:4,energy:-2},addFlags:['portable_offer'],sourceIds:['S08','S15']});
+event('attention-exchange','一份曝光要占用多少自己','reserve','opportunity',[
+ ['邀请里附着的更新频率','有人想为你的内容提供资源，条件是更密集地更新。它可能扩大作品的去处，也可能把每次兴趣变成下一次交付。你没有立刻签下，先把需要腾出的生活列到条件旁边。'],
+ ['你愿意一直说同一种话吗','一项推广机会喜欢你过去某种形象，希望以后继续如此。资源指数有上升的可能，表达空间却变窄。你意识到被认可的那一面，也可能变成别人要求你维持的工作。']
+],{effects:{reserve:3,freedom:-3,joy:-2},addFlags:['sponsor_offer'],sourceIds:['S12','S16']});
+event('travel-change-cost','改一次路线，就少一块余地','reserve','friction',[
+ ['临时变化没有全被浪漫化','一段行程需要重排，熟悉的轻装出发多了等候和重复安排。你仍得到新的时间，也确实付出储备余裕。这个插曲不必立刻变成最好的一天，先把能处理的事情逐项处理完。'],
+ ['没按计划走的那一夜','你在陌生地方多待了一晚，原定会面只好重新商量。街道有新的可看之处，错过的事情却仍然错过。你一边找晚饭，一边把明天的安排缩短，不再试图把所有损失补回来。']
+],{effects:{reserve:-3,energy:-2,freedom:1},sourceIds:['S17','S29']});
+event('city-trial','喜欢的城市，和住下来的城市','freedom','daily',[
+ ['先过一个不拍照的周三','你在{location}照常买菜、工作和洗衣，城市不再只以景点回应。交通、噪声和能否随手运动，开始影响喜欢的形状。没有新的大结论，倒有几个未来选住处时会认真问的小问题。'],
+ ['咖啡馆关门以后','你想象的日常在一扇没开的门前停住，只好去找第二种安排。陌生感没有消失，也没有被直接判成不适合。你把一个普通日子过完，比再收集一张城市排名更清楚自己要什么。']
+],{effects:{freedom:3,craft:1,energy:-2},addFlags:['city_tested'],sourceIds:['S08','S17']});
+event('neighborhood-familiar','一段路终于不必看导航','joy','opportunity',[
+ ['认得你常走的那条路','在{location}走过几次以后，你开始知道哪条路树荫多、哪家店适合坐一会。熟悉没有取消远方，只让今天少一点寻找。你愿意把下次换城的计划放慢，看看此处还能长出怎样的普通生活。'],
+ ['有人记得你怎么吃','你刚说要点单，对方已经问是不是仍照上次的做法。你笑着补一个小变化，忽然感到陌生地也可以有细小的连续。为留下这种连续，你暂时少排了一趟短途。']
+],{effects:{joy:4,connection:1,freedom:-1},sourceIds:['S02','S16']});
+event('paperwork-wait','远行计划遇到一段等待','freedom','friction',[
+ ['地点愿望还缺一项现实条件','你想尝试新的居住安排，发现资格、合约或时间衔接仍需确认。这里不提供任何身份或法律判断。你把尚未确定的部分标出，保留替代计划，没有用已经买好机票假装全部落实。'],
+ ['等一封能确定再动身的回复','行程暂时卡在现实手续上，你可以催问，却不能靠热情替代条件。你把等待时间拿去补语言或看资料，也得承认原先设想的日期可能改变。远方仍在，只是尚未成为承诺。']
+],{effects:{freedom:-2,energy:-2,craft:2},addFlags:['move_question'],sourceIds:['S08','S15']});
+event('language-small-win','一句不熟练的话，真的接上了','craft','opportunity',[
+ ['没有搜索完整句子','你用刚学会的几句话问到需要的东西，对方回答得比预想快，你没全听懂。来回确认以后，事情仍然办成。那点笨拙没有让世界变小，反而让下一次练习有了具体想去的地方。'],
+ ['从简单招呼往前多走一步','你主动说出一个很短的问题，不再只等对方切换语言。谈话远不流利，却多出一段原来会错过的生活。你带回几个新词，也带回需要继续下功夫的耐心，而不是通晓一门语言的幻想。']
+],{effects:{craft:3,freedom:2,joy:2,energy:-2},addFlags:['language_practice'],sourceIds:['S17','S29']});
+event('course-demand','想学的课，也会占掉一个周末','craft','friction',[
+ ['报名以后才看见作业','新课程的第一轮练习比看介绍时费力。你得在{project}和学习之间腾出真实时段，不能把课也当成被动收集。暂时少一次社交或少做一点功能，哪一边都需要亲自承认。'],
+ ['收藏夹不会替你练习','你买来资料很久，真正坐下做一遍才发现有许多空白。今天没有学完，也没因此证明不适合。你把目标缩成一份能检查的作业，让一个新技能第一次占有了日程上的位置。']
+],{effects:{craft:3,energy:-3,reserve:-2},addFlags:['course_question'],sourceIds:['S03','S24']});
+event('weather-route','天气换了，你没有急着补满','joy','daily',[
+ ['临时多出的咖啡馆下午','原本想看的地方被雨打断，你在{location}找一处坐下，读了几页书。这个下午没有比原计划更伟大，只是不再需要用很多景点偿还一次变化。雨停时，你还有力气慢慢走回去。'],
+ ['没赶上的那个入口','你到达时已经错过开放时段，先有点懊恼，后来沿附近的路随便走。没有因此遇到传奇人物，只吃到一份合口味的东西。原定的遗憾和意外的舒服，被允许同时留下。']
+],{effects:{joy:3,energy:2,craft:-1},sourceIds:['S17','S29']});
+event('hometown-taste','一口熟悉的味道，改变了路线','joy','daily',[
+ ['不需要讲成乡愁的一顿饭','你在{location}吃到接近记忆的一口味道，忽然想慢一点。你不必因此决定回哪里，也没有把过去全部美化。那顿饭只是让下一段安排空出一点，容得下一个仍然具体的自己。'],
+ ['想起以前怎么点单','你给食物补一种熟悉的吃法，旁人问为什么，你只能说自己喜欢。没有把偏好翻译成营养或道理，吃完就继续今天。远行和熟悉并不互相取消，一份普通晚饭也可以是自己的坐标。']
+],{effects:{joy:4,energy:1,reserve:-1},sourceIds:['S02','S29']});
+event('long-trip-needs-base','旅程很满，日子却没有落脚','energy','friction',[
+ ['行李总在下一次出发前','连续换地方以后，你熟悉了车站，却很少熟悉一条买菜的路。新鲜仍在，重复安排也在消耗。你开始想找一个能住久一点的地方，不是宣布旅行结束，而是让远方终于装得下日常。'],
+ ['这次不想再订下一段','你坐在房间里翻行程，发现最想要的不是另一张机票，而是不用收拾包的一天。承认它有点失落，却没有抹掉前面走过的路。你把下一站先留空，让已到达的生活多停一会。']
+],{prerequisites:{flagsAny:['long_travel','mobile_life']},effects:{energy:-4,joy:-2,freedom:1},addFlags:['need_anchor'],sourceIds:['S08','S29','S31']});
+event('time-zone-friend','隔着城市，约一次真的能聊完','connection','daily',[
+ ['没有随时在线的约定','你和远处的一位朋友屡次错过消息，后来只选一段双方都方便的时间。谈话不如随手发消息频繁，却能认真讲完一件事。你为它放掉一个本地安排，也没有把距离解释成不在意。'],
+ ['一张不是景点的照片','朋友想看你的日常，你拍下{location}常走的街角，而不是这座城最漂亮的地方。对方也回一张普通桌面。两处生活没有靠近多少，联系却不再只剩下什么时候再见的客气问候。']
+],{prerequisites:{minPeople:1},effects:{connection:3,joy:2,freedom:-1},sourceIds:['S02','S17']});
+event('train-conversation','一段同行没有变成新的人脉','connection','opportunity',[
+ ['站名之前的故事','你在路上和一位成年人聊起各自的选择。对方没有给你新的机会，也没有被记成有用的联系人；下车之前，你只多理解一种平常的生活。谈话因此可以结束，不需要互相承诺。'],
+ ['先接住一块飞来的盘','在陌生地方，一次共同活动让自我介绍晚了一点。你们聊兴趣和工作，仍有许多听不懂的差别。告别以后没有自动成为密友，那一个下午却替{location}留下了不属于攻略的一面。']
+],{effects:{connection:3,joy:3,energy:-1},peopleDelta:1,cooldown:7,sourceIds:['S02','S17']});
+event('housing-preference','好看的窗，和真正好住的房间','freedom','daily',[
+ ['看房到第二次才问的问题','你先被窗外吸引，住过几天才发现厨房、噪声和出门运动同样重要。你修改了找住处的优先顺序，没有要求一间房同时兑现所有理想。少一点景观，可能换来更像自己的普通一天。'],
+ ['没有拍进照片的那个角落','在{location}比较住处时，你把注意力从最漂亮的画面移到实际用得到的地方。取舍仍令你犹豫，却不再只凭某个瞬间的向往决定长期日常。那份清单变短，也更难讨好所有条件。']
+],{effects:{freedom:3,energy:1,reserve:-2},addFlags:['home_preferences'],sourceIds:['S02','S08']});
+event('unplanned-afternoon','一个没有交付的下午','joy','daily',[
+ ['太阳落下以前没有总结','你在{location}沿着一条喜欢的路走了很久，没拍成视频，也没因此悟出新方向。晚饭时仍能记得风和一种食物的味道。这个下午少了一项完成记录，却不需要为存在找理由。'],
+ ['在草地上读到一半','书没有读完，计划也没有推进，你只是让身体在一个地方安静待着。开始时总想找点有用的事，后来只剩下眼前的一页。回去仍得工作，空白没有替你取消责任，却让日子重新有了长度。']
+],{baseWeight:1.15,effects:{joy:4,energy:4,craft:-1},sourceIds:['S02','S26','S29']});
+event('leaving-city','离开一座城，也会失去方便见面的人','connection','friction',[
+ ['最后一顿还算熟悉的饭','换地方之前，你和常见的人吃饭，才发现许多相处都靠距离近而自然发生。你们没有保证以后一定一样。远方带来新空间，也带走不必预约就能见面的那部分生活。'],
+ ['那条群消息没有你','你在新的安排里看见旧朋友照常聚会，忽然有一点被留在外面。选择离开并不要求你对每种损失都坦然。你主动约一次能兑现的回访，没有用我随时都在掩盖现实的距离。']
+],{prerequisites:{flagsAny:['moved_once','long_travel','mobile_life']},effects:{connection:-3,joy:-2,freedom:2},sourceIds:['S02','S15']});
+event('team-newcomer','到一支新队伍里，先重新认识自己','connection','opportunity',[
+ ['熟人场之外的第一回','你加入一次新的成人队伍活动，过去熟悉的配合并不能直接搬来。你接错几次，也问清对方怎样站位。多出一位愿意再约的同行者之前，你先交出一点不总是表现很好的自己。'],
+ ['大家不知道你以前做过什么','在{location}的新活动里，没人先按你的工作或资历安排位置。你从一个简单动作开始，认真听别人说明。那种从头来过有些费力，也让连接不必只建立在你能提供什么之上。']
+],{effects:{connection:4,joy:2,energy:-3},peopleDelta:1,addFlags:['community_contact'],sourceIds:['S02','S23']});
+event('friend-misread','一句顺口的话，停在两种理解里','connection','friction',[
+ ['你以为已经答应了','你把一句模糊回应当成约定，对方却以为仍在商量。事情卡住时，谁都能复述原话。你们重新说清期待，损失了一点顺畅，也让下一次不必再靠猜测完成合作。'],
+ ['玩笑没有按原路到达','你想缓和气氛，别人听见的却是轻慢。解释用意没有立刻让对方舒服。你先承认实际造成的感受，再谈那件具体的事，没有用一句别想太多把交流关掉。']
+],{prerequisites:{minPeople:1},effects:{connection:-2,energy:-2,craft:1},addFlags:['communication_question'],sourceIds:['S06','S18']});
+event('friend-unavailable','他这次没有空，并不等于关系结束','connection','daily',[
+ ['没有约成的周末','你想见的人这次无法出现，临时多出一段时间。失落很真实，你却没有立刻追问自己是否仍重要。你把这次邀约留下，转身去做原来就喜欢的小事，连接可以等到双方都有空。'],
+ ['别人也有正在过的生活','消息没有及时回复，你几次想再发一句。后来对方解释只是忙，你发现自己把等待讲成了许多故事。你们改约一段具体时间，也把不能随时回应写进对彼此的理解。']
+],{prerequisites:{minPeople:1},effects:{joy:-1,freedom:2,connection:1},sourceIds:['S02','S06']});
+event('partner-honest-request','把希望说出来，而不是等待对方猜','connection','daily',[
+ ['今天想要的不是解法','你向已经共同选择进入关系的人讲一件不顺，对方很快给出建议，你反而沉默。你后来说明自己先想被听完。对方也说出限制，你们没立刻解决问题，却减少了一次用沉默表达期待。'],
+ ['两个都算合理的需要','你想保留独处，对方希望一起待着。你们没有争出哪一种更成熟，先安排一段各自时间和一顿共同晚饭。关系里多了一个明说的边界，也少了理所当然的随时在场。']
+],{prerequisites:{flagsAll:['partner_active']},effects:{connection:3,freedom:1,energy:-2},sourceIds:['S06','S08']});
+event('partner-messages','不用整天在线，也仍可以认真来往','connection','friction',[
+ ['消息切碎了一整天','你和已选择的伴侣持续交换小事，亲近与分心一起发生。到晚上想完整聊一会，两人都已经没力气。你提出把一部分话留到约好的时间，代价是先承受一点没被即时回应的空落。'],
+ ['把想说的攒到一封信','你尝试一次较完整的表达，对方却更习惯短消息。新方式没有自动优于旧方式，你们得重新试。亲近不再只以频率证明，也不由其中一人替另一人规定全部沟通节奏。']
+],{prerequisites:{flagsAll:['partner_active']},effects:{energy:-3,connection:1,freedom:-1},addFlags:['partner_communication'],sourceIds:['S06','S08']});
+event('partner-two-cities','下一座城市，不是一个人的日程','connection','friction',[
+ ['你看见机会，对方看见搬走','一项新的地点选择让你兴奋，已经选择进入关系的人却想到自己要离开的日常。你发现把路线讲得再诱人，也不能替对方作决定。你们开始谈距离、时间与各自不愿轻易放掉的事。'],
+ ['谁也不想只做陪同者','两个人都愿意继续关系，却不想把自己的方向一直放在后面。暂时没有一个同时满足的地点。你们保留讨论，而不是把爱不爱当成所有现实差异的答案，下一步仍需要一次明确选择。']
+],{prerequisites:{flagsAll:['partner_active'],flagsAny:['move_question','portable_offer','long_travel']},effects:{connection:-2,energy:-3,freedom:1},addFlags:['partner_location'],sourceIds:['S08','S15']});
+event('relationship-invitation','一段来往，有人想再往前一步','connection','opportunity',[
+ ['不急着替一顿饭命名','一位在虚构分支中认识的人明确邀请你更认真地相处。你觉得被吸引，也知道这不同于多一位活动伙伴。这里尚未生成伴侣；你需要亲自选择，是尝试亲密、只保留朋友，还是停在这次交流。'],
+ ['相处之外多出一句询问','几次普通来往之后，对方问你愿不愿意试着走近一些。没有一段关系因此自动成立。你可以喜欢这份好意，也可以不接受，接下来的路线不会把沉默算成已经同意。']
+],{baseWeight:.7,cooldown:10,prerequisites:{flagsNone:['partner_active']},effects:{joy:2,connection:1,energy:-1},addFlags:['relationship_invitation'],sourceIds:['S06','S08']});
+event('shared-home-friction','共同生活不是两份习惯自动拼合','connection','friction',[
+ ['那只杯子又被挪走','在你明确选择的共同生活里，一件小物件被放到另一处。对方是想方便，你却一直不顺手。你们为一个看似不值得争的细节谈了很久，才知道好意也需要说明具体需要。'],
+ ['晚饭前谁在等谁','两个人都以为对方会顺手做某件事，最后谁也没做。没有谁因此变成坏伴侣，默契却确实不够用。你们重新分担一段日常，也允许有一天只是各吃各的，不必每天完成理想共同生活。']
+],{prerequisites:{flagsAll:['partner_active','cohabitation_chosen']},effects:{connection:-2,energy:-2,freedom:1},addFlags:['home_coordination'],sourceIds:['S02','S06']});
+event('meal-for-friend','给朋友做顿饭，没把自己变成解决者','connection','daily',[
+ ['菜上桌以后可以不讲道理','一位朋友想找人坐坐，你准备一顿自己也想吃的饭。对方有些话只说一半，你没急着追问或给方案。你花掉一个晚上，留下的不是处理结果，而是彼此仍愿意慢慢吃完。'],
+ ['有人认真夸了那口味道','你把平时喜欢的吃法做给熟人，对方的口味却不同。两人加了不同的调料，没把偏好争成标准。普通晚饭消耗一点精力，也让关系拥有工作与互相帮忙之外的一段共同时间。']
+],{prerequisites:{minPeople:1},effects:{connection:3,joy:3,energy:-2,reserve:-1},sourceIds:['S02','S29']});
+event('specific-apology','承认这一次，不替自己写长序','connection','daily',[
+ ['迟到的那十几分钟','你没有按约定出现，对方的安排确实被打断。你说清原因，也不要求原因取消影响。重新约时间以后，关系没有立刻更亲密，但有一件具体的失误终于不再靠双方假装没发生。'],
+ ['解释少一点，补做明确一点','你原本准备讲自己有多忙，后来只承认漏掉的承诺，并提出能兑现的补救。对方仍有不满，你让它留着。一次道歉没有改写全部相处，至少下一步不再是继续等待你理解。']
+],{prerequisites:{minPeople:1},effects:{connection:2,energy:-2,joy:-1},sourceIds:['S05','S06']});
+event('not-everyones-mentor','一位来客不需要你的人生答案','connection','daily',[
+ ['先让对方说完','有人向你问一个熟悉的问题，你马上想到过去的经验。对方却先想讲完自己的处境。你把准备好的故事收起，多听几分钟；少了一次输出，也减少了把别人的道路套进自己版本的冲动。'],
+ ['不是每顿饭都要有收获','你和新认识的成年人聊起日常，谈话没有落成一项合作。对方不需要你的指导，你也不必持续提供价值。一个没有结论的晚上，让你从经验提供者的位置暂时退下来。']
+],{prerequisites:{minPeople:1},effects:{connection:3,joy:2,craft:-1},sourceIds:['S06','S12']});
+event('family-plan-details','选择过的家庭讨论，终于来到日程上','connection','daily',[
+ ['愿望后面是具体分担','在你明确选择继续的家庭或育儿可能性讨论里，两个人开始问谁能投入时间、需要什么支持。这里没有自动出生或婚姻事件。谈具体条件让想象慢一点，也让是否继续仍属于双方可以重选的决定。'],
+ ['保留不往下走的权利','你们为一项可能的长期家庭承诺搜集信息，发现原先略过了许多日常安排。你没有拿已经讨论很久当作必须完成的理由。认真考虑既可以通向继续，也可以通向共同承认此刻不合适。']
+],{prerequisites:{flagsAll:['partner_active','family_plan']},effects:{connection:2,energy:-3,freedom:-1},addFlags:['family_conditions_seen'],sourceIds:['S08','S06']});
+event('frisbee-basic','又一个没接住、也想再来的盘','energy','daily',[
+ ['新场地里的基本动作','你在{location}参加成人飞盘活动，身体熟悉的一部分回来了，陌生配合仍会失误。你没有把一次表现变成整个人的能力判决。活动耗去体力，却让接下来的一天不只剩下屏幕。'],
+ ['练到一个真正具体的问题','你发现自己总在相同位置犹豫，队友给了一句很短的提醒。下一次仍没完全做好，却知道该练什么。成绩不是这一页的保证，愿意回来重复一个动作，本身就占住了日常的一段。']
+],{prerequisites:{minStats:{energy:25}},effects:{energy:-2,joy:4,connection:2},sourceIds:['S02','S23']});
+event('training-overfull','喜欢的运动，也能把一周排太满','energy','friction',[
+ ['快乐安排叠到一起','飞盘、攀岩和工作各自都想去，合起来却没有恢复的空隙。你到场时注意力散，原本享受的活动也变成赶下一项。没有疾病预测，只有这一次明确的疲惫，需要你选择少参加什么。'],
+ ['不想把恢复也做成比赛','你认真安排训练，却发现连休息都被写成必须执行的目标。你把下一次强度先降下来，承认会错过一点进度。身体不是指数保证上涨的机器，一周也不能只靠更用力挤出空间。']
+],{prerequisites:{maxStats:{energy:48}},effects:{energy:-3,joy:-2},addFlags:['training_question'],sourceIds:['S02','S25']});
+event('swim-ordinary','游完泳，没有得到新方向','energy','daily',[
+ ['只数到这一趟','你去游了一段，没在水里想通工作，也没比上次游得更漂亮。回到岸上只是更清醒，晚饭也更香。时间确实花掉了，却不需要再交一份关于这段时间有何价值的报告。'],
+ ['把手机留在柜里','你让屏幕在柜中待了一会儿，只重复眼前的动作。水声没有给你人生答案，暂时也没人能插入新的需求。出来后事情还在，那一段完整时间却已真正被你过完。']
+],{baseWeight:1.15,effects:{energy:4,joy:3,craft:-1},sourceIds:['S21','S23','S29']});
+event('climb-one-move','一条线路，先解眼前这一手','joy','daily',[
+ ['没有升级的一次尝试','你在熟悉难度里卡住一处，换个脚点又试了一回。有人比你更快，也有人一起找解法。你没有拿数字等级说明整年状态，只把刚看清的一个动作留给下一次。'],
+ ['另一种身材有另一种办法','旁边的攀岩者用不同方式过了同一处，你照着做却不适合。你回到自己的动作，慢慢试出可用的一手。这个下午没有成为成长宣言，只留下手上真实做过的记忆。']
+],{prerequisites:{minStats:{energy:25}},effects:{joy:4,craft:1,energy:-2,reserve:-1},sourceIds:['S02','S25']});
+event('egg-morning','煎蛋有一面微焦就很好','joy','daily',[
+ ['今天先按自己的口味','你把蛋边煎到微焦，留着喜欢的蛋黄状态，加一点胡椒盐，旁边放黄瓜。没有人等你发表新发现，电脑也可以稍后再开。这样一份早餐，已经足够让{location}的清晨属于自己。'],
+ ['新厨房里的熟悉动作','锅和炉火都不同，第一枚蛋没有达到预期。你重新调小火，第二次更接近喜欢的口感。日常可以练习，也可以不完美；这一口饭不替今天的工作结果作担保。']
+],{baseWeight:1.2,effects:{joy:4,energy:3,reserve:-1},sourceIds:['S02','S28']});
+event('cooking-too-much','一桌好意，做饭的人没坐下','joy','friction',[
+ ['第三道菜做到一半','你想让来的人都吃好，菜却越加越多。大家已经坐下，你仍在厨房奔走。收尾时你取消最后一道，终于趁热吃到自己喜欢的那口，也承认招待不能一直靠自己不在场完成。'],
+ ['菜单没有替人分工','你和同伴约好一起做饭，到厨房才发现大家都以为别人会买某样东西。晚饭少了一道，也多一次直接商量。它不如想象体面，倒让每个人包括你自己，都能坐下吃完。']
+],{prerequisites:{minPeople:1},effects:{energy:-3,joy:2,connection:1},addFlags:['ordinary_day_question'],sourceIds:['S02','S29']});
+event('game-has-ending','手柄放下，这一关真的过完了','joy','daily',[
+ ['不是职业成长的一页','你在游戏里完成一段明确的故事，手柄放下时有一种很直接的满足。它没有替工作解决难题，也不需要。你让电脑暂时合上，少推进一点项目，保住一次确实属于玩的时间。'],
+ ['停在还想再玩的地方','你玩得开心，也发现再开一局会挤掉原来的睡前安排。这次在合适的位置停下，没把喜欢变成必须通关。日子得到一段不必公开展示的乐趣，也留着下一次再来的期待。']
+],{effects:{joy:4,energy:2,craft:-1},sourceIds:['S02','S26']});
+event('book-beyond-feed','读了几页，终于没有跳走','craft','daily',[
+ ['没急着提炼成金句','你把短消息放在一旁，读一段长文字。理解来得慢，偶尔还要回到上一页。你没有把它立刻转成内容输出，只让另一个人的思路在脑中多待一会，手上的工作相应少做一点。'],
+ ['小说里过了一段别人的日子','你在{location}找到一处能坐住的地方，读完一个小章节。里面没有你正在找的实用答案，却让眼前的问题暂时不那么拥挤。读书不是替代行动，今晚也可以只是体验别人的生活。']
+],{effects:{craft:2,joy:3,energy:2,freedom:-1},sourceIds:['S02','S12','S24']});
+event('cycling-neighborhood','先骑过这条街，再决定怎么用今天','energy','daily',[
+ ['绕一点路，不算迟到给自己','你在{location}选了一条绿树多的路，路程长一点，注意力却从待办里回来。没有一次旅行的规模，只是认出另一家小店和一个适合停留的街角。普通通勤因此多了一点可选择。'],
+ ['速度慢下来才看见','你没把骑行当训练指标，遇到好看的光就停一会。回去仍要开始原来的工作，屏幕也没有因此消失。那段在外面的时间让身体知道，今天并非从起床就直接跳到下班。']
+],{effects:{energy:3,joy:3,craft:-1},sourceIds:['S02','S13','S26']});
+event('alone-without-audience','没人需要你的这半天','freedom','daily',[
+ ['不用回应也不用消失','日程里临时空出一段，你先有点不知所措，几次想找个人约上。后来独自吃饭、走路，竟也过完一个完整下午。它没有替独处辩护，只让你重新熟悉不被需要时的自己。'],
+ ['一间不必表演的房间','你关上外界的通知，在房间里做一件没有观众的小事。起初仍惦记是否错过什么，后来注意力慢慢落下。没有新的人脉或项目，只拿回一点决定下一件事的空间。']
+],{effects:{freedom:3,energy:3,joy:2,connection:-1},sourceIds:['S02','S09','S31']});
+event('portable-routine','行李不多，也能带走喜欢的日常','energy','opportunity',[
+ ['新住处第一次做好早餐','到了陌生地方，你先摸清买菜、运动和安静坐一会的路线。没有复制原来整间房，只带来几种真正用得上的习惯。为此少看一处景点，却让短住不再像每天重新开始。'],
+ ['轻便不是把喜欢全部丢下','你发现一件常用小物足以接住熟悉的生活，不需要每次重新买齐。你把另一件舍不得但少用的东西留在原处。包轻了一点，某个普通早晨也能够在不同地方继续。']
+],{prerequisites:{flagsAny:['moved_once','long_travel','mobile_life']},effects:{energy:3,joy:3,reserve:-1},sourceIds:['S02','S08','S29']});
+event('leisure-guilt','休息到一半，又想找个成果','joy','friction',[
+ ['好好玩怎么也像一项任务','你把一段空闲安排得很有价值：运动、阅读、做饭，最后反而紧张自己是否完成够多。你删掉一项计划，允许今天不那么丰富。少一件可讲的事，才能真正得到一点休息。'],
+ ['没有记录就像没发生吗','一次舒服的日常结束，你发现没拍照、没记账、没写反思，心里竟有点空。你没有赶忙重演，只记下一句记得的感受。经历可以成为精神财产，也不必每次都办理成完整档案。']
+],{prerequisites:{minStats:{craft:35}},effects:{joy:-2,energy:2,freedom:2},addFlags:['ordinary_day_question'],sourceIds:['S09','S26']});
+event('two-accounts','同一段往事，有人记得另一面','craft','daily',[
+ ['没有合并成唯一版本','你讲起一段经历，熟人记得的重点却与你不同。你没有马上判谁的记忆更准，把两种说法并排留下。它们让故事不够顺畅，也让后来的人知道回忆并不总是一条完整直线。'],
+ ['那一页不必删掉旧字','重读年轻时写下的强烈判断，你已有不同理解。你用另一种笔色补旁注，没有把原文改得更成熟。今天的你能够回应当时，不必伪装自己从来只有一种感受。']
+],{minAge:45,effects:{craft:3,joy:1,energy:-1},sourceIds:['S12','S16','S02']});
+event('work-new-reader','一个完全不认识你的人，用了它','craft','opportunity',[
+ ['不先听完作者的经历','新读者拿起你的作品，不知道你以前做过什么，直接找自己需要的一段。你有一点失落，也看见它确实不靠你在场才有用途。署名仍在，内容却第一次更早于身份被需要。'],
+ ['被带到另一张桌上','{project}在新的小场景里派上用场，反馈不是热烈赞许，而是哪里需要改。你原来珍惜的部分未必被注意，作品却有了自己的路径。那份真实让你愿意继续修一点，也愿意少解释一点。']
+],{minAge:40,prerequisites:{projectStatus:['active','completed']},effects:{craft:4,joy:2,energy:-1},addFlags:['work_travels'],sourceIds:['S07','S10']});
+event('author-legend','别人把你的经历讲得太顺了','freedom','friction',[
+ ['标题里的你有些陌生','有人想介绍你的经历，把停顿、失败和日常都删成一条很顺的成长线。你看着那位总知道下一步的人，提出几处更正。故事因此不够励志，也不再要求过去替今天的形象配合。'],
+ ['一句话装不下一整段生活','一项分享邀约希望你给出一生的方法，你能想到的却是一顿饭、一次试错和几次尚未解决的犹豫。你缩小题目，少了一点场面，也让自己的经历免于被当成所有人的路径。']
+],{minAge:45,effects:{freedom:3,energy:-2,connection:-1},addFlags:['author_boundary'],sourceIds:['S12','S16']});
+event('missing-original','熟悉的记忆，找不到原件','craft','friction',[
+ ['这一格先写缺失','整理旧资料时，一段常引用的话找不到当时记录。你差点凭记忆补齐，最后只标明目前缺原件。作品留下一处不漂亮的空格，也少了一条可能被误当成史料的新编文字。'],
+ ['重复讲过，不等于当时如此','你发现自己熟悉的是后来讲述的版本。核对前后的资料需要时间，未必能得到完整答案。你把确认和推测分开，停止向记忆索取一条没有断口的成长故事。']
+],{minAge:50,effects:{craft:3,energy:-3,joy:-1},addFlags:['archive_gap'],sourceIds:['S12','S02']});
+event('another-method','同一件事，别人走了不同的路','craft','daily',[
+ ['你的做法不是被判过时','新参与者用另一套方式完成一个小任务，结果可用，也有你不喜欢的地方。你先试一回，不急着捍卫旧方法。世界没有宣布谁被淘汰，只多出一种需要用实际场景判断的选择。'],
+ ['放开一部分形状','别人把你的作品改成陌生形式，甚至删掉最想保留的开头。你坚持出处清楚，其他先交给使用者检验。开放没有让你立刻宽心，却让作品多了一条不必照着作者长的路。']
+],{minAge:45,prerequisites:{minPeople:1},effects:{craft:3,freedom:2,joy:-1},sourceIds:['S07','S06']});
+event('teach-concrete','一堂课，先讲清一件小事','connection','opportunity',[
+ ['没有从人生道理开场','你被请去分享经验，临上场却把大部分提纲收起，只讲一次真正做错过的事。有人有相反经历，你给它留一栏。课堂不再那么整齐，却多出几次双方都能继续追问的交流。'],
+ ['学生问的不是你准备的题','成年人学习小组提出一个很基础的问题，你先想略过去，后来发现它正是大家卡住的入口。你放慢进度，少讲一半内容，也接受这一堂的完成不由原来的页数决定。']
+],{minAge:50,effects:{connection:4,craft:2,energy:-3},addFlags:['teaching_offer'],sourceIds:['S06','S12']});
+event('later-new-street','走过很多地方，也仍有没走懂的街','joy','daily',[
+ ['这次不是带路的人','你跟一位熟悉本地的成年人走普通街区，几次想用旧经验解释，最后先问为什么。熟悉世界不等于已经理解每处日常。你带回几个没回答的问题，没把短暂到访写成彻底懂了这里。'],
+ ['不追景点的短行','你在{location}换一条往常没走的路，看店铺何时开门、人们在哪儿停留。新鲜不再需要很远的距离，也没有年龄才能进入的门槛。回来时手上的事仍在，眼前的地方却大了一点。']
+],{minAge:55,effects:{joy:4,craft:2,energy:-1},sourceIds:['S17','S26','S29']});
+event('later-beginner','把资历放下，做一次新手','joy','opportunity',[
+ ['第一件做得有点歪','你尝试一个不熟悉的小爱好，第一次成品普通得很。教你的人没有听过你的履历，你也不必讲。花掉一点资源和时间，留下一个不够漂亮却确实由自己开始的东西。'],
+ ['还没决定要不要一直学','你只参加一回活动，没有承诺把兴趣发展成事业或长期项目。不会的部分让你有些尴尬，好奇也仍然真实。你可以再来，也可以停在这里，不必为一次开始交出余下全部人生。']
+],{minAge:55,effects:{joy:4,craft:2,reserve:-2,energy:-1},addFlags:['late_new_interest'],sourceIds:['S24','S25','S26']});
+event('new-editor','旧作品开始不完全听你的话','craft','opportunity',[
+ ['来源保留，顺序改变','共同编排者为作品换了入口，提出由自己负责下一轮。你仍会担心，也不想把接续变成只许照原样执行。你确认必要的事实边界，把可改的部分交出，允许进度与自己不同。'],
+ ['不是一场告别式交接','你把一小部分维护交给愿意承担的人，自己仍可继续创作别的。没有谁因此接管你的一生，也没有保证作品一定流传。这个小动作只是让一个具体结果有机会在不同的手上继续。']
+],{minAge:55,prerequisites:{projectStatus:['active','completed'],minPeople:1},effects:{craft:3,freedom:3,energy:1,joy:-1},addFlags:['continuation_offer'],sourceIds:['S07','S12']});
+event('ordinary-day-late','这一天，不需要代表一生','joy','daily',[
+ ['把问题留到吃完以后','你仍有新的事想试，也可以先认真吃完一顿饭。桌上的本子合着，窗外发生普通声响。这段远期情境不保证寿命或结果，只给仍在继续的好奇保留一种不急着总结的尺度。'],
+ ['没写成最后一页','你翻看过去的一小段，想起一个仍愿意问的问题。没有为所有经历安排统一意义，也没有把某个年龄写成终场。你把下一行暂时留空，今天既能回访旧路，也能开始别的普通小事。']
+],{minAge:65,baseWeight:1.1,effects:{joy:4,energy:3,craft:-1},sourceIds:['S26','S02']});
+decision('choose-work-container','接下来，把工作放在哪种容器里？','新组织或岗位变化带来真实岔路。资源、决定权和可支配的日常无法一起取到最多，你要明确选择这一阶段的交换。','freedom',[
+ ['join','加入资源更完整的组织','接受清楚的岗位与稳定协作，也把一部分时间和决定权交给组织。',{reserve:6,craft:3,freedom:-6,energy:-3},'这条分支进入新的组织工作，作品获得资源，也开始跟随共同节奏。',{set:{vocation:'组织中的产品角色',projectName:'组织中的新产品',projectStatus:'active'},addFlags:['employee_path'],removeFlags:['company_offer','role_reorg','independent_path','founder_path','company_formed']}],
+ ['stay','留在当前位置，把一件事做深','暂时不换容器，接受新鲜感减少，换取继续积累上下文。',{craft:5,reserve:2,freedom:-2,joy:-2},'你没有因为邀约就换轨，手上的事进入下一轮，另一条机会暂时离开。',{removeFlags:['company_offer','role_reorg']}],
+ ['independent','把这一阶段交给自己的产品','减少组织提供的缓冲，自己承接验证、找人和安排生活。',{freedom:8,craft:2,reserve:-7,energy:-5},'你进入独立产品探索；自由变得具体，缺少外部托底也变得具体。',{set:{vocation:'独立产品探索',projectName:'自己的日常产品',projectStatus:'active'},addFlags:['independent_path'],removeFlags:['company_offer','role_reorg','employee_path','founder_path','company_formed']}]
+],{maxAge:85,prerequisites:{flagsAny:['company_offer','role_reorg']},triggerEventIds:['company-invitation','role-reorganization'],sourceIds:['S04','S06','S15']});
+decision('start-own-product','一个真问题，要不要成为自己的事业？','你已经看见一个可验证的需要，却还没有一个自动成立的公司。选择规模，也是在选择需要承受多少未知。','craft',[
+ ['found','与合作者正式启动一段创业','明确把产品当事业，承担协调与储备消耗，不预支成功。',{craft:5,freedom:4,reserve:-8,energy:-6,connection:2},'这条模拟分支开始创业，有了共同承担的合作者，也需要持续验证真实用户。',{set:{vocation:'小团队创业者',projectName:'由真实问题起步的产品',projectStatus:'active'},peopleDelta:1,addFlags:['founder_path','company_formed'],removeFlags:['employee_path','independent_path','validation_failed']}],
+ ['side','保留主业，只做一个窄版本','缩小范围换取缓冲，承认推进会慢一些，也少一些自主时段。',{reserve:3,craft:3,energy:-5,freedom:-2},'你没有成立新公司，给小作品留下有限试验窗口，学习如何不占满整天。',{set:{projectName:'有限时段的小产品',projectStatus:'active'},addFlags:['side_project'],removeFlags:['validation_failed']}],
+ ['observe','先与使用者待一段，不急着启动','放下立刻成为创始人的身份感，补足场景理解，错过部分先发热度。',{craft:4,energy:2,joy:-2,reserve:-2},'你暂缓制作与创业，留下真实问题笔记，项目回到可更改的想法状态。',{set:{projectStatus:'idea'},addFlags:['user_observation'],removeFlags:['validation_failed']}]
+],{cooldown:11,maxAge:85,prerequisites:{minStats:{reserve:22,energy:25},flagsNone:['company_formed']},triggerEventIds:['unexpected-use','customer-constraint','users-return'],sourceIds:['S07','S13','S10']});
+decision('failure-stop-or-pivot','验证没有通过，下一轮还做吗？','过去投入不会因为停下就返还。继续、缩小或收尾，各自留下不同代价；这里没有自动把坚持写成赢家的选项。','reserve',[
+ ['pivot','删掉核心假设，做一次小转向','保留少量可用部分，再花一轮精力检验更窄的问题。',{craft:4,reserve:-5,energy:-4,joy:-1},'原来的方向没有被宣布成功，新版本从更窄的需要重新开始。',{set:{projectName:'转向后的窄版本',projectStatus:'active'},addFlags:['pivot_attempt'],removeFlags:['validation_failed','runway_question','repeat_users','pilot_offer']}],
+ ['close','明确收尾，把余地还给日常','承认这一版不继续，释放承诺，也承受未完成的失落。',{energy:5,freedom:4,reserve:2,joy:-5,craft:-1},'项目收尾，储备压力缓和；你留下结论而非假装这段从未发生。',{set:{vocation:'阶段休整与重新选择',projectStatus:'none'},addFlags:['project_closed'],removeFlags:['validation_failed','runway_question','repeat_users','pilot_offer','founder_path','company_formed']}],
+ ['pause','暂停项目，先接一段有边界的工作','用自主时间换储备缓冲，不再同时承诺全速推进产品。',{reserve:6,energy:2,freedom:-5,craft:-2},'作品进入暂停，新的有限合作接住一部分日常；回来与否仍需再选。',{set:{vocation:'阶段性合作工作',projectStatus:'paused'},addFlags:['steady_contract'],removeFlags:['validation_failed','runway_question','repeat_users','pilot_offer']}]
+],{cooldown:7,prerequisites:{projectStatus:['active'],flagsAny:['validation_failed','runway_question']},triggerEventIds:['validation-failed','runway-question'],sourceIds:['S07','S15','S08']});
+decision('authority-and-delegation','还要继续站在最后一环吗？','你能自己做完，但每次补位都在决定下一次谁会被找来。把角色改清，需要接受短期不顺和别人真正有权取舍。','craft',[
+ ['authorize','给同伴一块真正能决定的范围','明确接口以后不逐项复审，容忍方法与自己不同。',{energy:5,freedom:4,connection:2,craft:-2},'同伴开始独立承担一部分结果，你腾出时间，也失去一些顺眼与可控。',{addFlags:['delegated'],removeFlags:['authority_gap','scope_creep']}],
+ ['expert','保留亲自把关，主动缩掉其他承诺','把这一环继续当手艺，但付出时间与自由，不能再同时全要。',{craft:5,reserve:2,energy:-6,freedom:-4},'作品仍经过你的手；日程相应收缩，其他探索延后。',{addFlags:['expert_path'],removeFlags:['authority_gap','scope_creep']}],
+ ['shrink','缩小项目规模，不找更多人补洞','减少承诺换回余裕，接受阶段影响与资源回流变小。',{energy:5,joy:2,reserve:-4,craft:-1},'你们把能持续完成的一部分留下，扩张计划暂时取消。',{addFlags:['small_scale'],removeFlags:['authority_gap','scope_creep']}]
+],{prerequisites:{projectStatus:['active'],minPeople:1},triggerEventIds:['accountable-no-authority','scope-creep','delegate-visible'],sourceIds:['S05','S25']});
+decision('cofounder-agreement','共同创业，还要按原来的关系继续吗？','公司只存在于你已明确选择创业的分支。现在要讨论的是责任、工作节奏和退出，而不是靠过去的投缘继续拖延。','connection',[
+ ['divide','重划负责范围，接受彼此不同做法','花时间谈清最后决定权，短期少做功能，保留合作。',{connection:4,freedom:2,craft:-2,energy:-3},'团队用更清楚的责任继续，不能再靠共同愿景代替每一项承担。',{addFlags:['roles_agreed'],removeFlags:['collaboration_gap']}],
+ ['separate','友好分开，把项目缩到自己能负责','放弃一部分资源与陪伴，换取独立取舍，协作关系不再原样延续。',{freedom:6,connection:-5,reserve:-4,energy:-2},'你转为独立探索，原合作者保留自己的方向，项目规模随之缩小。',{set:{vocation:'独立产品探索'},addFlags:['independent_path'],removeFlags:['founder_path','company_formed','collaboration_gap']}],
+ ['join-org','把这段探索带进更成熟的组织','接受别的治理与资源条件，不再以创始人身份决定每一件事。',{reserve:5,energy:2,freedom:-6,joy:-2},'这一分支转向组织中的产品工作，过去积累成为材料，而非保证保留全部形式。',{set:{vocation:'组织中的产品角色'},addFlags:['employee_path'],removeFlags:['founder_path','company_formed','independent_path','collaboration_gap']}]
+],{prerequisites:{projectStatus:['active'],flagsAll:['founder_path','company_formed','collaboration_gap'],minPeople:1},triggerEventIds:['cofounder-rhythm'],sourceIds:['S13','S15']});
+decision('contract-calendar','把固定的几天交出去，换什么？','稳定合作的资源有吸引力，也会占用可自由改变的时段。先决定规模，再让一张排期表进入生活。','reserve',[
+ ['full','接下明确周期的稳定合作','提高储备缓冲，承认主作品会慢，日历也不再随时可改。',{reserve:7,energy:1,freedom:-6,craft:-2},'你进入一段有约定的合作，主要获得缓冲，暂时少一些自主探索。',{addFlags:['steady_contract'],removeFlags:['contract_offer']}],
+ ['limited','只接最小范围，保留自己的项目','资源较少，仍要付出切换成本，换得可继续试作的时段。',{reserve:3,craft:2,energy:-4,freedom:-2},'合作被缩成有限的一块，手上的产品继续，双方也更知道何时结束。',{addFlags:['limited_contract'],removeFlags:['contract_offer']}],
+ ['decline','不接这份，承受暂时没有缓冲','保住日程，不把自主误写成没有资源压力。',{freedom:5,joy:1,reserve:-4,connection:-1},'你回绝邀约，空出来的时段留给自己的事，下一次回流仍未确定。',{removeFlags:['contract_offer']}]
+],{prerequisites:{flagsAny:['contract_offer']},triggerEventIds:['steady-contract'],sourceIds:['S08','S18']});
+decision('move-city','下一段日常，放在哪一种地方？','换城是生活实验，不是地点替你解决全部问题。三条路线会改变所在环境，也会拿走不同的便利。','freedom',[
+ ['coast','去一座临海小城试住','把风景与慢日常放前面，接受连接和储备的转换成本。',{freedom:5,joy:4,reserve:-5,connection:-3,energy:-2},'你把生活暂移到临海小城，买菜、工作与运动都需要重新摸清。',{set:{location:'临海小城'},addFlags:['moved_once','coastal_base'],removeFlags:['move_question']}],
+ ['metro','去一座国际化城市试住','增加行业与语言接触，接受更强的安排压力和环境刺激。',{craft:4,connection:3,reserve:-6,energy:-3},'你进入一座国际化城市，机会与琐碎同时变多，是否久住还要看普通日子。',{set:{location:'国际化城市'},addFlags:['moved_once','metro_base'],removeFlags:['move_question']}],
+ ['stay','留在原处，先换一周的生活方式','保留熟悉连接，承认没有立即出发的遗憾，用小试验校准需要。',{energy:3,reserve:3,joy:-2,freedom:-1},'地点没有改变，你把一次本来给远方的注意力放回周围。',{addFlags:['local_experiment'],removeFlags:['move_question']}]
+],{prerequisites:{minStats:{reserve:15}},triggerEventIds:['move-cost','housing-preference','paperwork-wait','city-trial'],sourceIds:['S08','S02']});
+decision('travel-format','远方是长住、往返，还是先不走？','你需要决定把多少日常交给流动生活。出发不自动比留下勇敢，长期旅行也不是一张无限假期券。','freedom',[
+ ['long','轻装长期旅行，边走边重新安排','保留变化，承担储备消耗与固定关系维护成本。',{freedom:7,joy:4,reserve:-7,energy:-4,connection:-3},'你进入长期旅行分支，地点暂称沿途短住，工作和日常都要重新衔接。',{set:{location:'沿途短住'},addFlags:['long_travel','mobile_life','moved_once'],removeFlags:['need_anchor']}],
+ ['return','保留基地，安排短途往返','花资源维护两种生活，换取能回来的熟悉和更短的陌生体验。',{joy:4,connection:1,reserve:-5,energy:-2},'你不彻底迁走，远行以往返展开，每次回来仍有一部分日常可接。',{addFlags:['short_travel'],removeFlags:['long_travel','mobile_life','need_anchor']}],
+ ['anchor','先在一处住稳，不赶下一站','减少切换以恢复余裕，也接受错过新地方的遗憾。',{energy:6,reserve:3,freedom:-4,joy:-1},'你选定一处日常基地，下一站留空，生活先从今天的厨房和街道继续。',{set:{location:'选定的一处日常基地'},addFlags:['anchored_period'],removeFlags:['long_travel','mobile_life','need_anchor']}]
+],{prerequisites:{flagsAny:['portable_offer','independent_path','need_anchor'],minStats:{reserve:20}},triggerEventIds:['portable-work-offer','long-trip-needs-base','travel-change-cost'],sourceIds:['S08','S15','S31']});
+decision('learning-period','要怎样给一项新能力真正腾位置？','收藏资料不会自己变成练习。你可以集中学、慢慢练，或暂时不选；每一种都需要放掉另一种进度。','craft',[
+ ['intensive','腾一段集中学习期','压缩工作与资源回流，以更完整的练习换判断深度。',{craft:7,joy:2,reserve:-5,connection:-2,energy:-2},'你的日程进入一段学习期，作品推进变慢，新技能获得真实练习。',{addFlags:['intensive_learning'],removeFlags:['course_question']}],
+ ['slow','保留工作，每周只练一个具体问题','接受速度慢和切换疲惫，不把学习挤成更多收藏。',{craft:4,reserve:1,energy:-4,freedom:-2},'学习以小份练习进入日常，有些周只能维持，而非持续突破。',{addFlags:['slow_learning'],removeFlags:['course_question']}],
+ ['later','这次不报名，把精力还给手上的事','放弃一部分新鲜，完成已有承诺，留下以后重选的权利。',{energy:4,reserve:3,craft:-2,joy:-1},'你关掉报名页，没有把没学当失败，也没有把收藏算成已会。',{removeFlags:['course_question']}]
+],{triggerEventIds:['back-to-class','course-demand','language-small-win'],sourceIds:['S03','S24','S29']});
+decision('help-boundary','下一次请求，帮到哪里结束？','关系中的好意已经变成默认期待。现在谈清范围，会让人失望，也会决定这段来往能否不靠你持续补位。','connection',[
+ ['bounded','保留一项明确帮助，其余当面说明','认真做完一小块，接受对方仍有没被满足的需要。',{connection:3,freedom:3,energy:-2,joy:-1},'一项帮助被完成，其他期待不再藏在你应该懂的沉默里。',{addFlags:['help_bounded'],removeFlags:['uneven_exchange','communication_question']}],
+ ['decline','这一次不帮，把原本的日程留下','保住精力，也承受暂时疏远和未被需要的空落。',{energy:5,freedom:4,connection:-4,joy:-2},'你明确回绝，没有靠消失拖延；这段关系需要适应新的边界。',{removeFlags:['uneven_exchange','communication_question']}],
+ ['share','一起找其他参与者，分摊这件事','多花一轮沟通，换取不由一个人包下全部承担。',{connection:4,energy:-4,freedom:1,reserve:-1},'请求被拆给几个人，事情未必更快，但不再只有你一个默认出口。',{peopleDelta:1,addFlags:['shared_support'],removeFlags:['uneven_exchange','communication_question']}]
+],{prerequisites:{minPeople:1},triggerEventIds:['generous-overcommit','friend-misread'],sourceIds:['S05','S06']});
+decision('relationship-opt-in','愿意把这段来往走向亲密吗？','仅在这里明确选择，模拟才会建立伴侣。好感不是自动同意，也不默认之后同居、结婚或育儿。','connection',[
+ ['try','双方明确同意，开始尝试伴侣关系','投入真实时间与回应，接受部分自由从此需要共同商量。',{connection:8,joy:5,freedom:-6,energy:-3},'这条分支新增一位虚构伴侣。你们开始相处，关系质量仍由后续选择构成。',{peopleDelta:1,addFlags:['partner_active'],removeFlags:['relationship_invitation','relationship_declined']}],
+ ['friends','说明只愿意保留朋友关系','不把感谢和好感转为承诺，接受对方可能希望保持距离。',{connection:2,freedom:3,joy:-2},'没有建立伴侣，你说明自己的位置，朋友式来往是否继续仍留给双方。',{peopleDelta:1,addFlags:['friendship_choice'],removeFlags:['relationship_invitation']}],
+ ['no','温和而明确地不继续靠近','保留独立方向，也放掉这一次可能性，不把沉默拖成希望。',{freedom:5,connection:-3,joy:-2},'这次邀请结束，没有自动关系或婚育状态；以后仍可以重新选择。',{addFlags:['relationship_declined'],removeFlags:['relationship_invitation']}]
+],{cooldown:10,prerequisites:{flagsAll:['relationship_invitation'],flagsNone:['partner_active']},triggerEventIds:['relationship-invitation'],sourceIds:['S06','S08']});
+decision('shared-life-opt-in','已经选择的关系，要怎样进入日常？','伴侣存在只说明曾明确选择靠近，不说明自动共享住处。现在讨论生活形态，也允许改变关系。','connection',[
+ ['together','双方同意尝试共同生活','共享更多普通时段，也承担磨合、空间和资源成本。',{connection:6,joy:3,freedom:-5,reserve:-4,energy:-2},'这条分支开始共同生活，不默认婚姻或孩子，杯子与晚饭也需要具体商量。',{addFlags:['cohabitation_chosen','shared_life_agreed']}],
+ ['apart','保持各自住处，安排认真相处','保留独立空间，花更多资源和协调成本维系往来。',{connection:3,freedom:4,reserve:-4,energy:-2},'你们明确保留各自住处，亲密不以随时在场来证明。',{addFlags:['separate_homes'],removeFlags:['cohabitation_chosen']}],
+ ['part','承认方向不同，明确结束伴侣关系','停止维持不适合的承诺，承受失落与连接减少。',{freedom:7,energy:3,connection:-7,joy:-5},'模拟中的这段伴侣关系结束，人物保留为过去关系，没有把分开写成必然更好。',{removeFlags:['partner_active','cohabitation_chosen','family_plan','partner_location','partner_communication']}]
+],{cooldown:10,prerequisites:{flagsAll:['partner_active'],flagsNone:['shared_life_agreed']},triggerEventIds:['partner-honest-request','partner-messages'],sourceIds:['S06','S08']});
+decision('partner-geography','两个人的远方，暂时不在一处','地点选择已经影响双方的日常。你们可以一起试、明确异地，或承认方向不同；不把谁陪同谁当作爱的默认答案。','connection',[
+ ['move-together','共同选一座新城市尝试','双方各让一部分熟悉，花资源建立新的共同日常。',{connection:5,freedom:2,reserve:-6,energy:-4},'你们选择一起试住，地点变为双方选定的新城市，结果仍要由真实日常检验。',{set:{location:'双方选定的新城市'},addFlags:['moved_once'],removeFlags:['partner_location','move_question']}],
+ ['distance','继续异地，把见面和独处都写清','保留各自方向，承受协调与来往的持续成本。',{freedom:5,craft:2,connection:-2,reserve:-4,energy:-3},'关系继续，但没有共享地点；联系需要投入，而非靠一份永久承诺自动维持。',{addFlags:['distance_relationship'],removeFlags:['partner_location','cohabitation_chosen']}],
+ ['separate','不要求谁陪同，结束这段关系','双方保留自己的路线，也真实失去一段已经投入的连接。',{freedom:7,connection:-8,joy:-5,energy:2},'虚构关系在此分开，去哪里不再需要以伴侣身份共同决定。',{removeFlags:['partner_active','cohabitation_chosen','family_plan','partner_location','distance_relationship']}]
+],{prerequisites:{flagsAll:['partner_active','partner_location']},triggerEventIds:['partner-two-cities'],sourceIds:['S08','S15']});
+decision('family-possibility','家庭的可能，要不要认真展开？','这不是自动婚育节点。你和已选择的伴侣只能决定是否讨论、准备或保留不育路线，不预设生育结果与他人遭遇。','connection',[
+ ['consider','共同探索育儿或家庭照料的可能','投入信息搜集、时间分担和支持条件的讨论，不生成孩子。',{connection:4,energy:-4,freedom:-3,reserve:-3},'模拟只开启家庭计划讨论，之后仍可继续或停止，没有出生、婚姻或医疗事件自动发生。',{addFlags:['family_plan'],removeFlags:['family_without_children']}],
+ ['childfree','明确选择不育的共同生活','把精力放在相处、朋友与各自创造，也接受放弃另一种想象的遗憾。',{freedom:4,joy:3,connection:2,craft:-1},'你们明确不把育儿作为这条分支的默认目标，共同生活仍需持续经营。',{addFlags:['family_without_children'],removeFlags:['family_plan']}],
+ ['defer','这阶段不决定，先做各自手上的事','保留以后重谈的权利，也承受尚未一致和需要再次沟通。',{energy:3,craft:2,connection:-2,joy:-1},'问题没有被悄悄算作同意；家庭讨论暂时搁置，未来可再选择。',{removeFlags:['family_plan']}]
+],{cooldown:12,maxAge:65,prerequisites:{flagsAll:['partner_active']},triggerEventIds:['partner-honest-request','shared-home-friction'],sourceIds:['S08','S06']});
+decision('training-season','下一段运动，按哪一种尺度来？','喜欢运动不等于所有训练都能同时做。这里的精力是游戏指数，不作疾病、伤害或竞技结果预测。','energy',[
+ ['train','为一项运动留出认真训练周期','接受其他爱好与项目放慢，把进步当练习而非保证名次。',{craft:3,joy:5,connection:2,energy:-5,freedom:-3},'这一阶段围绕一项运动练习，日程变窄，场上的具体反馈变多。',{addFlags:['training_cycle'],removeFlags:['training_question']}],
+ ['play','以休闲活动保持参与','放下短期等级目标，保留朋友和活动的快乐，进度可能更慢。',{energy:3,joy:4,connection:2,craft:-2},'你选择较轻的参与方式，不以成绩证明这一段值得。',{addFlags:['recreational_sport'],removeFlags:['training_question']}],
+ ['rest','先取消几次安排，留完整恢复空间','接受错过活动和暂时落后，取回尚未被占满的精力。',{energy:7,freedom:3,connection:-2,joy:-2},'日程少了几项，空处不立刻填入别的任务；这里不承诺任何健康结果。',{removeFlags:['training_question','training_cycle']}]
+],{cooldown:6,triggerEventIds:['frisbee-basic','training-overfull','climb-one-move'],sourceIds:['S02','S25']});
+decision('ordinary-day-design','一顿饭的时间，想怎样拥有？','厨房与日常也是人生路线。选择方便、熟悉或流动，都会占用另外一种资源。','joy',[
+ ['kitchen','为固定厨房和早餐留位置','减少一部分赶路与工作，换取反复练自己喜欢的普通日常。',{joy:5,energy:3,freedom:-3,reserve:-2},'你把一段日常留给厨房，远方仍可去，但不再每次优先于眼前的饭。',{addFlags:['kitchen_routine']}],
+ ['portable','练几种能带着走的快手做法','前期花一点精力适应，保留流动生活，承认做不出全部熟悉味道。',{freedom:4,joy:3,energy:-3,reserve:-1},'你留下一个轻便饮食方案，新地方仍有需要慢慢适应的部分。',{addFlags:['portable_kitchen']}],
+ ['buy-time','这阶段少做饭，用资源买回时间','让储备指数承受更多消耗，把精力留给另一件真想做的事。',{energy:5,craft:3,reserve:-5,joy:-1},'你暂时简化厨房日常，没有把亲手做饭当成值得生活的唯一形式。',{addFlags:['simple_meal_period']}]
+],{cooldown:8,triggerEventIds:['egg-morning','cooking-too-much','leisure-guilt'],sourceIds:['S02','S29']});
+decision('sponsor-or-voice','让资源进入作品，要答应多少更新？','被看见是机会，维持某种形象也会变成工作。你能决定这一份交换，不保证曝光或收入结果。','reserve',[
+ ['limited','只接受一项有截止的合作','换取有限资源，明确更新次数与表达边界，承担交付时段。',{reserve:5,craft:2,freedom:-4,energy:-3},'合作进入有限周期，作品不自动被无限征用，兑现约定也成为你的责任。',{addFlags:['limited_sponsor'],removeFlags:['sponsor_offer']}],
+ ['no','回绝，把表达留给自己的问题','放弃一份资源可能性，保留不按外界期待持续输出的空间。',{freedom:5,joy:2,reserve:-4,connection:-1},'你没有签下这份模拟合作，下一次回流仍需寻找，声音也暂时由自己安排。',{removeFlags:['sponsor_offer']}],
+ ['collab','找合作者共做，分出资源和解释权','减少独自承担，接受形式与署名不全由自己决定。',{connection:4,reserve:2,freedom:-3,energy:-2},'你新增一位匿名创作协作者，作品多一种声音，也多一轮需要共同商量的事。',{peopleDelta:1,addFlags:['co_creation'],removeFlags:['sponsor_offer']}]
+],{prerequisites:{flagsAll:['sponsor_offer']},triggerEventIds:['attention-exchange'],sourceIds:['S12','S16']});
+decision('record-audience','这一段记录，愿意给谁读？','这里只改变模拟分支的创作方式，不会真的上传原文。公开、限圈与私藏，都不能替未来读者保证同一种理解。','craft',[
+ ['excerpt','公开节选，并标清事实和补写','放掉一些完整与隐私余地，保留边界，接受别人有不同读法。',{craft:4,connection:3,freedom:-3,energy:-3},'模拟中的作品以有限节选出现，私人原文与未确认部分没有自动公开。',{addFlags:['public_excerpt']}],
+ ['circle','只与一小圈愿意认真反馈的人分享','承认传播面较小，换来更具体的交流，仍需投入回应时间。',{connection:4,craft:2,energy:-3,joy:-1},'作品停在有限阅读范围，有人认真回应，也可能继续不同意。',{addFlags:['small_reading_circle']}],
+ ['private','先只留给自己，不急着形成作品','保住私人空间，接受暂时没有外界反馈与传播。',{freedom:4,energy:3,connection:-2,craft:-1},'记录被保存而未交给观众，这一阶段不以被看见证明它的价值。',{addFlags:['private_archive']}]
+],{minAge:40,triggerEventIds:['author-legend','missing-original','two-accounts'],sourceIds:['S12','S16','S02']});
+decision('mentoring-shape','经验被需要以后，怎样继续？','分享不自动等于要成为所有人的导师。选择能改变你的日程，也会改变对方能期待什么。','connection',[
+ ['regular','认真带一个有限周期的小组','把经验变成实际陪伴，减少独处与自己的新项目时间。',{connection:6,craft:3,freedom:-4,energy:-4},'一个有结束时间的成人学习小组成立，你需要回应具体练习，而不只讲故事。',{peopleDelta:1,addFlags:['community_started'],removeFlags:['teaching_offer']}],
+ ['office','保留按次讨论，不提供持续托底','回应具体问题，放弃长期亲手看着成果长出的满足感。',{connection:3,freedom:3,craft:-1,energy:-2},'来往按次发生，没人被默认纳入持续指导，你也不追问后续汇报。',{addFlags:['bounded_mentoring'],removeFlags:['teaching_offer']}],
+ ['learn','这次先去做自己的新手练习','承认不想持续被需要，错过部分连接，回到还不会的地方。',{joy:4,craft:3,connection:-3,reserve:-2},'你回绝固定导师角色，报名一项自己不熟悉的活动，资历暂时派不上用场。',{addFlags:['late_new_interest'],removeFlags:['teaching_offer']}]
+],{minAge:50,prerequisites:{flagsAll:['teaching_offer']},triggerEventIds:['teach-concrete'],sourceIds:['S06','S12','S26']});
+decision('scale-of-success','有了重复使用，要做大还是做久？','一些人愿意返回，不等于已经证明无限增长。你终于可以讨论规模，同时决定愿意用什么维持它。','craft',[
+ ['grow','组更完整的团队，争取扩大验证','把小作品推向事业规模，消耗储备和协调精力，不保证增长。',{craft:5,connection:3,reserve:-7,energy:-6,freedom:-3},'这条分支明确选择创业扩展，团队与维护成本一起增加，下一轮仍需验证。',{peopleDelta:1,set:{vocation:'小团队创业者'},addFlags:['founder_path','company_formed'],removeFlags:['independent_path','employee_path']}],
+ ['small','维持小规模，把维护做到可持续','放弃更大的影响想象，保留自主节奏与较窄的资源回流。',{energy:4,freedom:4,joy:2,reserve:-2,craft:-1},'你保留少量真实需要，停止把每一个增长可能都变成必须追的任务。',{addFlags:['small_scale']}],
+ ['organization','带着积累加入成熟组织继续做','换取配套条件，让作品接受共同方向，放下一部分作者控制。',{reserve:6,craft:3,freedom:-6,joy:-2},'作品进入组织环境，资源更完整，决定也需要与更多人共享。',{set:{vocation:'组织中的产品角色'},addFlags:['employee_path'],removeFlags:['founder_path','company_formed','independent_path']}]
+],{cooldown:12,prerequisites:{projectStatus:['active'],flagsAll:['repeat_users'],flagsAny:['founder_path','independent_path','side_project']},triggerEventIds:['users-return','small-paid-pilot'],sourceIds:['S07','S13','S15']});
+decision('buffer-pressure','储备余地不多时，先保住哪一件？','资源只有游戏中的相对指数，不映射现实财富。压力仍要求取舍，不能靠一句追求自由让日常成本消失。','reserve',[
+ ['work','增加一段确定范围的合作','把自主时段换成缓冲，暂时降低项目速度。',{reserve:7,energy:1,freedom:-5,craft:-3},'你先接一段清楚的工作，缓冲恢复一些，自己的探索不再全速并行。',{addFlags:['steady_contract'],removeFlags:['runway_question','exchange_unclear']}],
+ ['reduce','减少固定安排与项目规模','不追新的回流，先让有限余地承受更少承诺。',{reserve:3,energy:4,joy:-2,connection:-2},'你取消几项固定投入，留下一件真的仍想做的事，生活暂时安静下来。',{addFlags:['low_overhead'],removeFlags:['runway_question','exchange_unclear']}],
+ ['one-test','只保留最后一次小验证再决定','仍承担消耗，为一个清楚问题设止点，不许无限延期。',{craft:4,reserve:-4,energy:-3,freedom:1},'这条分支继续一轮更窄验证，没有预设成功；资源压力不会被叙事抹掉。',{set:{projectStatus:'active'},addFlags:['bounded_last_test'],removeFlags:['runway_question','exchange_unclear']}]
+],{cooldown:7,prerequisites:{maxStats:{reserve:40}},triggerEventIds:['runway-question','delayed-payment','travel-change-cost'],sourceIds:['S08','S15']});
+decision('connection-style','在这座城，想怎样与人来往？','一段连接有了入口，但不必全部变成人脉或固定活动。选择密度，也会决定独处与其他事情剩下多少空间。','connection',[
+ ['organize','组织一个小而有截止的共同活动','用精力和时间换一段共同体验，不保证大家以后一直在。',{connection:6,joy:3,energy:-5,freedom:-3},'一个成人活动小组在模拟中成立，组织琐事也成为你需要承担的一部分。',{peopleDelta:1,addFlags:['community_started']}],
+ ['few','认真回访少数已有的同行者','放慢扩圈，投入完整相处，承认会错过更多新鲜。',{connection:4,energy:1,freedom:-2,craft:-1},'你的联系名单没有大幅增长，几次实际兑现的见面变得更清楚。',{addFlags:['few_deep_links']}],
+ ['solo','保留这次偶遇，多留一点独处','不把每次投缘发展成义务，接受连接未延续的遗憾。',{freedom:4,energy:3,connection:-3,joy:-1},'相遇仍被记住，但日程没有因此新增一串必须维护的关系。',{addFlags:['solitude_period']}]
+],{triggerEventIds:['team-newcomer','time-zone-friend','train-conversation','leaving-city'],sourceIds:['S02','S17','S23']});
+decision('work-continuation','作品可以继续，但不必接管你的人生','已有作品收到接续邀请。这里讨论的是自愿承担、有限版本与私人练习，不默认血缘后代，也不把远期年龄写成告别。','craft',[
+ ['maintainer','授权一位自愿承担的人接一小块','保留出处与事实边界，放弃逐项决定的顺手感。',{freedom:5,craft:2,connection:2,joy:-2},'维护交出一部分，你仍可以做别的；这不是遗嘱、血缘继承或寿命终点。',{addFlags:['work_shared'],removeFlags:['continuation_offer']}],
+ ['edition','自己整理一个有限版本再停','花一段精力收束，不承诺后续永久服务，也不要求它广泛流传。',{craft:5,energy:-4,connection:-1,reserve:-2},'作品有了可独立阅读的一版，你的责任也被写到结束处。',{set:{projectStatus:'completed'},addFlags:['finite_edition'],removeFlags:['continuation_offer']}],
+ ['practice','不急着传递，继续私人的练习','留下自己的声音，放掉被更多人接续的可能，继续把好奇放在眼前。',{joy:4,freedom:4,connection:-3,craft:-1},'这条分支不把传承当义务，作品暂时仍是你自己的练习。',{addFlags:['private_practice'],removeFlags:['continuation_offer']}]
+],{minAge:55,prerequisites:{flagsAll:['continuation_offer'],projectStatus:['active','completed']},triggerEventIds:['new-editor'],sourceIds:['S07','S12']});
+decision('new-interest-scale','一种新好奇，需要多大的位置？','这不是按年龄规定退休。你可以深入、轻试或找人一起玩，不必把新兴趣立刻变成另一项证明。','joy',[
+ ['year','为它认真留一个阶段','花资源与精力练基础，接受旧作品和联系暂时少一点。',{craft:6,joy:3,reserve:-4,energy:-3,connection:-1},'你给新领域真实练习，不保证熟练，只让它不再停在想象。',{addFlags:['late_study_cycle']}],
+ ['once','只保留这一次好玩的体验','不急着积累资历，放弃快速精进，也让其他日常继续。',{joy:4,energy:3,craft:-2},'体验没有被扩成终身计划，下次是否继续仍由当时的你选择。',{addFlags:['light_interest']}],
+ ['together','邀请一位同样不会的成年人一起试','用协调成本换共同的新鲜，不把自己放回导师位置。',{connection:4,joy:4,energy:-3,freedom:-2},'模拟新增一位匿名兴趣同伴，两个人可以笨拙，也可以选择不同做法。',{peopleDelta:1,addFlags:['shared_beginner']}]
+],{minAge:55,triggerEventIds:['later-beginner','later-new-street','ordinary-day-late'],sourceIds:['S24','S25','S26']});
+root.SIM_EVENT_CATALOG={version:1,nature:'原创条件式人生模拟。权重是编辑模型，不是唐一航的实测事件概率；来源只提供过去母题，不证明未来发生。',sourceNote:'S01–S31对应已去除私人链接的来源标题与日期。未调用或复制第三方人生模拟事件库。',events,decisions};
+})(typeof window!=='undefined'?window:globalThis);
